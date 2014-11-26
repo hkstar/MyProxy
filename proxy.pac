@@ -3829,5 +3829,5 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuo\\.la")) return 'PROXY proxy.bj.tianler.com:3128';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuola\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zvereff\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	return 'PROXY proxy.bj.tianler.com:3128';
+	return 'DIRECT';
 }
