@@ -2,7 +2,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
     function FindProxyForURL(url, host) {
 	if (shExpMatch(url, "*.kaiqi.com/*") || shExpMatch(url, "*://kaiqi.com/*")) return 'DIRECT';
 	if (shExpMatch(url, "*.tadu.com/*") || shExpMatch(url, "*://tadu.com/*")) return 'DIRECT';
-	if (shExpMatch(url, "*.vpngate.net/*") || shExpMatch(url, "*://vpngate.net/*")) return 'PROXY proxy.bj.tianler.com:3128';
 	if (shExpMatch(url, "*.google.com/*") || shExpMatch(url, "*://google.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
 	if (shExpMatch(url, "*.youtube.com/*") || shExpMatch(url, "*://youtube.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
 	if (shExpMatch(url, "https://autoproxy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
