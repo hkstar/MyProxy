@@ -1,3833 +1,7645 @@
-function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(url); } catch(ex) { return false; }    }
-    function FindProxyForURL(url, host) {
-	if (shExpMatch(url, "*.kaiqi.com/*") || shExpMatch(url, "*://kaiqi.com/*")) return 'DIRECT';
-	if (shExpMatch(url, "*.tadu.com/*") || shExpMatch(url, "*://tadu.com/*")) return 'DIRECT';
-	if (shExpMatch(url, "*.google.com/*") || shExpMatch(url, "*://google.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "*.youtube.com/*") || shExpMatch(url, "*://youtube.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://autoproxy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://ime.baidu.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.exblog\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?.*v6\\.facebook\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site\\.locql\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?download\\.syniumsoftware\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipv6\\.google\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?haygo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?f\\.cl\\.ly")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myvlog\\.im\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?music\\.jwmusic\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.kodingen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\\.soup\\.io")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tripod\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.typepad\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\\.typepad\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tax\\.nat\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moe\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cwb\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npm\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yatsen\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aec\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mvdis\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stdtime\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntdmh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?grb\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpde\\.aide\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsu-news\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerhl\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dapu-house\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hchcc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntuh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nhri\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nstm\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntsec\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ner\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmtl\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntl\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pet\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khcc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khms\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanfang\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nict\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmp\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tphcc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iner\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tncsec\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nspo\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncree\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghks\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tchb\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pabp\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itrc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?df\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womenbusiness\\.nyc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gsn-cert\\.nat\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kk\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thbstc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\\.gio\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\\.gio\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klccab\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvtc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aftygh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klra\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lungtanhr\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taoyuan\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hcc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nvri\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmvttc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?patehr\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerch\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmseh\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nertt\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cycab\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chukuang\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gysd\\.nyc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cp-house\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtpe\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etraining\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stag\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bdhr\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tcsac\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagesblog\\.gio\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dmtip\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chccc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hengchuen\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsinchu-cc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?921\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncdr\\.nat\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4pppc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klsio\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nici\\.nat\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cromotc\\.nat\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taitung-house\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aliyun\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jike\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panguso\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\\.cn")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\\.com\\.cn")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogou\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soso\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\\.cn")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youdao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongsou\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hulu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*huluim.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pandora.tv*") || shExpMatch(url, "http://pandora.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.0rz.tw*") || shExpMatch(url, "http://0rz.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://0rz.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*1-apple.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*123rf.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.12bet.com*") || shExpMatch(url, "http://12bet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.12vpn.com*") || shExpMatch(url, "http://12vpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*141hongkong.com/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.173ng.com*") || shExpMatch(url, "http://173ng.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*1984bbs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.1984bbs.org*") || shExpMatch(url, "http://1984bbs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.1bao.org*") || shExpMatch(url, "http://1bao.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://1bao.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.1eew.com*") || shExpMatch(url, "http://1eew.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.2-hand.info*") || shExpMatch(url, "http://2-hand.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.2000fun.com/bbs*") || shExpMatch(url, "http://2000fun.com/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.2008xianzhang.info*") || shExpMatch(url, "http://2008xianzhang.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*21andy.com/blog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*24smile.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.2shared.com*") || shExpMatch(url, "http://2shared.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.315lz.com*") || shExpMatch(url, "http://315lz.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*5i01.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwannation.50webs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.5maodang.com*") || shExpMatch(url, "http://5maodang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*64memo*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*64tianwang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*64wiki.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*666kb.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*6park.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.881903.com/page/zh-tw/*") || shExpMatch(url, "http://881903.com/page/zh-tw/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.888.com*") || shExpMatch(url, "http://888.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*89-64.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.9001700.com*") || shExpMatch(url, "http://9001700.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://908taiwan.org/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.92ccav.com*") || shExpMatch(url, "http://92ccav.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*a5.com.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.aboluowang.com*") || shExpMatch(url, "http://aboluowang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.aboutgfw.com*") || shExpMatch(url, "http://aboutgfw.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*actimes.com.au*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*adultfriendfinder.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*adultkeep.net/peepshow/members/main.htm*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*aiph.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.aisex.com*") || shExpMatch(url, "http://aisex.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.aiweiweiblog.com*") || shExpMatch(url, "http://aiweiweiblog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*alexlur.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*aliengu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*allgirlsallowed.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*alliance.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.allinfa.com*") || shExpMatch(url, "http://allinfa.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://allinfa.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*alvinalexander.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*alwaysdata.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*amazon.com/Prisoner-State-Secret-Journal-Premier*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ameblo.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.amnesty.org*") || shExpMatch(url, "http://amnesty.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.amnestyusa.org*") || shExpMatch(url, "http://amnestyusa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.amoiist.com*") || shExpMatch(url, "http://amoiist.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*amzs.me*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*analyze-v.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*animecrazy.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.anonymizer.com*") || shExpMatch(url, "http://anonymizer.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*anontext.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.antiwave.net*") || shExpMatch(url, "http://antiwave.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://antiwave.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.aol.ca/video-detail*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.aol.co.uk/video-detail*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.aol.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.aolnews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.ap.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.apetube.com*") || shExpMatch(url, "http://apetube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.apigee.com*") || shExpMatch(url, "http://apigee.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*appledaily.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*archive.is*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.arctosia.com*") || shExpMatch(url, "http://arctosia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://arctosia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*artsy.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.asahichinese.com*") || shExpMatch(url, "http://asahichinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*asdfg.jp/dabr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.asiaharvest.org*") || shExpMatch(url, "http://asiaharvest.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*asianews.it*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.askynz.net*") || shExpMatch(url, "http://askynz.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.atchinese.com*") || shExpMatch(url, "http://atchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://atchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*atgfw.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.atlaspost.com*") || shExpMatch(url, "http://atlaspost.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.atnext.com*") || shExpMatch(url, "http://atnext.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*avaaz.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*avdb.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.baby-kingdom.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*babynet.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*backchina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.backpackers.com.tw/forum*") || shExpMatch(url, "http://backpackers.com.tw/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*badoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hen.bao.li*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bannedbook.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bayvoice.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dajusha.baywords.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bbc.co.uk*chinese*") || shExpMatch(url, "http://bbc.co.uk*chinese*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bbc.co.uk/tv*") || shExpMatch(url, "http://bbc.co.uk/tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bbc.co.uk*zhongwen*") || shExpMatch(url, "http://bbc.co.uk*zhongwen*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.bbc.co.uk/onthisday*newsid_2496000/2496277*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newsforums.bbc.co.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bbcchinese.com*") || shExpMatch(url, "http://bbcchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://bbc.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bbg.gov*") || shExpMatch(url, "http://bbg.gov*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbsland.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bcc.com.tw/board*") || shExpMatch(url, "http://bcc.com.tw/board*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bcchinese.net*") || shExpMatch(url, "http://bcchinese.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bebo.com*") || shExpMatch(url, "http://bebo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*beijingspring.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.berlintwitterwall.com*") || shExpMatch(url, "http://berlintwitterwall.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bestforchina.org*") || shExpMatch(url, "http://bestforchina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bestvpnservice.com*") || shExpMatch(url, "http://bestvpnservice.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.betfair.com*") || shExpMatch(url, "http://betfair.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bettween.com*") || shExpMatch(url, "http://bettween.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bewww.net*") || shExpMatch(url, "http://bewww.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*biantailajiao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bigfools.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bignews.org*") || shExpMatch(url, "http://bignews.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bigsound.org/portnoy*") || shExpMatch(url, "http://bigsound.org/portnoy*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*billypan.com/wiki/%E9%A6%96%E9%A0%81*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bipic.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bit.ly*") || shExpMatch(url, "http://bit.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://bit.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bitshare.com/files*") || shExpMatch(url, "http://bitshare.com/files*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*http://bitshare.com/files*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bjzc.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tor.blingblingsquad.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blinkx.com*") || shExpMatch(url, "http://blinkx.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blinw.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blip.tv*") || shExpMatch(url, "http://blip.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blockcn.com*") || shExpMatch(url, "http://blockcn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blogcatalog.com*") || shExpMatch(url, "http://blogcatalog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blogger.com*") || shExpMatch(url, "http://blogger.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogimg.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bloglines.com*") || shExpMatch(url, "http://bloglines.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bloglovin.com*") || shExpMatch(url, "http://bloglovin.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*rconversation.blogs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.co.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.fr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogspot.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogtd.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.blogtd.org*") || shExpMatch(url, "http://blogtd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://blogtd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bloomberg.cn*") || shExpMatch(url, "http://bloomberg.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bloomberg.com*") || shExpMatch(url, "http://bloomberg.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bloomberg.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*boardreader.com/thread*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bonbonme.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.botanwang.com*") || shExpMatch(url, "http://botanwang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bot.nu*") || shExpMatch(url, "http://bot.nu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bowenpress.com*") || shExpMatch(url, "http://bowenpress.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dl.box.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*boxun.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.boxun.tv*") || shExpMatch(url, "http://boxun.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*boxunblog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.break.com*") || shExpMatch(url, "http://break.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.breakingtweets.com*") || shExpMatch(url, "http://breakingtweets.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.briefdream.com/%E7%B4%A0%E6%A3%BA*") || shExpMatch(url, "http://briefdream.com/%E7%B4%A0%E6%A3%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*brightkite.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*brizzly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*broadbook.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ibros.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*brucewang.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.budaedu.org*") || shExpMatch(url, "http://budaedu.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bullog.org*") || shExpMatch(url, "http://bullog.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.bullogger.com*") || shExpMatch(url, "http://bullogger.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.businessweek.com*") || shExpMatch(url, "http://businessweek.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.businesstimes.com.cn*") || shExpMatch(url, "http://businesstimes.com.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://businesstimes.com.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*buzzurl.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bwsj.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*holz.byethost8.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.c-spanvideo.org*") || shExpMatch(url, "http://c-spanvideo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cactusvpn.com*") || shExpMatch(url, "http://cactusvpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cafepress.com*") || shExpMatch(url, "http://cafepress.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.calameo.com/books*") || shExpMatch(url, "http://calameo.com/books*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.calameo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://cn.calameo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*canadameet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://bbs.cantonese.asia/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*http://www.cantonese.asia/action-bbs.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.canyu.org*") || shExpMatch(url, "http://canyu.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cao.im*") || shExpMatch(url, "http://cao.im*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.caobian.info*") || shExpMatch(url, "http://caobian.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://catcatbox.com/forum.php**")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*caochangqing.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cari.com.my*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.catholic.org.hk*") || shExpMatch(url, "http://catholic.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*catholic.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cbsnews.com/video*") || shExpMatch(url, "http://cbsnews.com/video*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ccdtr.org*") || shExpMatch(url, "http://ccdtr.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cclife.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ccthere.com*") || shExpMatch(url, "http://ccthere.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cctongbao.com/article/2078732*") || shExpMatch(url, "http://cctongbao.com/article/2078732*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ccue.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ccue.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdjp.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cdnews.com.tw*") || shExpMatch(url, "http://cdnews.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdp1998.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdp2006.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdpusa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdpweb.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cdpwu.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cecc.gov*") || shExpMatch(url, "http://cecc.gov*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.centurys.net*") || shExpMatch(url, "http://centurys.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://centurys.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.change.org*") || shExpMatch(url, "http://change.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://change.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.changp.com*") || shExpMatch(url, "http://changp.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chapm25.com*") || shExpMatch(url, "http://chapm25.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chaturbate.com*") || shExpMatch(url, "http://chaturbate.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chengmingmag.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chenguangcheng.com*") || shExpMatch(url, "http://chenguangcheng.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chenpokong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.china-week.com*") || shExpMatch(url, "http://china-week.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*china101.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*china21.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaaffairs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaaid.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaaid.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaaid.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinacomments.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinachannel.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinadigitaltimes.net*") || shExpMatch(url, "http://chinadigitaltimes.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://chinadigitaltimes.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinaeweekly.com*") || shExpMatch(url, "http://chinaeweekly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinageeks.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinagfw.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinagreenparty.org*") || shExpMatch(url, "http://chinagreenparty.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinahush.com*") || shExpMatch(url, "http://chinahush.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinalawtranslate.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaxchina.com/howto*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinainperspective.com*") || shExpMatch(url, "http://chinainperspective.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinainperspective.net/ArtShow.aspx?*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinainperspective.org*") || shExpMatch(url, "http://chinainperspective.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinalawandpolicy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinamule.com*") || shExpMatch(url, "http://chinamule.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinamz.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinarightsia.org*") || shExpMatch(url, "http://chinarightsia.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinasocialdemocraticparty.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinasoul.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinatimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinatweeps.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaway.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinaworker.info*") || shExpMatch(url, "http://chinaworker.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinayouth.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinayuanmin.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinese-hermit.net*") || shExpMatch(url, "http://chinese-hermit.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinese-memorial.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinesen.de*") || shExpMatch(url, "http://chinesen.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinesenewsnet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinesepen.org*") || shExpMatch(url, "http://chinesepen.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chinesetalks.net/ch*") || shExpMatch(url, "http://chinesetalks.net/ch*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chingcheong.com*") || shExpMatch(url, "http://chingcheong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chn.chosun.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*christianstudy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*christusrex.org/www1/sdc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chubun.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chuizi.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.chrlawyers.hk*") || shExpMatch(url, "http://chrlawyers.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.citizenlab.org*") || shExpMatch(url, "http://citizenlab.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*citizensradio.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*city9x.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.civicparty.hk*") || shExpMatch(url, "http://civicparty.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*civilhrfront.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*psiphon.civisec.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ck101.com*") || shExpMatch(url, "http://ck101.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.clb.org.hk*") || shExpMatch(url, "http://clb.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.clipfish.de*") || shExpMatch(url, "http://clipfish.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cmule.com*") || shExpMatch(url, "http://cmule.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cnavista.com.tw/shop/stores_app*") || shExpMatch(url, "http://cnavista.com.tw/shop/stores_app*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cnd.org*") || shExpMatch(url, "http://cnd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wiki.cnitter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cnn.com/video*") || shExpMatch(url, "http://cnn.com/video*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.cnyes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.code1984.com/64*") || shExpMatch(url, "http://code1984.com/64*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tosh.comedycentral.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*comefromchina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.coolaler.com*") || shExpMatch(url, "http://coolaler.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*coolder.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*corumcollege.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cpj.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*crackle.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*crd-net.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*creaders.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.crossthewall.net*") || shExpMatch(url, "http://crossthewall.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*csdparty.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cts.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cuhkacs.org/~benng*") || shExpMatch(url, "http://cuhkacs.org/~benng*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cuihua.org*") || shExpMatch(url, "http://cuihua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.cuiweiping.net*") || shExpMatch(url, "http://cuiweiping.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.culture.tw*") || shExpMatch(url, "http://culture.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.cyberctm.com/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cytode.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cl.d0z.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dabr.co.uk*") || shExpMatch(url, "http://dabr.co.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dabr.mobi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dadazim.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dadi360.com*") || shExpMatch(url, "http://dadi360.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dafagood.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dafahao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dailidaili.com*") || shExpMatch(url, "http://dailidaili.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dailymotion.com*") || shExpMatch(url, "http://dailymotion.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dajiyuan.com*") || shExpMatch(url, "http://dajiyuan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dajiyuan.eu*") || shExpMatch(url, "http://dajiyuan.eu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dalailama.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dalailamaworld.com*") || shExpMatch(url, "http://dalailamaworld.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dalianmeng.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.danke4china.net*") || shExpMatch(url, "http://danke4china.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.danwei.org*") || shExpMatch(url, "http://danwei.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.daolan.net*") || shExpMatch(url, "http://daolan.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*daxa.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.dayabook.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.daylife.com/topic/dalai_lama*") || shExpMatch(url, "http://daylife.com/topic/dalai_lama*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ddc.com.tw*") || shExpMatch(url, "http://ddc.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.de-sci.org*") || shExpMatch(url, "http://de-sci.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lists.debian.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*packages.debian.org/zh-cn/lenny/gpass*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*delicious.com/GFWbookmark*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.democrats.org*") || shExpMatch(url, "http://democrats.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.dfanning.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.diaoyuislands.org*") || shExpMatch(url, "http://diaoyuislands.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.diigo.com*") || shExpMatch(url, "http://diigo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.discuss.com.hk*") || shExpMatch(url, "http://discuss.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*disp.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dit-inc.us*") || shExpMatch(url, "http://dit-inc.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dizhidizhi.com*") || shExpMatch(url, "http://dizhidizhi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*djangosnippets.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dojin.com*") || shExpMatch(url, "http://dojin.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dok-forum.net*") || shExpMatch(url, "http://dok-forum.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.domain.club.tw*") || shExpMatch(url, "http://domain.club.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dongde.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dongtaiwang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dongtaiwang.net*") || shExpMatch(url, "http://dongtaiwang.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dongyangjing.com*") || shExpMatch(url, "http://dongyangjing.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dontfilter.us*") || shExpMatch(url, "http://dontfilter.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dotplane.com*") || shExpMatch(url, "http://dotplane.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*doubleaf.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dowei.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dphk.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dpp.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.drtuber.com*") || shExpMatch(url, "http://drtuber.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dtiserv2.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.duckload.com/download*") || shExpMatch(url, "http://duckload.com/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.duihua.org*") || shExpMatch(url, "http://duihua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.duoweitimes.com*") || shExpMatch(url, "http://duoweitimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*duping.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dupola.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dupola.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dw.de*") || shExpMatch(url, "http://dw.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://dw.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dw-world.com*") || shExpMatch(url, "http://dw-world.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dw-world.de*") || shExpMatch(url, "http://dw-world.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*http://dw-world.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.dwheeler.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dwnews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xys.dxiong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dy24k.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dyndns.org*") || shExpMatch(url, "http://dyndns.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dzze.com*") || shExpMatch(url, "http://dzze.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.e-gold.com*") || shExpMatch(url, "http://e-gold.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://g.e-hentai.org/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*e-info.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.e-traderland.net/board*") || shExpMatch(url, "http://e-traderland.net/board*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkjp.easyweb.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ebookbrowse.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ebookee.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ecministry.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.ecstart.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*edicypages.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*edoors.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.edubridge.com*") || shExpMatch(url, "http://edubridge.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*efcc.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*electionsmeter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.eltondisney.com*") || shExpMatch(url, "http://eltondisney.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.emory.edu*") || shExpMatch(url, "http://emory.edu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.emule-ed2k.com*") || shExpMatch(url, "http://emule-ed2k.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://emule-ed2k.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinese.engadget.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes-bg.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes-romania.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.co.il*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.co.kr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.fr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.epochtimes.ie*") || shExpMatch(url, "http://epochtimes.ie*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimes.se*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*epochtimestr.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*erabaru.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.erepublik.com*") || shExpMatch(url, "http://erepublik.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*etaiwannews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.eulam.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*eventful.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.extremetube.com*") || shExpMatch(url, "http://extremetube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*eyevio.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ezpc.tk/category/soft*") || shExpMatch(url, "http://ezpc.tk/category/soft*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ezpeer.com*") || shExpMatch(url, "http://ezpeer.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.facebook.com*") || shExpMatch(url, "http://facebook.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fakku.net*") || shExpMatch(url, "http://fakku.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*falunart.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*falundafa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*falundafamuseum.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fangongheike.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fanqianghou.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fapdu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fawanghuihui.org*") || shExpMatch(url, "http://fawanghuihui.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fanqiangyakexi.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fail.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fan-qiang.com*") || shExpMatch(url, "http://fan-qiang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fangbinxing.com*") || shExpMatch(url, "http://fangbinxing.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fangeming.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fanyue.info*") || shExpMatch(url, "http://fanyue.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.farwestchina.com*") || shExpMatch(url, "http://farwestchina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*favorious.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.favotter.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*favstar.fm*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*faydao.com/weblog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fb.me*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fc2.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fc2china.com*") || shExpMatch(url, "http://fc2china.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shifeike.blog125.fc2blog.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.fdbox.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fdc89.jp*") || shExpMatch(url, "http://fdc89.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*feedbooks.mobi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*feeds.feedburner.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*feeds2.feedburner.com/chinagfwblog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*feer.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*felixcat.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fengzhenghu.com*") || shExpMatch(url, "http://fengzhenghu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fflick.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fgmtv.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fgmtv.org*") || shExpMatch(url, "http://fgmtv.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.filefactory.com/file*") || shExpMatch(url, "http://filefactory.com/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.files2me.com*") || shExpMatch(url, "http://files2me.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://files2me.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fileserve.com/file*") || shExpMatch(url, "http://fileserve.com/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fillthesquare.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*findbook.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*finler.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fireofliberty.org*") || shExpMatch(url, "http://fireofliberty.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.falsefire.com*") || shExpMatch(url, "http://falsefire.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fleshbot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*flickrhivemind.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yuming.flnet.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://cn.fmnnow.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.foolsmountain.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.forum4hk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pioneer-worker.forums-free.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://4sq.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.foxbusiness.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.focusvpn.com*") || shExpMatch(url, "http://focusvpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fooooo.com*") || shExpMatch(url, "http://fooooo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*footwiball.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*foxtang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freakshare.com*") || shExpMatch(url, "http://freakshare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://freakshare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*free-gate.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.free.fr/adsl*") || shExpMatch(url, "http://free.fr/adsl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kineox.free.fr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*whitebear.freebearblog.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freechal.com*") || shExpMatch(url, "http://freechal.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freedomhouse.org*") || shExpMatch(url, "http://freedomhouse.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freegao.com*") || shExpMatch(url, "http://freegao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freelotto.com*") || shExpMatch(url, "http://freelotto.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freeman2.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freeopenvpn.com*") || shExpMatch(url, "http://freeopenvpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freemoren.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freemorenews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freenet-china.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freenewscn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freeoz.org/bbs*") || shExpMatch(url, "http://freeoz.org/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.free-ssh.com*") || shExpMatch(url, "http://free-ssh.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freeoz.org*") || shExpMatch(url, "http://freeoz.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.freetibet.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freewebs.com*") || shExpMatch(url, "http://freewebs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.freexinwen.com*") || shExpMatch(url, "http://freexinwen.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*friendfeed.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*friendfeed-media.com/e99a4ebe2fb4c1985c2a58775eb4422961aa5a2e*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://ff.im*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.zensur.freerk.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freevpn.nl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fring.com*") || shExpMatch(url, "http://fring.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.frontlinedefenders.org*") || shExpMatch(url, "http://frontlinedefenders.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fsurf.com*") || shExpMatch(url, "http://fsurf.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.fuckcnnic.net*") || shExpMatch(url, "http://fuckcnnic.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fuckgfw.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fulue.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.funf.tw*") || shExpMatch(url, "http://funf.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*funp.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.futurechinaforum.org*") || shExpMatch(url, "http://futurechinaforum.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fzh999.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*fzh999.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gamebase.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gamer.com.tw*") || shExpMatch(url, "http://gamer.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gamez.com.tw*") || shExpMatch(url, "http://gamez.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gaoming.net*") || shExpMatch(url, "http://gaoming.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ganges.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gaopi.net*") || shExpMatch(url, "http://gaopi.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://gaopi.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gardennetworks.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*72.52.81.22*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gazotube.com*") || shExpMatch(url, "http://gazotube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gcpnews.com*") || shExpMatch(url, "http://gcpnews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gdbt.net/forum*") || shExpMatch(url, "http://gdbt.net/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gdzf.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*geekerhome.com/2010/03/xixiang-project-cross-gfw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.geocities.co.jp*") || shExpMatch(url, "http://geocities.co.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.geocities.com/SiliconValley/Circuit/5683/download.html*") || shExpMatch(url, "http://geocities.com/SiliconValley/Circuit/5683/download.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.geocities.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*geocities.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.getchu.com*") || shExpMatch(url, "http://getchu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.getfreedur.com*") || shExpMatch(url, "http://getfreedur.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.getlantern.org*") || shExpMatch(url, "http://getlantern.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.getjetso.com/forum*") || shExpMatch(url, "http://getjetso.com/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*getiton.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.getsocialscope.com*") || shExpMatch(url, "http://getsocialscope.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gfw.org.ua*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ggssl.com*") || shExpMatch(url, "http://ggssl.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://cn.giganews.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gigporno.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*globaljihad.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*globalmuseumoncommunism.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.globalvoicesonline.org*") || shExpMatch(url, "http://globalvoicesonline.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gmbd.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*godfootsteps.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.goldenmelody.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gongmeng.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gongm.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gongminliliang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gongwt.com*") || shExpMatch(url, "http://gongwt.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.goodreads.com*") || shExpMatch(url, "http://goodreads.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.goodreaders.com*") || shExpMatch(url, "http://goodreaders.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.googlesile.com*") || shExpMatch(url, "http://googlesile.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gopetition.com*") || shExpMatch(url, "http://gopetition.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*grandtrial.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*greatfirewall.biz*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.greatfirewallofchina.org*") || shExpMatch(url, "http://greatfirewallofchina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.greenparty.org.tw*") || shExpMatch(url, "http://greenparty.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gpass1.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*great-firewall.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*great-roc.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*greatroc.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*greatzhonghua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.greenvpn.net*") || shExpMatch(url, "http://greenvpn.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gs-discuss.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*guancha.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gun-world.net*") || shExpMatch(url, "http://gun-world.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gzm.tv*") || shExpMatch(url, "http://gzm.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.appspot.com*") || shExpMatch(url, "http://appspot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/gappproxy*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/gaeproxy*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/west-chamber-season-3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/icefox*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/breakwall*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/program-think/wiki/Software*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/scholarzhang*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/vforchrome/wiki/Start*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/tuite*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/twitese*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/twip*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*code.google.com/p/huhamhire-hosts*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gfwinterceptor.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*goagent.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gtap.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sshtunnel.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tuite.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gaeproxy.googlecode.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com/Doc?docid=0Ae9jWMoUhgV1ZHd0cjJ2NV81NGQ5MnI0d3E1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=d8xbpp6_4hhpb2dfd*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=dds68dz_9cqgm8vgq*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com*View*id*dg5mtmj9_8g3hk27f5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com*View*id*dg5mtmj9_3188x48zcn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com*dgtbmwd6_934gg99v6g4cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=dhh5gtxb_145nsxgctcc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinaaid.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*echofon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://ub0.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wozy.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%D8%BA%D8%A7*") || shExpMatch(url, "http://google.*%D8%BA%D8%A7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/complete/search*") || shExpMatch(url, "http://google.*/complete/search*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*/search?q=cache*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*/search%3Fq%3Dcache*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%2Fsearch%3Fq%3Dcache*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*google*search*q=cache*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*8964*") || shExpMatch(url, "http://google.*search*8964*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*boxun*") || shExpMatch(url, "http://google.*boxun*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*chinese+people+eating+babies*") || shExpMatch(url, "http://google.*chinese+people+eating+babies*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*http*dotsub.com*") || shExpMatch(url, "http://google.*http*dotsub.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*east*turkistan*") || shExpMatch(url, "http://google.*east*turkistan*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*facebook*") || shExpMatch(url, "http://google.*facebook*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*falun*") || shExpMatch(url, "http://google.*falun*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*freechina*") || shExpMatch(url, "http://google.*freechina*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*freetibet*") || shExpMatch(url, "http://google.*freetibet*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*gfw*") || shExpMatch(url, "http://google.*gfw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*goagent*") || shExpMatch(url, "http://google.*goagent*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*&q=gpass*") || shExpMatch(url, "http://google.*&q=gpass*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*great*firewall*") || shExpMatch(url, "http://google.*great*firewall*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*hujin*") || shExpMatch(url, "http://google.*hujin*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*huayuan*") || shExpMatch(url, "http://google.*huayuan*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*jiaqinglin*") || shExpMatch(url, "http://google.*jiaqinglin*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*jiangzemin*") || shExpMatch(url, "http://google.*jiangzemin*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*&q=jzm&*") || shExpMatch(url, "http://google.*&q=jzm&*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*nytimes*") || shExpMatch(url, "http://google.*nytimes*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*peacehall*") || shExpMatch(url, "http://google.*peacehall*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.googlw.*president.gov.tw*") || shExpMatch(url, "http://googlw.*president.gov.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*protest*1989*") || shExpMatch(url, "http://google.*protest*1989*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*prisoner+of+the+state*") || shExpMatch(url, "http://google.*prisoner+of+the+state*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*Tankman*") || shExpMatch(url, "http://google.*search*Tankman*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbm=mbl*") || shExpMatch(url, "http://google.*tbm=mbl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbm%3Dmbl*") || shExpMatch(url, "http://google.*tbm%3Dmbl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*tbs=mbl*") || shExpMatch(url, "http://google.*search*tbs=mbl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*tbs%3Dmbl*") || shExpMatch(url, "http://google.*search*tbs%3Dmbl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbs=qdr*") || shExpMatch(url, "http://google.*tbs=qdr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbs%3Dqdr*") || shExpMatch(url, "http://google.*tbs%3Dqdr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbs=rltm*") || shExpMatch(url, "http://google.*tbs=rltm*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tbs%3Drltm*") || shExpMatch(url, "http://google.*tbs%3Drltm*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*Tiananmen*") || shExpMatch(url, "http://google.*Tiananmen*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*tianwang*") || shExpMatch(url, "http://google.*tianwang*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*Tibetan*independence*") || shExpMatch(url, "http://google.*Tibetan*independence*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*twitter*") || shExpMatch(url, "http://google.*twitter*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*xijinping*") || shExpMatch(url, "http://google.*xijinping*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*&q=ytht&*") || shExpMatch(url, "http://google.*&q=ytht&*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*zhouyongkang*") || shExpMatch(url, "http://google.*zhouyongkang*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*08*%E5%AE%AA%E7%AB%A0*") || shExpMatch(url, "http://google.*08*%E5%AE%AA%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*64*%E7%9C%9F%E7%9B%B8*") || shExpMatch(url, "http://google.*64*%E7%9C%9F%E7%9B%B8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*64*%E9%95%87%E5%8E%8B*") || shExpMatch(url, "http://google.*64*%E9%95%87%E5%8E%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%85%AB%E4%B9%9D*") || shExpMatch(url, "http://google.*%E5%85%AB%E4%B9%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*") || shExpMatch(url, "http://google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*") || shExpMatch(url, "http://google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%99%88%E7%A0%B4%E7%A9%BA*") || shExpMatch(url, "http://google.*%E9%99%88%E7%A0%B4%E7%A9%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%B5%A4%E5%8C%AA*") || shExpMatch(url, "http://google.*%E8%B5%A4%E5%8C%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*") || shExpMatch(url, "http://google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A3%E5%BC%80*%E5%8F%91%E7%A5%A8*") || shExpMatch(url, "http://google.*%E4%BB%A3%E5%BC%80*%E5%8F%91%E7%A5%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%91%E7%A5%A8*%E4%BB%A3%E5%BC%80*") || shExpMatch(url, "http://google.*%E5%8F%91%E7%A5%A8*%E4%BB%A3%E5%BC%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A3%E7%90%86*") || shExpMatch(url, "http://google.*%E4%BB%A3%E7%90%86*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%9C%B0%E4%B8%8B%E6%95%99%E4%BC%9A*") || shExpMatch(url, "http://google.*%E5%9C%B0%E4%B8%8B%E6%95%99%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%8B%AC%E7%AB%8B%E5%8F%B0%E6%B9%BE%E4%BC%9A*") || shExpMatch(url, "http://google.*%E7%8B%AC%E7%AB%8B%E5%8F%B0%E6%B9%BE%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%8B%AC%E7%AB%8B%E4%B8%AD%E6%96%87%E7%AC%94%E4%BC%9A*") || shExpMatch(url, "http://google.*%E7%8B%AC%E7%AB%8B%E4%B8%AD%E6%96%87%E7%AC%94%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%91%E8%AF%BE*") || shExpMatch(url, "http://google.*%E5%8F%91%E8%AF%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%B3%95%E6%8B%89%E5%88%A9*") || shExpMatch(url, "http://google.*%E6%B3%95%E6%8B%89%E5%88%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%BF%BB%E5%A2%99*") || shExpMatch(url, "http://google.*%E7%BF%BB%E5%A2%99*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%96%B9%E6%BB%A8%E5%85%B4*") || shExpMatch(url, "http://google.*%E6%96%B9%E6%BB%A8%E5%85%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*") || shExpMatch(url, "http://google.*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%86%AF%E6%AD%A3%E8%99%8E*") || shExpMatch(url, "http://google.*%E5%86%AF%E6%AD%A3%E8%99%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%AB%98%E6%99%BA%E6%99%9F*") || shExpMatch(url, "http://google.*%E9%AB%98%E6%99%BA%E6%99%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%9D%A9%E5%91%BD*") || shExpMatch(url, "http://google.*%E9%9D%A9%E5%91%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%85%B1%E4%BA%A7*") || shExpMatch(url, "http://google.*%E5%85%B1%E4%BA%A7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB*") || shExpMatch(url, "http://google.*%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%B9%BF%E5%9C%BA*") || shExpMatch(url, "http://google.*%E5%B9%BF%E5%9C%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%9B%BD%E5%AE%B6%E9%98%B2%E7%81%AB%E5%A2%99*") || shExpMatch(url, "http://google.*%E5%9B%BD%E5%AE%B6%E9%98%B2%E7%81%AB%E5%A2%99*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%9B%A4%E8%9F%86*") || shExpMatch(url, "http://google.*%E8%9B%A4%E8%9F%86*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%9B%86%E4%BC%9A*") || shExpMatch(url, "http://google.*%E9%9B%86%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%AE%B0%E8%80%85%E6%97%A0%E7%96%86%E7%95%8C*") || shExpMatch(url, "http://google.*%E8%AE%B0%E8%80%85%E6%97%A0%E7%96%86%E7%95%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%AE%B6%E5%AE%9D*") || shExpMatch(url, "http://google.*%E5%AE%B6%E5%AE%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%81%87%E5%BA%86%E6%B7%8B*") || shExpMatch(url, "http://google.*%E5%81%87%E5%BA%86%E6%B7%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%88%92%E4%B8%A5*") || shExpMatch(url, "http://google.*%E6%88%92%E4%B8%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%94%A6%E6%B6%9B*") || shExpMatch(url, "http://google.*%E9%94%A6%E6%B6%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%BB%8F%E6%96%87*") || shExpMatch(url, "http://google.*%E7%BB%8F%E6%96%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%91%E5%B9%B3*") || shExpMatch(url, "http://google.*%E8%BF%91%E5%B9%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B9%9D%E5%B8%B8%E5%A7%94*") || shExpMatch(url, "http://google.*%E4%B9%9D%E5%B8%B8%E5%A7%94*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%85%B7%E5%88%91*") || shExpMatch(url, "http://google.*%E9%85%B7%E5%88%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A4*") || shExpMatch(url, "http://google.*%E4%BB%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%9B%B6%E5%85%AB*%E5%AE%AA%E7%AB%A0*") || shExpMatch(url, "http://google.*%E9%9B%B6%E5%85%AB*%E5%AE%AA%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*%E5%88%98%E6%B7%87*") || shExpMatch(url, "http://google.*search*%E5%88%98%E6%B7%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%85%AD*%E5%9B%9B*") || shExpMatch(url, "http://google.*%E5%85%AD*%E5%9B%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%B2%81%E6%98%95*") || shExpMatch(url, "http://google.*%E9%B2%81%E6%98%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%87%AF*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%87%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%8A%9B*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%8A%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*") || shExpMatch(url, "http://google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%AF%9B%E5%90%91%E8%BE%89*") || shExpMatch(url, "http://google.*%E6%AF%9B%E5%90%91%E8%BE%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*") || shExpMatch(url, "http://google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*") || shExpMatch(url, "http://google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*") || shExpMatch(url, "http://google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%85%8D%E8%B4%B9*vpn*") || shExpMatch(url, "http://google.*%E5%85%8D%E8%B4%B9*vpn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%8C%89%E8%8E%89*") || shExpMatch(url, "http://google.*%E8%8C%89%E8%8E%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%8E%AB%E6%97%A5%E6%A0%B9*") || shExpMatch(url, "http://google.*%E8%8E%AB%E6%97%A5%E6%A0%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%BA%B3%E7%B1%B3%E6%AF%94%E4%BA%9A*") || shExpMatch(url, "http://google.*%E7%BA%B3%E7%B1%B3%E6%AF%94%E4%BA%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*") || shExpMatch(url, "http://google.*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com*search*namibia*nuctech*") || shExpMatch(url, "http://google.com*search*namibia*nuctech*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*") || shExpMatch(url, "http://google.*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%BD%AD%E4%B8%BD%E5%AA%9B*") || shExpMatch(url, "http://google.*%E5%BD%AD%E4%B8%BD%E5%AA%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%AB%E5%AE%B3*") || shExpMatch(url, "http://google.*%E8%BF%AB%E5%AE%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F*") || shExpMatch(url, "http://google.*%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%9E%AA%E5%A3%B0*") || shExpMatch(url, "http://google.*%E6%9E%AA%E5%A3%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%9D%92%E5%A4%A9%E7%99%BD%E6%97%A5%E6%97%97*") || shExpMatch(url, "http://google.*%E9%9D%92%E5%A4%A9%E7%99%BD%E6%97%A5%E6%97%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD*") || shExpMatch(url, "http://google.*%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%97%A5%E8%AE%B0*") || shExpMatch(url, "http://google.*%E6%97%A5%E8%AE%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%89%E9%80%80*") || shExpMatch(url, "http://google.*%E4%B8%89%E9%80%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%96%E7%BB%B4%E4%BC%9A*") || shExpMatch(url, "http://google.*%E4%B8%96%E7%BB%B4%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%B8%E5%BE%92%E5%8D%8E*") || shExpMatch(url, "http://google.*%E5%8F%B8%E5%BE%92%E5%8D%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%AA%E5%AD%90*") || shExpMatch(url, "http://google.*%E5%A4%AA%E5%AD%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*%E8%B0%AD%E4%BD%9C%E4%BA%BA*") || shExpMatch(url, "http://google.*search*%E8%B0%AD%E4%BD%9C%E4%BA%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E5%AE%89%E9%97%A8*") || shExpMatch(url, "http://google.*%E5%A4%A9%E5%AE%89%E9%97%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E7%81%AD*") || shExpMatch(url, "http://google.*%E5%A4%A9%E7%81%AD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*%E5%BA%B7%E5%B8%88%E5%82%85*") || shExpMatch(url, "http://google.*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*%E5%BA%B7%E5%B8%88%E5%82%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%BA%B7%E5%B8%88%E5%82%85*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*") || shExpMatch(url, "http://google.*%E5%BA%B7%E5%B8%88%E5%82%85*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%AA%81%E5%B0%BC%E6%96%AF*") || shExpMatch(url, "http://google.*%E7%AA%81%E5%B0%BC%E6%96%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%8E%A8%E7%89%B9*") || shExpMatch(url, "http://google.*%E6%8E%A8%E7%89%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%B1%AA%E6%96%AF*") || shExpMatch(url, "http://google.*%E6%B1%AA%E6%96%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%94%AF%E8%89%B2*") || shExpMatch(url, "http://google.*%E5%94%AF%E8%89%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%A8%81%E8%A7%86%E5%85%AC%E5%8F%B8*") || shExpMatch(url, "http://google.*%E5%A8%81%E8%A7%86%E5%85%AC%E5%8F%B8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com*%E6%88%91%E6%B2%A1%E6%9C%89%E6%95%8C%E4%BA%BA*") || shExpMatch(url, "http://google.com*%E6%88%91%E6%B2%A1%E6%9C%89%E6%95%8C%E4%BA%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B9%8C%E5%B0%94%E5%87%AF%E8%A5%BF*") || shExpMatch(url, "http://google.*%E4%B9%8C%E5%B0%94%E5%87%AF%E8%A5%BF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%BC%8D%E5%87%A1*") || shExpMatch(url, "http://google.*%E4%BC%8D%E5%87%A1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%86%99%E6%9D%A5*") || shExpMatch(url, "http://google.*%E7%86%99%E6%9D%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.%E6%96%B0%E7%96%86*%E7%8B%AC%E7%AB%8B*") || shExpMatch(url, "http://google.%E6%96%B0%E7%96%86*%E7%8B%AC%E7%AB%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%96%B0%E4%BA%AC%E6%8A%A5*") || shExpMatch(url, "http://google.*%E6%96%B0%E4%BA%AC%E6%8A%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%BE%90%E6%89%8D%E5%8E%9A*") || shExpMatch(url, "http://google.*%E5%BE%90%E6%89%8D%E5%8E%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com.*%E5%AE%A3%E8%A8%80*") || shExpMatch(url, "http://google.com.*%E5%AE%A3%E8%A8%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%AD%A6%E6%BD%AE*") || shExpMatch(url, "http://google.*%E5%AD%A6%E6%BD%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%80%80%E9%82%A6*") || shExpMatch(url, "http://google.*%E8%80%80%E9%82%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%9C%88%E6%9C%88*") || shExpMatch(url, "http://google.*%E6%9C%88%E6%9C%88*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%BD%B1%E5%B8%9D*") || shExpMatch(url, "http://google.*%E5%BD%B1%E5%B8%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*search*%E4%BF%9E%E6%AD%A3%E5%A3%B0*") || shExpMatch(url, "http://google.*search*%E4%BF%9E%E6%AD%A3%E5%A3%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%98%85%E5%90%8E%E5%8D%B3%E7%84%9A*") || shExpMatch(url, "http://google.*%E9%98%85%E5%90%8E%E5%8D%B3%E7%84%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%97%8F%E7%8B%AC*") || shExpMatch(url, "http://google.*%E8%97%8F%E7%8B%AC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%B3%BD%E6%B0%91*") || shExpMatch(url, "http://google.*%E6%B3%BD%E6%B0%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%BC%A0%E9%AB%98%E4%B8%BD*") || shExpMatch(url, "http://google.*%E5%BC%A0%E9%AB%98%E4%B8%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%B5%99%E5%A4%A7%E6%8B%9B%E7%94%9F%E5%8A%9E*") || shExpMatch(url, "http://google.*%E6%B5%99%E5%A4%A7%E6%8B%9B%E7%94%9F%E5%8A%9E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%9C%9F%E7%90%86%E9%83%A8*") || shExpMatch(url, "http://google.*%E7%9C%9F%E7%90%86%E9%83%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%9C%9F%E7%9B%B8*") || shExpMatch(url, "http://google.*%E7%9C%9F%E7%9B%B8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%94%BF%E5%8F%98*") || shExpMatch(url, "http://google.*%E6%94%BF%E5%8F%98*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%94%BF%E6%B2%BB%E5%B1%80*") || shExpMatch(url, "http://google.*%E6%94%BF%E6%B2%BB%E5%B1%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%9F%A5%E6%83%85%E8%80%85*") || shExpMatch(url, "http://google.*%E7%9F%A5%E6%83%85%E8%80%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%85%B1*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%85%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD*%E7%A6%81%E9%97%BB*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD*%E7%A6%81%E9%97%BB*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E5%86%A4%E6%B0%91%E5%A4%A7%E5%90%8C%E7%9B%9F*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E5%86%A4%E6%B0%91%E5%A4%A7%E5%90%8C%E7%9B%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%BD%E6%9F%A5%E5%9B%BD%E9%99%85*") || shExpMatch(url, "http://google.*%E8%BF%BD%E6%9F%A5%E5%9B%BD%E9%99%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%B4%AB%E9%98%B3*") || shExpMatch(url, "http://google.*%E7%B4%AB%E9%98%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%87%AA%E7%94%B1%E9%97%A8*") || shExpMatch(url, "http://google.*%E8%87%AA%E7%94%B1%E9%97%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E8%87%AA%E7%94%B1%E9%96%80*") || shExpMatch(url, "http://google.*%E8%87%AA%E7%94%B1%E9%96%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*q=%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2%E7%94%B5%E5%8F%B0*") || shExpMatch(url, "http://google.*q=%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2%E7%94%B5%E5%8F%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%B4%BA*") || shExpMatch(url, "http://google.com/m*%E8%B4%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%B4%BA*") || shExpMatch(url, "http://google.*/search*%E8%B4%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%83%A1*") || shExpMatch(url, "http://google.com/m*%E8%83%A1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%83%A1*") || shExpMatch(url, "http://google.*/search*%E8%83%A1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%B4%BE*") || shExpMatch(url, "http://google.com/m*%E8%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%B4%BE*") || shExpMatch(url, "http://google.*/search*%E8%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E6%B1%9F*") || shExpMatch(url, "http://google.*%E6%B1%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E6%9D%8E*") || shExpMatch(url, "http://google.com/m*%E6%9D%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E6%9D%8E*") || shExpMatch(url, "http://google.*/search*%E6%9D%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E5%88%98*") || shExpMatch(url, "http://google.*/search*%E5%88%98*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E7%8E%8B*") || shExpMatch(url, "http://google.*%E7%8E%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E6%B8%A9*") || shExpMatch(url, "http://google.com/m*%E6%B8%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E6%B8%A9*") || shExpMatch(url, "http://google.*/search*%E6%B8%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E5%90%B4*") || shExpMatch(url, "http://google.com/m*%E5%90%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E5%90%B4*") || shExpMatch(url, "http://google.*/search*%E5%90%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/m*%E4%B9%A0*") || shExpMatch(url, "http://google.com/m*%E4%B9%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*/search*%E4%B9%A0*") || shExpMatch(url, "http://google.*/search*%E4%B9%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E5%91%A8*") || shExpMatch(url, "http://google.*%E5%91%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://*docs.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://*drive.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://groups.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://plus*.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/moderator*") || shExpMatch(url, "http://google.com/moderator*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com%2Fmoderator*") || shExpMatch(url, "http://google.com%2Fmoderator*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com/reader/view/feed*") || shExpMatch(url, "http://google.com/reader/view/feed*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com%2Freader%2Fview%2Ffeed*") || shExpMatch(url, "http://google.com%2Freader%2Fview%2Ffeed*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com.hk/wenda*") || shExpMatch(url, "http://google.com.hk/wenda*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.com.hk%2Fwenda*") || shExpMatch(url, "http://google.com.hk%2Fwenda*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*feedproxy.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*groups.google.*group*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*knol.google.com/k/-/08/3jhi1zdzvxj3f*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.google.com.hk/nwshp?hl=zh-cn&tab=wn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*picasaweb.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sites.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://talkgadget.google.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*anti.anti.cnn.googlepages.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*myboooks.googlepages.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.googlevideo.com*") || shExpMatch(url, "http://googlevideo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://apis.google.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gospelherald.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://hk.gradconnection.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*greatfire.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*greatfirewallofchina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.theguardian.co*") || shExpMatch(url, "http://theguardian.co*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*guishan.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.gyalwarinpoche.com*") || shExpMatch(url, "http://gyalwarinpoche.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*h1n1china.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hacken.cc/bbs*") || shExpMatch(url, "http://hacken.cc/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hahlo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hanunyi.com*") || shExpMatch(url, "http://hanunyi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*have8.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hecaitou.net*") || shExpMatch(url, "http://hecaitou.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hechaji.com*") || shExpMatch(url, "http://hechaji.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hellotxt.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hellouk.org/forum/lofiversion*") || shExpMatch(url, "http://hellouk.org/forum/lofiversion*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.helpeachpeople.com*") || shExpMatch(url, "http://helpeachpeople.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.helpzhuling.org*") || shExpMatch(url, "http://helpzhuling.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*heqinglian.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*here4news.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*app.heywire.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hgseav.com*") || shExpMatch(url, "http://hgseav.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hidden-advent.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hidecloud.com/blog/2008/07/29/fuck-beijing-olympics.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hidemyass.com*") || shExpMatch(url, "http://hidemyass.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hihiforum.com*") || shExpMatch(url, "http://hihiforum.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://hihiforum.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.higfw.com*") || shExpMatch(url, "http://higfw.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.himemix.com*") || shExpMatch(url, "http://himemix.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*times.hinet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hjclub.info*") || shExpMatch(url, "http://hjclub.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hk-pub.com/forum*") || shExpMatch(url, "http://hk-pub.com/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://hk-pub.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hk32168.com*") || shExpMatch(url, "http://hk32168.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*app.hkatvnews.com/v3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkbc.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkbf.org*") || shExpMatch(url, "http://hkbf.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkday.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkdailynews.com.hk/china.php*") || shExpMatch(url, "http://hkdailynews.com.hk/china.php*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkej.com*") || shExpMatch(url, "http://hkej.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkepc.com/forum/viewthread.php?tid=1153322*") || shExpMatch(url, "http://hkepc.com/forum/viewthread.php?tid=1153322*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*global.hkepc.com*forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkfront.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkgolden.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkgreenradio.org/home*") || shExpMatch(url, "http://hkgreenradio.org/home*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkheadline.com*blog*") || shExpMatch(url, "http://hkheadline.com*blog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkheadline.com/instantnews*") || shExpMatch(url, "http://hkheadline.com/instantnews*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkhkhk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkjc.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkjp.org*") || shExpMatch(url, "http://hkjp.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkptu.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hkreporter.com*") || shExpMatch(url, "http://hkreporter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*apps.hloli.net/gfwtube*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hnjhj.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*holyspiritspeaks.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://homeservershow.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hongmeimei.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hootsuite.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hotfile.com/dl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hotpot.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hqcdp.org*") || shExpMatch(url, "http://hqcdp.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hrcir.com*") || shExpMatch(url, "http://hrcir.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hrichina.org*") || shExpMatch(url, "http://hrichina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.hrw.org*") || shExpMatch(url, "http://hrw.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*huaglad.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.huanghuagang.org*") || shExpMatch(url, "http://huanghuagang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.huaren.us*") || shExpMatch(url, "http://huaren.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*huaxia-news.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*huaxin.ph*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hua-yue.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*t.huhaitai.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hutong9.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*iask.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*iask.bz*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ibiblio.org/pub/packages/ccic*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://cn.ibtimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogs.icerocket.com/tag*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.icij.org*") || shExpMatch(url, "http://icij.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*w.idaiwan.com/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*idemocracy.asia*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.identi.ca*") || shExpMatch(url, "http://identi.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.idlcoyote.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.idouga.com*") || shExpMatch(url, "http://idouga.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.idsam.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.idv.tw*") || shExpMatch(url, "http://idv.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ieasynews.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ied2k.net*") || shExpMatch(url, "http://ied2k.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ifanqiang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ifanr.com/857*") || shExpMatch(url, "http://ifanr.com/857*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ifcss.org*") || shExpMatch(url, "http://ifcss.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ifjc.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*imageshack.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.imdb.com/name/nm0482730*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.img.ly*") || shExpMatch(url, "http://img.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.imkev.com*") || shExpMatch(url, "http://imkev.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.imlive.com*") || shExpMatch(url, "http://imlive.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*immigration.gov.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tech2.in.com/video/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.inmediahk.net*") || shExpMatch(url, "http://inmediahk.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*instagram.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://internet.org/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*internetdefenseleague.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*internetfreedom.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*inxian.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ipobar.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://*.iptorrents.com*") || shExpMatch(url, "https://iptorrents.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://iptorrents.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*iredmail.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.beta.iset.com.tw/forum*") || shExpMatch(url, "http://beta.iset.com.tw/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*http://beta.iset.com.tw/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.iset.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.islam.org.hk*") || shExpMatch(url, "http://islam.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.isaacmao.com*") || shExpMatch(url, "http://isaacmao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*isohunt.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.istef.info/2007/10/21/myentunnel*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.istockphoto.com*") || shExpMatch(url, "http://istockphoto.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*isunaffairs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*isuntv.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*itaboo.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ithelp.ithome.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.itweet.net*") || shExpMatch(url, "http://itweet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://itweet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.iu45.com*") || shExpMatch(url, "http://iu45.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.izaobao.us*") || shExpMatch(url, "http://izaobao.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.izles.net*") || shExpMatch(url, "http://izles.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.jackjia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jbtalks.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jbtalks.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jbtalks.my*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jeanyim.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.jiehua.cz*") || shExpMatch(url, "http://jiehua.cz*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jieshibaobao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.jimoparty.com*") || shExpMatch(url, "http://jimoparty.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://jimoparty.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jinbushe.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zhao.jinhai.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jingpin.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ac.jiruan.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jkforum.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*research.jmsc.hku.hk/social*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*jpopforum.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.junefourth-20.net*") || shExpMatch(url, "http://junefourth-20.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*justfreevpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh-tw.justin.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*justtristan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*juziyue.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.jyxf.net*") || shExpMatch(url, "http://jyxf.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kagyuoffice.org.tw*") || shExpMatch(url, "http://kagyuoffice.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kaiyuan.de*") || shExpMatch(url, "http://kaiyuan.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kanzhongguo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kanzhongguo.eu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kechara.com*") || shExpMatch(url, "http://kechara.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.keepandshare.com/visit/visit_page.php?i=688154*") || shExpMatch(url, "http://keepandshare.com/visit/visit_page.php?i=688154*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kendincos.net*") || shExpMatch(url, "http://kendincos.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kenengba.com*") || shExpMatch(url, "http://kenengba.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wiki.keso.cn/Home*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.khmusic.com.tw*") || shExpMatch(url, "http://khmusic.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.kimy.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kingdomsalvation.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kinghost.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kingstone.com.tw*") || shExpMatch(url, "http://kingstone.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*killwall.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kissbbao.cn*") || shExpMatch(url, "http://kissbbao.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.knowledgerush.com/kr/encyclopedia*") || shExpMatch(url, "http://knowledgerush.com/kr/encyclopedia*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.koornk.com*") || shExpMatch(url, "http://koornk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kui.name/event*") || shExpMatch(url, "http://kui.name/event*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kun.im*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kusocity.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kwongwah.com.my*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*kyohk.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.kzeng.info*") || shExpMatch(url, "http://kzeng.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*la-forum.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ladbrokes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lagranepoca.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lalulalu.com*") || shExpMatch(url, "http://lalulalu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*laogai.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*laomiu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.laoyang.info*") || shExpMatch(url, "http://laoyang.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://laoyang.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.laqingdan.net*") || shExpMatch(url, "http://laqingdan.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*latelinenews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lerosua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.lester850.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*letscorp.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*liansi.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lianyue.net*") || shExpMatch(url, "http://lianyue.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.liaowangxizang.net*") || shExpMatch(url, "http://liaowangxizang.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*libertytimes.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lidecheng.com/blog/fucking-gfw*") || shExpMatch(url, "http://lidecheng.com/blog/fucking-gfw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*limiao.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*abitno.linpie.com/use-ipv6-to-fuck-gfw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.linglingfa.com*") || shExpMatch(url, "http://linglingfa.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.linkideo.com*") || shExpMatch(url, "http://linkideo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*linuxtoy.org/archives/installing-west-chamber-on-ubuntu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lipuman.com*") || shExpMatch(url, "http://lipuman.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*listorious.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.liuhanyu.com*") || shExpMatch(url, "http://liuhanyu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.liujianshu.com*") || shExpMatch(url, "http://liujianshu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*liuxiaotong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*liu.lu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.liveleak.com*") || shExpMatch(url, "http://liveleak.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.livestation.com*") || shExpMatch(url, "http://livestation.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*livestream.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.livevideo.com*") || shExpMatch(url, "http://livevideo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lizhizhuangbi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lkcn.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*logbot.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.longhair.hk*") || shExpMatch(url, "http://longhair.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lookatgame.com*") || shExpMatch(url, "http://lookatgame.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://lookatgame.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkreporter.loved.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lsd.org.hk*") || shExpMatch(url, "http://lsd.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lsforum.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.lupm.org*") || shExpMatch(url, "http://lupm.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lvhai.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*m-team.cc/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.macrovpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*marguerite.su*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.maiio.net*") || shExpMatch(url, "http://maiio.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mail-archive.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*malaysiakini.com/cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*markmail.org*message*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*maruta.be/forget*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.marxist.com*") || shExpMatch(url, "http://marxist.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.marxists.org/chinese*") || shExpMatch(url, "http://marxists.org/chinese*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mashable.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mayimayi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mcfog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.md-t.org*") || shExpMatch(url, "http://md-t.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mediafire.com/?*") || shExpMatch(url, "http://mediafire.com/?*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mefeedia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lich355.megabyet.net/%E7%BD%91%E7%BB%9C%E7%A5%9E%E5%85%BD%E5%8F%A4%E9%B8%BD%E8%BF%81%E7%A7%BB%E8%AE%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.megaporn.com*") || shExpMatch(url, "http://megaporn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*megavideo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*meirixiaochao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*memedia.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.memrijttm.org*") || shExpMatch(url, "http://memrijttm.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*merit-times.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mesotw.com/bbs*") || shExpMatch(url, "http://mesotw.com/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.metacafe.com*") || shExpMatch(url, "http://metacafe.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mgoon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mhradio.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://michaelanti.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*middle-way.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mihk.hk/forum*") || shExpMatch(url, "http://mihk.hk/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mihua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mimivip.com*") || shExpMatch(url, "http://mimivip.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*minghui.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*minghui-school.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingjinglishi.com*") || shExpMatch(url, "http://mingjinglishi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mingjingnews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mingpao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingpaomonthly.com*") || shExpMatch(url, "http://mingpaomonthly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mingpaonews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingpaony.com*") || shExpMatch(url, "http://mingpaony.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingpaosf.com*") || shExpMatch(url, "http://mingpaosf.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingpaotor.com*") || shExpMatch(url, "http://mingpaotor.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mingpaovan.com*") || shExpMatch(url, "http://mingpaovan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mininova.org/tor/2593503*") || shExpMatch(url, "http://mininova.org/tor/2593503*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.minzhuhua.net*") || shExpMatch(url, "http://minzhuhua.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*minzhuzhongguo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mirrorbooks.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mitbbs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mixero.com*") || shExpMatch(url, "http://mixero.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mixpod.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mixx.com*") || shExpMatch(url, "http://mixx.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mk5000.com*") || shExpMatch(url, "http://mk5000.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mlcool.com*") || shExpMatch(url, "http://mlcool.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*plurktop.mmdays.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mmmca.com*") || shExpMatch(url, "http://mmmca.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mobile01.com*") || shExpMatch(url, "http://mobile01.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mobypicture.com*") || shExpMatch(url, "http://mobypicture.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://moby.to*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wiki.moegirl.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*molihua.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.monlamit.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*c1522.mooo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.morbell.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mp3ye.eu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mpfinance.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mpinews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mrtweet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.msn.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.msguancha.com*") || shExpMatch(url, "http://msguancha.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*multiproxy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.mymaji.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*multiupload.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.my-proxy.com*") || shExpMatch(url, "http://my-proxy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.my903.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*myactimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.myav.com.tw/bbs*") || shExpMatch(url, "http://myav.com.tw/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.mychinamyhome.com*") || shExpMatch(url, "http://mychinamyhome.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.myforum.com.hk*") || shExpMatch(url, "http://myforum.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.myfreshnet.com*") || shExpMatch(url, "http://myfreshnet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*mysinablog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.myspace.com*") || shExpMatch(url, "http://myspace.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*old.nabble.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nanyang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nanyangpost.com*") || shExpMatch(url, "http://nanyangpost.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nanzao.com*") || shExpMatch(url, "http://nanzao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://line.naver.jp/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nakido.com*") || shExpMatch(url, "http://nakido.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.naol.ca*") || shExpMatch(url, "http://naol.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cyberghost.natado.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nccwatch.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nch.com.tw*") || shExpMatch(url, "http://nch.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ncn.org*") || shExpMatch(url, "http://ncn.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.ned.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*t.neolee.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*netcolony.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bolin.netfirms.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.netlog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*netme.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*networkedblogs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*neverforget8964.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*new-3lunch.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.new-akiba.com*") || shExpMatch(url, "http://new-akiba.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newcenturymc.com*") || shExpMatch(url, "http://newcenturymc.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://newcenturymc.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newcenturynews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newchen.com*") || shExpMatch(url, "http://newchen.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newgrounds.com*") || shExpMatch(url, "http://newgrounds.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newlandmagazine.com.au*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news100.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newscn.org*") || shExpMatch(url, "http://newscn.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newspeak.cc/story*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newsancai.com*") || shExpMatch(url, "http://newsancai.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.newtaiwan.com.tw*") || shExpMatch(url, "http://newtaiwan.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newtalk.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*newyorktimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk*.nextmedia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw*.nextmedia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*static.apple.nextmedia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nexttv.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ngensis.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nicovideo.jp/watch/*") || shExpMatch(url, "http://nicovideo.jp/watch/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nintendium.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.dayaarmongol.ning.com*") || shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwanyes.ning.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*njuice.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nlfreevpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nobelprize.org/nobel_prizes/peace/laureates/2010*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nobodycanstop.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nowtorrents.com*") || shExpMatch(url, "http://nowtorrents.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.noypf.com*") || shExpMatch(url, "http://noypf.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nps.gov*") || shExpMatch(url, "http://nps.gov*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nrk.no*") || shExpMatch(url, "http://nrk.no*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ntdtv.co*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ntdtv.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ntdtv.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ntdtv.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nuvid.com*") || shExpMatch(url, "http://nuvid.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nuzcom.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nydus.ca*") || shExpMatch(url, "http://nydus.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.nytimes.com*") || shExpMatch(url, "http://nytimes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nysingtao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*observechina.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*oclp.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*offbeatchina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twtr2src.ogaoga.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.oikos.com.tw/v4*") || shExpMatch(url, "http://oikos.com.tw/v4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.oiktv.com*") || shExpMatch(url, "http://oiktv.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*oizoblog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.okayfreedom.com*") || shExpMatch(url, "http://okayfreedom.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*old-cat.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.olympicwatch.org*") || shExpMatch(url, "http://olympicwatch.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*omgili.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*omnitalk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.omy.sg*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.omy.sg*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*showbiz.omy.sg*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*the-sun.on.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tv.on.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://onedrive.live.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.onlylady.cn*") || shExpMatch(url, "http://onlylady.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*onmoon.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*onmoon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.oopsforum.com*") || shExpMatch(url, "http://oopsforum.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*open.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*opendemocracy.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*myopenid.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*openid.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.openleaks.org*") || shExpMatch(url, "http://openleaks.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*openvpn.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://help.opera.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*my.opera.com/dahema*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*opnir.com/215/myentunnel-ssh-autoproxy-cross-gfw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.orchidbbs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*orientaldaily.com.my*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*orientaldaily.on.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*t.orzdream.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tui.orzdream.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*m.oulove.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*oursogo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*oursteps.com.au*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xinqimeng.over-blog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*share.ovi.com/media*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://owl.li*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://ht.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://htl.li*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://mash.to*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.owind.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.oxid.it*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*oyax.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ozchinese.com/bbs*") || shExpMatch(url, "http://ozchinese.com/bbs*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.ozchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ozyoyo.com*") || shExpMatch(url, "http://ozyoyo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pacificpoker.com*") || shExpMatch(url, "http://pacificpoker.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.packetix.net*") || shExpMatch(url, "http://packetix.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*page2rss.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.palacemoon.com*") || shExpMatch(url, "http://palacemoon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.palmislife.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*paper.li*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*paperb.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.panluan.net*") || shExpMatch(url, "http://panluan.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.panoramio.com*") || shExpMatch(url, "http://panoramio.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.parade.com/dictators/2009*") || shExpMatch(url, "http://parade.com/dictators/2009*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pastebin.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pastie.org*") || shExpMatch(url, "http://pastie.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pbs.org/wgbh/pages/frontline/gate*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pbs.org/wgbh/pages/frontline/tankman*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pbwiki.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pcdiscuss.com*") || shExpMatch(url, "http://pcdiscuss.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pcdvd.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pchome.com.tw*") || shExpMatch(url, "http://pchome.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pdetails.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*peacefire.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*peacehall.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.peeasian.com*") || shExpMatch(url, "http://peeasian.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pekingduck.org*") || shExpMatch(url, "http://pekingduck.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*penchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.penchinese.net*") || shExpMatch(url, "http://penchinese.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pengyulong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.penthouse.com*") || shExpMatch(url, "http://penthouse.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.peopo.org*") || shExpMatch(url, "http://peopo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.percy.in*") || shExpMatch(url, "http://percy.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*perfectvpn.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*perfspot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*philly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.picidae.net*") || shExpMatch(url, "http://picidae.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*picturesocial.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pidown.com*") || shExpMatch(url, "http://pidown.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pign.net*") || shExpMatch(url, "http://pign.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.pilotmoon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pin6.com*") || shExpMatch(url, "http://pin6.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ping.fm*") || shExpMatch(url, "http://ping.fm*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.piring.com*") || shExpMatch(url, "http://piring.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pixnet.net*") || shExpMatch(url, "http://pixnet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pk.com*") || shExpMatch(url, "http://pk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.planetsuzy.org*") || shExpMatch(url, "http://planetsuzy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://pictures.playboy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*plays.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*plm.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*plunder.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.plus28.com*") || shExpMatch(url, "http://plus28.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.plusbb.com*") || shExpMatch(url, "http://plusbb.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pmates.com*") || shExpMatch(url, "http://pmates.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pokerstars.com*") || shExpMatch(url, "http://pokerstars.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.pokerstrategy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*politicalchina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*popyard.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.porn.com*") || shExpMatch(url, "http://porn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.porn2.com*") || shExpMatch(url, "http://porn2.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornbase.org*") || shExpMatch(url, "http://pornbase.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornhub.com*") || shExpMatch(url, "http://pornhub.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornoxo.com*") || shExpMatch(url, "http://pornoxo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornrapidshare.com*") || shExpMatch(url, "http://pornrapidshare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornstarclub.com*") || shExpMatch(url, "http://pornstarclub.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.porntube.com*") || shExpMatch(url, "http://porntube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.pornvisit.com*") || shExpMatch(url, "http://pornvisit.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*postadult.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pubu.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*puffinbrowser.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://post.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.posterous.com*") || shExpMatch(url, "http://posterous.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://posterous.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.power.com*") || shExpMatch(url, "http://power.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*powerapple.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*heix.pp.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*prisoner-state-secret-journal-premier*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*privatepaste.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*privatetunnel.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*provideocoalition.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*proxifier.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*api.proxlet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*proxy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.proxypy.net*") || shExpMatch(url, "http://proxypy.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*proxyroad.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*prozz.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*psblog.name*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*psiphon.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ptt.cc*") || shExpMatch(url, "http://ptt.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.puffstore.com*") || shExpMatch(url, "http://puffstore.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.putlocker.com/file*") || shExpMatch(url, "http://putlocker.com/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pwned.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*python.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.python.com.tw*") || shExpMatch(url, "http://python.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://python.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.qanote.com*") || shExpMatch(url, "http://qanote.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*qi-gong.me*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.qienkuen.org*") || shExpMatch(url, "http://qienkuen.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*qixianglu.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.qmzdd.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.qkshare.com*") || shExpMatch(url, "http://qkshare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*qoos.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.qooza.hk*dafengqixi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*qusi8.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.qvodzy.org*") || shExpMatch(url, "http://qvodzy.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*nemesis2.qx.net*pages*MyEnTunnel*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*qxbbs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*radioaustralia.net.au*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*opml.radiotime.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*rangzen.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ranyunfei.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rapbull.net*") || shExpMatch(url, "http://rapbull.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rapidsharedata.com*") || shExpMatch(url, "http://rapidsharedata.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*rcinet.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.read100.com*") || shExpMatch(url, "http://read100.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.readingtimes.com.tw*") || shExpMatch(url, "http://readingtimes.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.realraptalk.com*") || shExpMatch(url, "http://realraptalk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.recordhistory.org*") || shExpMatch(url, "http://recordhistory.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.redtube.com*") || shExpMatch(url, "http://redtube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*referer.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*relaxbbs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*renminbao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.renyurenquan.org*") || shExpMatch(url, "http://renyurenquan.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*subacme.rerouted.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.reuters.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.revleft.com*") || shExpMatch(url, "http://revleft.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*retweetist.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*connectedchina.reuters.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.reuters.com/news/video*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*revver.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rfa.org*") || shExpMatch(url, "http://rfa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rfachina.com*") || shExpMatch(url, "http://rfachina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rfamobile.org*") || shExpMatch(url, "http://rfamobile.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rfi.fr*") || shExpMatch(url, "http://rfi.fr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://rfi.my/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rhcloud.com*") || shExpMatch(url, "http://rhcloud.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rileyguide.com*") || shExpMatch(url, "http://rileyguide.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*riku.me/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rlwlw.com*") || shExpMatch(url, "http://rlwlw.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinese.rnw.nl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rnw.nl*") || shExpMatch(url, "http://rnw.nl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*robtex.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.roodo.com*") || shExpMatch(url, "http://roodo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rsf.org*") || shExpMatch(url, "http://rsf.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rsf-chinese.org*") || shExpMatch(url, "http://rsf-chinese.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rssmeme.com*") || shExpMatch(url, "http://rssmeme.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rthk.hk*") || shExpMatch(url, "http://rthk.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://rthk.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rthk.org.hk*") || shExpMatch(url, "http://rthk.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://rthk.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*rti.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ruanyifeng.com/blog*some_ways_to_break_the_great_firewall*") || shExpMatch(url, "http://ruanyifeng.com/blog*some_ways_to_break_the_great_firewall*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rushbee.com*") || shExpMatch(url, "http://rushbee.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*rutube.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ruyiseek.com*") || shExpMatch(url, "http://ruyiseek.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.rxhj.net*") || shExpMatch(url, "http://rxhj.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.s135.com/google_ssl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sacom.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.saiq.me*") || shExpMatch(url, "http://saiq.me*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.salvation.org.hk*") || shExpMatch(url, "http://salvation.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.samair.ru/proxy/type-01*") || shExpMatch(url, "http://samair.ru/proxy/type-01*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sammyjs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sandnoble.com/bookSearch/isbnInquiry.asp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sanmin.com.tw*") || shExpMatch(url, "http://sanmin.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sapikachu.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*savemedia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*savetibet.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*savevid.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.scmp.com*") || shExpMatch(url, "http://scmp.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.scmpchinese.com*") || shExpMatch(url, "http://scmpchinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.scribd.com*") || shExpMatch(url, "http://scribd.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*seapuff.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*domainhelp.search.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*secretchina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*securitykiss.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*seesmic.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sejie.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sendspace.com/file*") || shExpMatch(url, "http://sendspace.com/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tweets.seraph.me/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sesawe.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sesawe.org*") || shExpMatch(url, "http://sesawe.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.setty.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sevenload.com*") || shExpMatch(url, "http://sevenload.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sex.com*") || shExpMatch(url, "http://sex.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sex-11.com*") || shExpMatch(url, "http://sex-11.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sex8.cc*") || shExpMatch(url, "http://sex8.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sexandsubmission.com*") || shExpMatch(url, "http://sexandsubmission.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sexhu.com*") || shExpMatch(url, "http://sexhu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sexhuang.com*") || shExpMatch(url, "http://sexhuang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sexinsex.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*67.220.91.18*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*67.220.91.23*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sf.net*") || shExpMatch(url, "http://sf.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sfileydy.com*") || shExpMatch(url, "http://sfileydy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shadow.ma*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shahamat-english.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shangfang.org*") || shExpMatch(url, "http://shangfang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shapeservices.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sharebee.com*") || shExpMatch(url, "http://sharebee.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sharpdaily.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sharpdaily.hk*") || shExpMatch(url, "http://sharpdaily.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shaunthesheep.com*") || shExpMatch(url, "http://shaunthesheep.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sheikyermami.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shenshou.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shenyunperformingarts.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shenzhoufilm.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shinychan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shitaotv.org*") || shExpMatch(url, "http://shitaotv.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shizhao.org*") || shExpMatch(url, "http://shizhao.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*shkspr.mobi/dabr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shopping.com*") || shExpMatch(url, "http://shopping.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.showtime.jp*") || shExpMatch(url, "http://showtime.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ch.shvoong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.shwchurch3.com*") || shExpMatch(url, "http://shwchurch3.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://shwchurch3.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*simplecd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*simpleproductivityblog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.sina.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.sina.com%2F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.sina.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dailynews.sina.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*dailynews.sina.com%2F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.sina.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*home.sina.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.sina.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.sina.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*singtao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*news.singtao.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sino-monthly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sinocism.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sinomontreal.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sinonet.ca*") || shExpMatch(url, "http://sinonet.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sinopitt.info*") || shExpMatch(url, "http://sinopitt.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sinoants.com*") || shExpMatch(url, "http://sinoants.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sinoquebec.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sitebro.tw*") || shExpMatch(url, "http://sitebro.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sitetag.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sis.xxx*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sis001.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://skyhighpremium.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.skykiwi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.skype.com/intl/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*share.skype.com/sites/en/2008/10/skype_president_addresses_chin*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.skype.com/zh-Hant*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xskywalker.com*") || shExpMatch(url, "http://xskywalker.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*m.slandr.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.slideshare.net*") || shExpMatch(url, "http://slideshare.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.slime.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.slutload.com*") || shExpMatch(url, "http://slutload.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*smhric.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.so-ga.net*") || shExpMatch(url, "http://so-ga.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.so-news.com*") || shExpMatch(url, "http://so-news.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*home.so-net.net.tw/yisa_tsai*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sod.co.jp*") || shExpMatch(url, "http://sod.co.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.softether.org*") || shExpMatch(url, "http://softether.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.softether-download.com*") || shExpMatch(url, "http://softether-download.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sohcradio.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.soumo.info*") || shExpMatch(url, "http://soumo.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.slinkset.com*") || shExpMatch(url, "http://slinkset.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.snaptu.com*") || shExpMatch(url, "http://snaptu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sneakme.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sobees.com*") || shExpMatch(url, "http://sobees.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*socialwhale.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.softether.co.jp*") || shExpMatch(url, "http://softether.co.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.sogoo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*soh.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sohfrance.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*chinese.soifind.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sokamonline.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.songjianjun.com*") || shExpMatch(url, "http://songjianjun.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sopcast.com*") || shExpMatch(url, "http://sopcast.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sopcast.org*") || shExpMatch(url, "http://sopcast.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*soundofhope.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sourceforge.net*") || shExpMatch(url, "http://sourceforge.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*southnews.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sowers.org.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.spankwire.com*") || shExpMatch(url, "http://spankwire.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.spb.com/blackberry-software/tv/download*") || shExpMatch(url, "http://spb.com/blackberry-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://spb.com/blackberry-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.spb.com/pocketpc-software/tv/download*") || shExpMatch(url, "http://spb.com/pocketpc-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://spb.com/pocketpc-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.spb.com/symbian-software/tv/download*") || shExpMatch(url, "http://spb.com/symbian-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://spb.com/symbian-software/tv/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.speedpluss.org*") || shExpMatch(url, "http://speedpluss.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*spinejs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*squarespace.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://cdn.sstatic.net/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.stackfile.com/freedur*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*usinfo.state.gov*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.starp2p.com*") || shExpMatch(url, "http://starp2p.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.state168.com*") || shExpMatch(url, "http://state168.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sthoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.stickam.com*") || shExpMatch(url, "http://stickam.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*stickeraction.com/sesawe*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.stoptibetcrisis.net*") || shExpMatch(url, "http://stoptibetcrisis.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.streetvoice.com/article*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.streetvoice.com/diary*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn2.streetvoice.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw.streetvoice.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.student.tw/db*") || shExpMatch(url, "http://student.tw/db*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*stupidvideos.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sufeng.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sugarsync.com*") || shExpMatch(url, "http://sugarsync.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*summify.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.suoluo.org*") || shExpMatch(url, "http://suoluo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*api.supertweet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.supertweet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.surfeasy.com.au*") || shExpMatch(url, "http://surfeasy.com.au*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*support/youtube/bin/request.py?contact_type=abuse&*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*/support/youtube/bin/static.py?page=start.cs&*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sydneytoday.com*") || shExpMatch(url, "http://sydneytoday.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*sysresccd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.sytes.net*") || shExpMatch(url, "http://sytes.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.syx86.com/2009/09/puff*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.syx86.cn/2009/09/puff*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.szbbs.net*") || shExpMatch(url, "http://szbbs.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.t35.com*") || shExpMatch(url, "http://t35.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.t66y.com*") || shExpMatch(url, "http://t66y.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.taa-usa.org*") || shExpMatch(url, "http://taa-usa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://taa-usa.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tabtter.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tacem.org*") || shExpMatch(url, "http://tacem.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tagwalk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taipei.gov.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.taipeisociety.org*") || shExpMatch(url, "http://taipeisociety.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.taiwandaily.net*") || shExpMatch(url, "http://taiwandaily.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwankiss.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwannation.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwannation.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwanus.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwanyes.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*taiwan-sex.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tangben.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.taolun.info*") || shExpMatch(url, "http://taolun.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.taragana.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.taweet.com*") || shExpMatch(url, "http://taweet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tchrd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tcno.net*doc*tor*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.teashark.com/download.html*") || shExpMatch(url, "http://teashark.com/download.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.telecomspace.com*") || shExpMatch(url, "http://telecomspace.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tenacy.com*") || shExpMatch(url, "http://tenacy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*theblemish.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.thechinabeat.org*") || shExpMatch(url, "http://thechinabeat.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thehousenews.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thepiratebay.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*theqii.info/blog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thereallove.kr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thespeeder.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thetrotskymovie.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thevivekspot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.thisav.com*") || shExpMatch(url, "http://thisav.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://thisav.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*thkphoto.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*threatchaos.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.thumbzilla.com*") || shExpMatch(url, "http://thumbzilla.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tiananmenmother.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tianhuayuan.com*") || shExpMatch(url, "http://tianhuayuan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tiantibooks.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tianzhu.org*") || shExpMatch(url, "http://tianzhu.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tibet.com*") || shExpMatch(url, "http://tibet.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tibet.net*") || shExpMatch(url, "http://tibet.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tibet.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tibetalk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tibetanyouthcongress.org*") || shExpMatch(url, "http://tibetanyouthcongress.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tibetfund.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tibetonline.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tibetonline.tv*") || shExpMatch(url, "http://tibetonline.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.time.com/time/time100/leaders/profile/rebel*") || shExpMatch(url, "http://time.com/time/time100/leaders/profile/rebel*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.time.com/time/specials/packages/article/0,28804*") || shExpMatch(url, "http://time.com/time/specials/packages/article/0,28804*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.time.com/time/magazine*") || shExpMatch(url, "http://time.com/time/magazine*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tinychat.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tistory.com*") || shExpMatch(url, "http://tistory.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.tmagazine.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tmi.me*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tnaflix.com*") || shExpMatch(url, "http://tnaflix.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*togetter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tokyo-247.com*") || shExpMatch(url, "http://tokyo-247.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tokyo-hot.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tonyyan.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.toodoc.com*") || shExpMatch(url, "http://toodoc.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*toonel.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.topnews.in*") || shExpMatch(url, "http://topnews.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.topshareware.com*") || shExpMatch(url, "http://topshareware.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*topsy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tora.to*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.torproject.org*") || shExpMatch(url, "http://torproject.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*torrentcrazy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*touch99.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tpi.org.tw*") || shExpMatch(url, "http://tpi.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*trendsmap.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.trialofccp.org*") || shExpMatch(url, "http://trialofccp.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*trtc.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*trulyergonomic.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.truth101.co.tv*") || shExpMatch(url, "http://truth101.co.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://truth101.co.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.truveo.com*") || shExpMatch(url, "http://truveo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tsemtulku.com*") || shExpMatch(url, "http://tsemtulku.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tsquare.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tsunagarumon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tsctv.net*") || shExpMatch(url, "http://tsctv.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tttan.com*") || shExpMatch(url, "http://tttan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bb.ttv.com.tw/bb*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tuanzt.com*") || shExpMatch(url, "http://tuanzt.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tube.com*") || shExpMatch(url, "http://tube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tube8.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tubecao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tuidang.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tuidang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*bbs.tuitui.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tunein.com*") || shExpMatch(url, "http://tunein.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tunein.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.turbobit.net*") || shExpMatch(url, "http://turbobit.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://turbobit.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tv.com*") || shExpMatch(url, "http://tv.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tv.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tvants.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*forum.tvb.com/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tvboxnow.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tvider.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twa.sh*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twapperkeeper.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twaud.io*") || shExpMatch(url, "http://twaud.io*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twbbs.net.tw*") || shExpMatch(url, "http://twbbs.net.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twbbs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twbbs.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweepmag.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tweepml.org*") || shExpMatch(url, "http://tweepml.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tweetbackup.com*") || shExpMatch(url, "http://tweetbackup.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweetboard.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tweetboner.biz*") || shExpMatch(url, "http://tweetboner.biz*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tweetdeck.com*") || shExpMatch(url, "http://tweetdeck.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://deck.ly*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*m.tweete.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweetmeme.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweetphoto.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweetree.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tweetymail.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twibase.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twibble.de*") || shExpMatch(url, "http://twibble.de*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twibbon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twicsy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twifan.com*") || shExpMatch(url, "http://twifan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://twifan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twiffo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twilog.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twimbow.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twipple.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twistar.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twisternow.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twistory.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitbrowser.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitgoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitiq.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitlonger.com*") || shExpMatch(url, "http://twitlonger.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://tl.gd/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitoaster.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitpic.com*") || shExpMatch(url, "http://twitpic.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitreferral.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twit2d.com*") || shExpMatch(url, "http://twit2d.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitstat.com*") || shExpMatch(url, "http://twitstat.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitvid.com*") || shExpMatch(url, "http://twitvid.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*199.59.148.20*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://t.co*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://t.co*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://twt.tl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twittbot.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twittercounter.com*") || shExpMatch(url, "http://twittercounter.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitterfeed.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twittergadget.com*") || shExpMatch(url, "http://twittergadget.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitterkr.com*") || shExpMatch(url, "http://twitterkr.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twittertim.es*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twitthat.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitturly.com*") || shExpMatch(url, "http://twitturly.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twitzap.com*") || shExpMatch(url, "http://twitzap.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twiyia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twreg.info*") || shExpMatch(url, "http://twreg.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twtkr.com*") || shExpMatch(url, "http://twtkr.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://twtkr.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twtrland.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*twurl.nl*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.twyac.org*") || shExpMatch(url, "http://twyac.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.tycool.com*") || shExpMatch(url, "http://tycool.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tynsoe.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*embr.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*guomin.us/login*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.srcf.ucam.org/salon/*") || shExpMatch(url, "http://srcf.ucam.org/salon/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.udn.com*") || shExpMatch(url, "http://udn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ufreevpn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ugo.com*") || shExpMatch(url, "http://ugo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*uhrp.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*uighurbiz.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ulike.net*") || shExpMatch(url, "http://ulike.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.ukchinese.com/www/22/2009-03/2842.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ukliferadio.co.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ultravpn.fr*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ultraxs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*uncyclomedia.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*uncyclopedia.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uni.cc*") || shExpMatch(url, "http://uni.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*unicode.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uniteddaily.com.my/index.php?*") || shExpMatch(url, "http://uniteddaily.com.my/index.php?*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.unix100.com*") || shExpMatch(url, "http://unix100.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*unpo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tor.updatestar.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.upload4u.info*") || shExpMatch(url, "http://upload4u.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uploaded.to/file*") || shExpMatch(url, "http://uploaded.to/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://uploaded.to/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uploadstation.com/file*") || shExpMatch(url, "http://uploadstation.com/file*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.urbanoutfitters.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*myshare.url.com.tw/*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*us.to*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*beta.usejump.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*earthquake.usgs.gov/eqcenter/recenteqsww/Maps/10/105_30.php*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ustream.tv*") || shExpMatch(url, "http://ustream.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*usus.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uushare.com*") || shExpMatch(url, "http://uushare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://uushare.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uwants.com*") || shExpMatch(url, "http://uwants.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.uwants.net*") || shExpMatch(url, "http://uwants.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*uygur.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*v70.us*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.van698.com*") || shExpMatch(url, "http://van698.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.vanemu.cn*") || shExpMatch(url, "http://vanemu.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.vanilla-jp.com*") || shExpMatch(url, "http://vanilla-jp.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vansky.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.velkaepocha.sk*") || shExpMatch(url, "http://velkaepocha.sk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*veoh.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.verizon.net*") || shExpMatch(url, "http://verizon.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.vft.com.tw*") || shExpMatch(url, "http://vft.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*videobam.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.videomo.com*") || shExpMatch(url, "http://videomo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vimeo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.tiscali.it/canali/truveo*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.voa.mobi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw.voa.mobi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.voachineseblog.com*") || shExpMatch(url, "http://voachineseblog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*voagd.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*voacantonese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*voachinese.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*voatibetan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*voanews.com/chinese*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vocn.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.vot.org*") || shExpMatch(url, "http://vot.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.voy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vpnbook.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vpnfire.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.vpngate.net*") || shExpMatch(url, "http://vpngate.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*lists.w3.org/archives/public*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.jyzj.waqn.com*") || shExpMatch(url, "http://jyzj.waqn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wahas.com*") || shExpMatch(url, "http://wahas.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.waigaobu.com*") || shExpMatch(url, "http://waigaobu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*waikeung.org/php_wind*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.waiwaier.com*") || shExpMatch(url, "http://waiwaier.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://waiwaier.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wallornot.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wangjinbo.org*") || shExpMatch(url, "http://wangjinbo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wanglixiong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wangruoshui.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.wangruowang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*want-daily.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wapedia.mobi/zhsimp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.makzhou.warehouse333.com*") || shExpMatch(url, "http://makzhou.warehouse333.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*washeng.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wattpad.com*") || shExpMatch(url, "http://wattpad.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wearn.com*") || shExpMatch(url, "http://wearn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*webbang.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*weblagu.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*webs-tv.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*webshots.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*websitepulse.com/help/testtools.china-test.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*webworkerdaily.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*weeewooo.net/hss/hotspot_cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.weekmag.info*") || shExpMatch(url, "http://weekmag.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wefong.com*") || shExpMatch(url, "http://wefong.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*weiboleak.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*weijingsheng.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.weiming.info*") || shExpMatch(url, "http://weiming.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*weiquanwang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wengewang.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wengewang.org*") || shExpMatch(url, "http://wengewang.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wenhui.ch*") || shExpMatch(url, "http://wenhui.ch*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wenxuecity.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wenyunchao.com*") || shExpMatch(url, "http://wenyunchao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*westca.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hkg.westkit.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.wet123.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wetpussygames.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wexiaobo.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wezhiyong.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wforum.com*") || shExpMatch(url, "http://wforum.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.whatblocked.com*") || shExpMatch(url, "http://whatblocked.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.whippedass.com*") || shExpMatch(url, "http://whippedass.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*whylover.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*evchk.wikia.com/wiki/%E5%A4%A7%E7%B4%80%E5%85%83%E6%99%82%E5%A0%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*cn.uncyclopedia.wikia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.uncyclopedia.wikia.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wikileaks.org*") || shExpMatch(url, "http://wikileaks.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wikilivres.info/wiki/%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikinews.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*winwhispers.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wisevid.com*") || shExpMatch(url, "http://wisevid.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.witopia.net*") || shExpMatch(url, "http://witopia.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wo.tc*") || shExpMatch(url, "http://wo.tc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wolfax.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.womensrightsofchina.org*") || shExpMatch(url, "http://womensrightsofchina.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*woopie.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*woopie.tv*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.worldcat.org*") || shExpMatch(url, "http://worldcat.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*worldjournal.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wordpress.com*") || shExpMatch(url, "http://wordpress.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*woxinghuiguo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wow-life.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wpoforum.com*") || shExpMatch(url, "http://wpoforum.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wqlhw.com*") || shExpMatch(url, "http://wqlhw.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wqyd.org*") || shExpMatch(url, "http://wqyd.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wretch.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wsj.com*") || shExpMatch(url, "http://wsj.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wtfpeople.com*") || shExpMatch(url, "http://wtfpeople.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wuala.com*") || shExpMatch(url, "http://wuala.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wuerkaixi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wufi.org.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wujie.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wujieliulan.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wukangrui.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wwitv.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*wzyboy.im/post/160*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://www.x-berry.com/goagent*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*x1949x.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*x365x.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xanga.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xbookcn.com*") || shExpMatch(url, "http://xbookcn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*x.xcity.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xcritic.com*") || shExpMatch(url, "http://xcritic.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*destiny.xfiles.to/ubbthreads*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xfm.pp.ru*") || shExpMatch(url, "http://xfm.pp.ru*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xgmyd.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xh4n.cn/blog*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xhamster.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*one.xthost.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xiaochuncnjp.com*") || shExpMatch(url, "http://xiaochuncnjp.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*s.xiaod.in*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xiaohexie.com*") || shExpMatch(url, "http://xiaohexie.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xiezhua.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xing.com*") || shExpMatch(url, "http://xing.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xinmiao.com.hk*") || shExpMatch(url, "http://xinmiao.com.hk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xinsheng.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xinshijue.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xinhuanet.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xizang-zhiye.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xjp.cc*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xmovies.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xpdo.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.xuite.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*vlog.xuite.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xuzhiyong.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xuchao.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xvedios.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xvideos.com*") || shExpMatch(url, "http://xvideos.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.xxbbx.com*") || shExpMatch(url, "http://xxbbx.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xys.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xysblogs.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xyy69.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xyy69.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*page.bid.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blogs.yahoo.co.jp*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*buy.yahoo.com.tw/gdsale*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.knowledge.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.myblog.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.news.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.rd.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.search.yahoo.com/search*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*hk.video.news.yahoo.com/video*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*meme.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw.myblog.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*tw.news.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*pulse.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*upcoming.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*video.yahoo.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yam.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yasni.co.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ydy.com*") || shExpMatch(url, "http://ydy.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yeeyi.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yegle.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yfrog.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yi.org*") || shExpMatch(url, "http://yi.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yidio.com*") || shExpMatch(url, "http://yidio.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yilubbs.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*xa.yimg.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yipub.com*") || shExpMatch(url, "http://yipub.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yogichen.org*") || shExpMatch(url, "http://yogichen.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yong.hu*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yorkbbs.ca*") || shExpMatch(url, "http://yorkbbs.ca*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yyii.org*") || shExpMatch(url, "http://yyii.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yzzk.com*") || shExpMatch(url, "http://yzzk.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.youjizz.com*") || shExpMatch(url, "http://youjizz.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*youmaker.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*youpai.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.your-freedom.net*") || shExpMatch(url, "http://your-freedom.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.yousendit.com*") || shExpMatch(url, "http://yousendit.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*youthbao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.youthnetradio.org/tmit/forum*") || shExpMatch(url, "http://youthnetradio.org/tmit/forum*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.youthwant.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*share.youthwant.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*topic.youthwant.com.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.youporn.com*") || shExpMatch(url, "http://youporn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.youtube.com*") || shExpMatch(url, "http://youtube.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.youtubecn.com*") || shExpMatch(url, "http://youtubecn.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*youversion.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*blog.youxu.info/2010/03/14/west-chamber*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ytht.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yuanming.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*yx51.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zacebook.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*luntan.zaobao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zaobao.com.sg*") || shExpMatch(url, "http://zaobao.com.sg*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zaozon.com*") || shExpMatch(url, "http://zaozon.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.zaurus.org.uk*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zdnet.com.tw/news/software/0,2000085678,20111187,00*") || shExpMatch(url, "http://zdnet.com.tw/news/software/0,2000085678,20111187,00*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zengjinyan.org*") || shExpMatch(url, "http://zengjinyan.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*www.zfreet.com/post/usejump-browns.html*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zgzcjj.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zhanbin.net*") || shExpMatch(url, "http://zhanbin.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zhenghui.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zhenlibu.info*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zhinengluyou.com*") || shExpMatch(url, "http://zhinengluyou.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zhuichaguoji.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.ziddu.com/download*") || shExpMatch(url, "http://ziddu.com/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zinio.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zkaip.com*") || shExpMatch(url, "http://zkaip.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zmw.cn*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zomobo.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zonaeuropa.com*") || shExpMatch(url, "http://zonaeuropa.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zoozle.net*") || shExpMatch(url, "http://zoozle.net*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*writer.zoho.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zshare.net/download*") || shExpMatch(url, "http://zshare.net/download*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zsrhao.com*") || shExpMatch(url, "http://zsrhao.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zuo.la*") || shExpMatch(url, "http://zuo.la*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.zuola.com*") || shExpMatch(url, "http://zuola.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zyzc9.com*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*freenet*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*q=freedom*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*q%3Dfreedom*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*remembering_tiananmen_20_years*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*safeweb*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*q=triangle*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*q%3DTriangle*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ultrareach*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ultrasurf*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zhengjian*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E7%BD%A2%E8%AF%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%B2%8D%E5%BD%A4*") || shExpMatch(url, "http://google.*%E9%B2%8D%E5%BD%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.google.*%E9%AE%91%E5%BD%A4*") || shExpMatch(url, "http://google.*%E9%AE%91%E5%BD%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%8D%9A%E8%AE%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%A4%A7%E7%BA%AA%E5%85%83*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E9%92%93%E9%B1%BC%E5%B2%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E5%8A%A8%E6%80%81%E7%BD%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%A4%9A%E7%B6%AD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%A4%9A%E7%BB%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*freegate*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%B3%95%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BD%AE%E5%A4%A7%E6%B3%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BC%AA%E5%8A%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BD%AE%E5%8A%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E8%83%A1%E6%B5%B7%E5%B3%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E8%83%A1%E6%B5%B7%E6%B8%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E8%8A%B1%E8%8A%B1%E5%85%AC%E5%AD%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%BC%CD%D4%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%BC%D3%C3%DC%B4%FA%C0%ED*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%8A%A0%E5%AF%86%E4%BB%A3%E7%90%86*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%B1%9F%E6%B5%81%E6%B0%93*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E7%9C%8B%E4%B8%AD%E5%9B%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%85%AD%E5%9B%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E5%88%98%E6%99%93%E6%B3%A2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E7%BE%8E%E5%9B%BD%E4%B9%8B%E9%9F%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E6%B0%91%E8%BF%9B%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E6%B0%91%E8%BF%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E8%89%B2%E6%83%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*%E7%8E%8B%E4%B8%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E7%BD%91%E7%89%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E7%8E%8B%E5%B8%8C%E5%93%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E9%AD%8F%E4%BA%AC%E7%94%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%96%87%E5%AD%97%E7%8B%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%97%A0%E7%95%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E9%82%AA%E6%81%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%B4%97%E8%84%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%96%B0%E5%94%90%E4%BA%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E6%96%B0%E8%AF%AD%E4%B8%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E5%AD%A6%E8%BF%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%8A%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%9B%BD%E8%AE%BA%E5%9D%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%AE%A3%E9%83%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://upload.wikimedia.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "https://*.wikipedia.org*") || shExpMatch(url, "https://wikipedia.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wikipedia.org/wiki/Dalai_Lama*") || shExpMatch(url, "http://wikipedia.org/wiki/Dalai_Lama*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*.wikipedia.org/wiki/Dalai-Lama*") || shExpMatch(url, "http://wikipedia.org/wiki/Dalai-Lama*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*ar.wikipedia.org*%D8%AF%D8%A7%D9%84%D8%A7%D9%8A_%D9%84%D8%A7%D9%85%D8%A7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh-yue.wikipedia.org/wiki/%E5%8A%89%E6%9B%89%E6%B3%A2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Anti-communism*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Book_burning*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Censorship_in_the_People%27s_Republic_of_China*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Charter_08*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Chen_Guangcheng*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Deep_packet_inspection*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Freegate*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Golden_Shield_Project*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Great_Firewall_of_China*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Hong_Kong*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Huang_Qi*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Internet_censorship*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Java_Anon_Proxy*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Liu_Xiaobo*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Shi_Tao*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tank_man*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tiananmen_Papers*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tiananmen_Square_protests_of_1989*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tibetan_independence_movement*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/Wikipedia:%E9%A0%81%E9%9D%A2%E5%AD%98%E5%BB%A2%E8%A8%8E%E8%AB%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.m.wikipedia.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikisource.org*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*2012%E5%B9%B4%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%85%90%E8%B4%A5%E6%A1%88%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*512%E5%A4%A7%E5%9C%B0%E9%9C%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*08%E5%AE%AA%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*1959%E5%B9%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*1989%E5%B9%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*610%E8%BE%A6%E5%85%AC%E5%AE%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*Anti-CNN*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%BF%E5%BA%95%E5%B3%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%BF%E6%B2%9B%C2%B7%E9%98%BF%E6%97%BA%E6%99%8B%E7%BE%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%89%BE%E6%9C%AA%E6%9C%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AB%E4%B9%9D%E5%AD%A6%E8%BF%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AB%E6%80%9D%E5%B7%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8F%AD%E7%A6%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%B2%8D%E5%BD%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AE%91%E5%BD%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E9%AB%98%E6%A0%A1%E5%AD%A6%E7%94%9F%E8%87%AA%E6%B2%BB%E8%81%94%E5%90%88%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%96%84%E7%86%99%E6%9D%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%9A%E8%AE%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%83%E6%8B%89%E6%A0%BC%E4%B9%8B%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9F%B4%E7%8E%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%93%E5%A4%AE%E5%98%89%E6%8E%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9B%B9%E9%95%B7%E9%9D%92*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%99%88%E5%85%89%E8%AF%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A5%9A%E5%B8%83%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%e5%a4%a7%e5%8f%82%e8%80%83_(%e7%bd%91%e7%bb%9c%e6%9d%82%e5%bf%97)*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E7%B4%80%E5%85%83*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E7%BA%AA%E5%85%83%E6%97%B6%E6%8A%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E5%85%B0%E8%90%A8%E6%8B%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%81%94%E8%98%AD%E8%96%A9%E6%8B%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E5%B0%94%E7%BD%95%E6%B4%BB%E4%BD%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9B%BD%E9%99%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9C%8B%E9%9A%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E5%B1%A0%E6%9D%80%E5%88%97%E8%A1%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%97%8F%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E6%98%AD%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%B9%E5%A2%9E%E5%98%89%E6%8E%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%81%E5%AD%90%E9%9C%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%9C%E9%A3%8E-21%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%B1%E9%A2%A8-31%E6%B4%B2%E9%9A%9B%E5%BD%88%E9%81%93%E5%B0%8E%E5%BD%88*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%B1%E7%AA%81%E5%8E%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%9C%E7%AA%81%E5%8E%A5%E6%96%AF%E5%9D%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%9A%E7%BB%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%9A%E7%B6%AD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%84%E7%BE%85%E6%96%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%8D%E5%8D%8E%E5%8A%BF%E5%8A%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E5%8A%B1%E4%B9%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E5%8B%B5%E4%B9%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E8%88%9F%E5%AD%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%84%A4%E9%9D%92*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%81%E4%BB%8E%E5%BE%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%81%E5%BE%9E%E5%BE%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%86%AF%E6%AD%A3%E8%99%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%82%85%E9%93%81%E5%B1%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E5%80%AB%E8%B5%A4%E5%B7%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AB%98%E6%99%BA%E6%99%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9B%B4%E7%99%BB%E7%A2%BA%E5%90%89%E5%B0%BC%E7%91%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E4%B8%BE%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%94%B9%E9%9D%A9%E5%8E%86%E7%A8%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%94%98%E4%B8%B9%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AB%98%E8%A1%8C%E5%81%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E5%BD%93%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A0%BC%E9%B2%81%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*GFW*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86%E5%88%86%E5%AD%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*Google%E5%AE%A1%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%96%B0%E5%A1%98%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E4%BF%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%83%AD%E4%BC%AF%E9%9B%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E9%99%85%E7%89%B9%E8%B5%A6%E7%BB%84%E7%BB%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E5%86%85%E5%AE%89%E5%85%A8%E4%BF%9D%E5%8D%AB%E6%94%AF%E9%98%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9C%8B%E5%8B%99%E9%99%A2%E9%98%B2%E7%AF%84%E5%92%8C%E8%99%95%E7%90%86%E9%82%AA%E6%95%99%E5%95%8F%E9%A1%8C%E8%BE%A6%E5%85%AC%E5%AE%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9F%A9%E4%B8%9C%E6%96%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B4%BA%E5%9B%BD%E5%BC%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BD%95%E4%BF%8A%E4%BB%81*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B2%B3%E6%AE%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B4%AA%E5%93%B2%E5%8B%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%BB%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E8%B5%9B%E5%9B%A0%E6%B1%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%81%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%281973%E5%B9%B4%29*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%B4%BB%E5%8B%95%E5%AE%B6%29*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%9C%83%E6%B4%BB%E5%8B%95%E5%AE%B6%29*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E9%94%A6%E6%B6%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E5%B9%B3_%28%E4%BD%9C%E5%AE%B6%29*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%91%BC%E5%9C%96%E5%85%8B%E5%9C%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E6%B8%A9%E4%BD%93%E5%88%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E8%80%80%E9%82%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%8E%E5%9B%BD%E9%94%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8F%AF%E5%9C%8B%E9%8B%92*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%8E%E5%A4%8F%E6%96%87%E6%91%98*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E8%BD%AF%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E7%BD%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%84%E7%90%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E7%90%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E9%9B%80%E8%A1%8C%E5%8B%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%84%E4%B8%87%E9%87%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E6%9B%89%E6%95%8F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%9E%E8%89%AF%E7%8E%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9C%8D%E8%8B%B1%E6%9D%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AF%82%E8%AD%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%BF%80%E6%B5%81%E4%B8%AD%E5%9B%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%98%89%E9%9D%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%B6%E4%B9%90%E7%A6%8F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B3%88%E6%85%B6%E6%9E%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B4%BE%E5%BA%86%E6%9E%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BB%BA%E5%9B%BD%E9%97%A8%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A7%9C%E7%BB%B4%E5%B9%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%9F%E6%B3%BD%E6%B0%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%9F%E6%BE%A4%E6%B0%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%87%91%E7%9B%BE%E5%B7%A5%E7%A8%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%BD%F0%B6%DC%B9%A4%B3%CC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%9D%E8%AF%84%E5%85%B1%E4%BA%A7%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%9D%E8%A9%95%E5%85%B1%E7%94%A2%E9%BB%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B7%A8%E6%B5%AA2%E5%9E%8B%E6%BD%9C%E5%B0%84%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A6%BA%E5%9B%8A%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BB%9D%E9%A3%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8B%89%E5%8D%9C%E6%A5%9E%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8B%89%E8%90%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%8E%E5%AE%89%E5%8F%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%95%BF%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%95%B7%E6%98%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%B4%AA%E5%BF%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E5%85%8B%E5%BC%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%B5%AC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%B9%8F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%8E%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%92%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%85%8E%E4%B9%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8E%86%E5%8F%B2%E7%9A%84%E4%BC%A4%E5%8F%A3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E8%8B%B1%E6%B5%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%BA%90%E6%BD%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E5%8D%93%E4%BA%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BB%96%E4%BA%A6%E6%AD%A6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%93%AE%E8%8A%B1%E7%94%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A2%81%E5%9B%BD%E9%9B%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A2%81%E5%9C%8B%E9%9B%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%A4%E8%B0%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%A4%E8%AE%A1%E5%88%92*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E5%AE%BE%E9%9B%81*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E5%89%9B_(%E6%B0%91%E9%81%8B%E4%BA%BA%E5%A3%AB)*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E6%85%A7%E5%8D%BF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E6%85%A7%E5%8D%BF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E6%B7%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AD%E5%9B%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh-yue.wikipedia.org*%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E6%9B%89%E6%B3%A2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E5%BB%B6%E4%B8%9C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E4%BA%91%E5%B1%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%85%E5%B9%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%85%E5%B9%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B4%9B%E6%A1%91%E6%A3%AE%E6%A0%BC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%B6%A0%E5%A3%A9%C2%B7%E8%8A%B1%E5%AD%A3%E8%AD%B7%E8%88%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BB%BF%E5%9D%9D%C2%B7%E8%8A%B1%E5%AD%A3%E6%8A%A4%E8%88%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%e7%bb%bf%e5%9d%9d%e5%a8%98*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%AC%E4%B8%89%E5%AE%B6%E5%A5%B3%E5%AD%90%E5%8B%9E%E6%95%99%E6%89%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%AC%E8%8B%B1%E4%B9%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%B0%91%E4%B8%BB%E5%9F%BA%E9%87%91%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%95%8F%E6%84%9F%E4%BA%BA%E5%A3%AB*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E9%96%93%E4%BA%BA%E6%AC%8A%E9%99%A3%E7%B7%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%95%8F%E7%8F%A0%E6%9E%97%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E5%A5%B3%E7%A5%9E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E9%BB%A8_(%E9%A6%99%E6%B8%AF)*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E6%AD%8C%E8%81%B2%E7%8D%BB%E4%B8%AD%E8%8F%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%97%E6%96%B9%E9%83%BD%E5%B8%82%E6%8A%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-hk/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-tw/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%86%85%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%A7%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E9%BB%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%81%E7%8E%9B%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%89%9B%E5%8D%9A%E7%BD%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8C%AA%E5%A8%81*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BD%AD%E4%B8%BD%E5%AA%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%A0%B4%E7%BD%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B5%A6%E5%BF%97%E5%BC%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%83%E4%B8%80%E9%81%8A%E8%A1%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%A7%A6%E5%9F%8E%E7%9B%91%E7%8B%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%85%E6%9C%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%A8%E7%90%83%E8%97%8F%E4%BA%BA%E7%89%B9%E5%88%AB%E5%A4%A7%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%C8%BC%C9%D5%C6%BF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%87%83%E7%83%A7%E7%93%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%83%AD%E6%AF%94%E5%A8%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%86%B1%E6%AF%94%E5%A9%AD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%91%9E%E5%85%B8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%90%A8%E8%BF%A6%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%89%E5%B9%B4%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%89%E9%80%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%89%B2%E6%8B%89%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9C%A3%E9%9B%84%E7%94%98%E5%9C%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9B%9B%E9%9B%AA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E4%B8%96%E7%95%8C%E5%90%84%E6%94%BF%E6%9D%83%E5%8F%97%E6%89%BF%E8%AE%A4%E7%8A%B6%E5%86%B5%E5%88%97%E8%A1%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%8F%E6%B5%8E%E5%AF%BC%E6%8A%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E5%A4%A7%E4%BC%9A!--Shi Jie Wei Wu Er Qing Nian Dai Biao Da Hui*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E9%9D%92%E5%B9%B4%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%B6%AD%E5%90%BE%E7%88%BE%E4%BB%A3%E8%A1%A8%E5%A4%A7%E6%9C%83*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%81%E5%9B%9B%E4%B8%96%E8%BE%BE%E8%B5%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%88%E6%B6%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%AB%E6%BF%A4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%87%8A%E6%98%9F%E4%BA%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E5%8D%8E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E8%8F%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%9B%E4%BA%94%E8%A1%8C%E5%8B%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E5%BD%AC%E5%BD%AC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%A9%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%AA%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8B%8F%E5%AE%B6%E5%B1%AF%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AD%99%E6%96%87%E5%B9%BF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A1%94%E5%B0%94%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%AB%8B%E5%BB%BA%E5%9C%8B%E8%81%AF%E7%9B%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B0%AD%E4%BD%9C%E4%BA%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%94%90%E6%9F%8F%E6%A1%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh/%E9%99%B6%E9%A9%B7%E9%A9%B9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E5%B9%BF%E5%9C%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%AF%8D%E4%BA%B2%E8%BF%90%E5%8A%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%96%87%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E6%96%87%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E8%87%AA%E7%84%9A%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E8%91%AC*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/Tor*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-hk/Twitter*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%87%E9%87%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%86%9B%E6%B6%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E6%A8%82%E6%B3%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%AB%8B%E5%86%9B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%B2%90%E5%B1%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%8D%83%E6%BA%90*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%BB%B4%E6%9E%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E6%9C%89%E6%89%8D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AD%8F%E4%BA%AC%E7%94%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%82%B3%E7%AB%A0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E4%B9%90%E6%B3%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%8A%9B%E9%9B%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BD%91%E7%BB%9C%E8%AF%84%E8%AE%BA%E5%91%98*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E7%8E%8B%E5%A7%93*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%AA%E6%B4%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%85%86%E5%9B%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%94%AF%E8%89%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A8%81%E8%A7%86%E8%85%90%E8%B4%A5%E6%A1%88*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%9C%B0%E9%9C%87*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%A9%E5%AE%B6%E5%AE%9D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%A9%E4%BA%91%E6%9D%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8B%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8D%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%B4%E9%82%A6%E5%9B%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%BE%E5%B0%94%E5%BC%80%E5%B8%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%BE%E7%88%BE%E9%96%8B%E5%B8%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%97%A0%E5%9B%BD%E7%95%8C%E8%AE%B0%E8%80%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%B4%E5%BC%98%E8%BE%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%97%A0%E7%95%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%83%8F%E5%9D%8E%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E4%B8%83%C2%B7%E4%BA%94%E6%9A%B4%E5%8A%9B%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BA%94%E6%AF%9B%E8%9B%8B%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E5%8D%95%E6%B0%91%E4%B8%BB%E5%A2%99*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BF%92%E8%BF%91%E5%B9%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%A0%E8%BF%91%E5%B9%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E5%8E%A2%E8%AE%A1%E5%88%92*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E8%97%8F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%A0%E4%BB%B2%E5%8B%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%8F%E7%91%AA%E5%B7%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E7%8D%A8%E7%AB%8B%E9%81%8B%E5%8B%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E6%B0%91%E4%B8%BB%E9%BB%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF*%E6%B0%91%E4%B8%BB%E6%B4%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%8F%E6%98%AD%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B0%A2%E5%BD%A6%E9%A3%9E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%9B%E7%81%8F%E5%B9%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8B%AC%E7%AB%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8D%A8%E7%AB%8B*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E5%94%90%E4%BA%BA%E9%9B%BB%E8%A6%96%E5%8F%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E9%97%BB%E8%87%AA%E7%94%B1%E6%8E%A0%E5%A4%BA%E8%80%85*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%98%9F%E4%BA%91%E6%B3%95%E5%B8%88*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%86%8A%E7%84%B1*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BE%90%E6%89%8D%E5%8E%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%AE%B8%E5%AE%B6%E5%B1%AF*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%AA%E5%B1%B1%E7%8D%85%E5%AD%90%E6%97%97*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A9%A2%E5%95%8F%E8%99%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9A%B4%E5%AE%B6%E5%85%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%A5%E5%AE%B6%E5%85%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%8E%E6%98%8E%E5%A4%8D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%A8%E4%BD%B3%E8%A2%AD%E8%AD%A6%E6%A1%88*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A5%8A%E5%BB%BA%E5%88%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%9A%81%E5%8A%9B%E7%A5%9E*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%8D%E5%92%8C%E5%AE%AB*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B9%BD%E7%81%B5%E7%BD%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BD%99%E6%9D%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%9E%E4%B8%BD%E8%90%8D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%9E%E6%AD%A3%E5%A3%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A2%81%E7%BA%A2%E5%86%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A2%81%E7%B4%85%E5%86%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%97%8F%E4%BC%A0%E4%BD%9B%E6%95%99*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%89%8E%E4%BB%80%E4%BC%A6%E5%B8%83%E5%AF%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E5%BE%B7%E6%B1%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E9%AB%98%E4%B8%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E5%98%89%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E7%AB%8B%E6%98%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E5%9F%B9%E8%8E%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%B5%E6%96%87%E5%85%89*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E8%A9%92%E5%92%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E8%AF%92%E5%92%8C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E9%92%B0*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%B5%E9%88%BA*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B5%B5%E7%B4%AB%E9%98%B3*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B6%99%E7%B4%AB%E9%99%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%93%B2%E5%B8%83%E5%B0%8A%E4%B8%B9%E5%B7%B4%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9C%9F%E5%96%84%E5%BF%8D*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%AE%A3%E4%BC%A0%E9%83%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%8C%81%E4%B8%8D%E5%90%8C%E6%94%BF%E8%A6%8B%E8%80%85%E5%90%8D%E5%96%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E5%AA%92%E4%BD%93%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E4%BA%8B%E4%BB%B6*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%A4%A7%E9%99%B8%E7%B6%B2%E8%B7%AF%E5%B0%81%E9%8E%96*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%94%B5%E8%A7%86%E5%AE%A1%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B3%9B%E8%93%9D%E8%81%94%E7%9B%9F*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%85%B1%E7%94%A2%E9%BB*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%9F%BA%E7%9D%A3%E6%95%99%E5%8D%8F%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%AE%B6%E5%BA%AD%E6%95%99%E4%BC%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%81%AF%E9%82%A6%E4%B8%BB%E7%BE%A9*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD*%E5%9B%BD%E4%BA%BA%E6%9D%83*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%85%B3%E9%94%AE%E5%AD%97%E5%88%97%E8%A1%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E7%B6%B2%E8%B7%AF%E5%AF%A9%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E4%BA%BA%E6%AC%8A*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AF%A9%E6%9F%A5%E8%BE%AD%E5%BD%99%E5%88%97%E8%A1%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%AE%AA%E6%B3%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E5%A4%A7%E6%9C%83*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E6%B2%BB%E8%97%8F%E6%AD%B7%E5%8F%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%B8%BD%E7%B5%B1%E5%BA%9C*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E7%B6%B2%E7%B5%A1%E5%AF%A9%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AE%97%E6%95%99*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E8%AD%A6%E8%A1%9B%E5%B1%80*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E6%96%87%E5%8C%96%E9%9D%A9%E5%91%BD%E5%B0%8F%E7%BB%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8B%B1%E7%BA%8C%E8%A8%82%E8%97%8F%E5%8D%B0%E6%A2%9D%E7%B4%84*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%91%A8%E6%BB%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%91%A8%E6%B0%B8%E5%BA%B7*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BD%AC%E6%B3%95%E8%BD%AE*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E9%97%A8*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%97%E5%96%80%E5%B7%B4*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*zh.wikibooks.org*%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*gov.tw*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*174.142.105.153*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (shExpMatch(url, "http://*69.65.19.160*")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?darpa\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fxnetworks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzu\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?netflix\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pandora\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pure18\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spotify\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?target\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turntable\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vevo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zattoo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\\.co\\.za")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zozotown\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?0to255\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1-apple\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?10musume\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12bet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12vpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?173ng\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1pondo\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?2008xianzhang\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?36rain\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4bluestones\\.biz")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4chan\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?51\\.ca")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6-4\\.net/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6park\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.6v6dota\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?7capture\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?881903\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?89-64\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?a-normal-day\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aboluowang\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?acgkj\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aculo\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?addictedtocoffee\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advanscene\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advertfan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aenhancers\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?af\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiph\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ait\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiweiweiblog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ajaxplorer\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.ajsands\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?akiba-online\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?al-qimmah\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alabout\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alasbarricadas\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?notes\\.alexdong\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alkasir\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allinfo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allmovie\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alternate-tools\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?am730\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ameblo\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?americangreencard\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amiblockedornot\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnesty\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnestyusa\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anchorfree\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?andfaraway\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anobii\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anthonycalzadilla\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aobo\\.com\\.au")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aolchannels\\.aol\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?video\\.aol\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apiary\\.io")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apigee\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?archive\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?areca-backup\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?army\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asahichinese\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asiaharvest\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asianwomensfilm\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askstudent\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askynz\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?assembla\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?astonmartinnews\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atj\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atlaspost\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atnext\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avaaz\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avidemux\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avoision\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?axureformac\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?backchina\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baixing\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bannedbook\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?barnabu\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bayvoice\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbcchinese\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbsfeed\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bebo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijing1989\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijingspring\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?berlintwitterwall\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bestforchina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bet365\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bettween\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfnn\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfsh\\.hk/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bignews\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill2-software\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?billywr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bjzc\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blinkx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blip\\.tv/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blockcn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogcatalog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogger\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kangye\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloglines\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogspot\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloodshed\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.cn")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomfortune\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bnrmetal\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boardreader\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?books\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bowenpress\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl\\.box\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxunblog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?br\\.st")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brandonhutchinson\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?braumeister\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?break\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?breakingtweets\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brightkite\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brizzly\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bt95\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?budaedu\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullog\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullogger\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bugclub\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?buugaa\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-spanvideo\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-est-simple\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cactusvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cams\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caobian\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caochangqing\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catch22\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catfightpayperview\\.xxx")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\\.org\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccavtop10\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccdtr\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdig\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdjp\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp1998\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp2006\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpweb\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpwu\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cecc\\.gov")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cellulo\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenci\\.tk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenews\\.eu")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?centralnation\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chandoo\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?changp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chenguangcheng\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cherrysave\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china101\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaffairs\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaid\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinacomments\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinachannel\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaeweekly\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinafreepress\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagfw\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagreenparty\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainterimgov\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinamule\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasocialdemocraticparty\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasoul\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaworker\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinayuanmin\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesedailynews\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesen\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chingcheong\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?christianstudy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrlcg-hk\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chromeadblock\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chuizi\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allaboutalpha\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civicparty\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civilhrfront\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cjb\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ck101\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?classicalguitarblog\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cmule\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cms\\.gov")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cna\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cnd\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cochina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeshare\\.io")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comefromchina\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?compileheart\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?conoyo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolaler\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolder\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolloud\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?couchdbwiki\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cotweet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cpj\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crackle\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?creaders\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crossthewall\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csdparty\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csuchen\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuihua\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuiweiping\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?curvefish\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?culture\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cyberghostvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cynscribe\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifan\\.cz\\.cc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mike\\.cz\\.cc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nic\\.cz\\.cc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.mobi")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dadazim\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailama\\.ru")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dailidaili\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailamaworld\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalianmeng\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?danke4china\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?daxa\\.cn/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?de-sci\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?delcamp\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?democrats\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?desc\\.se/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?deutsche-welle\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dev102\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?devio\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dfas\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diaoyuislands\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?digitalnomadsproject\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diigo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furl\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?directcreative\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?discuss\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dit-inc\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl-laby\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dlsite\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dnscrypt\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dolc\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dollf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dontmovetochina\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotplane\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotsub\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dougscripts\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?doxygen\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dpp\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?weigegebyc\\.dreamhosters\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drgan\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dropbox\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dropboxusercontent\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtiblog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtic\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckduckgo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckmylife\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duihua\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duoweitimes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duplicati\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dvorak\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dw-world\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dwnews\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dynawebinc\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?e-gold\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?edubridge\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eevpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eic-av\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?emacsblog\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?englishfromengland\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?entermap\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-bg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-romania\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.co\\.il")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.co\\.kr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochweekly\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ernestmandel\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?erights\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etizer\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exblog\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.exblog\\.co\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?expatshield\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exploader\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyevio\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facebook\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+facebook\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?connect\\.facebook\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facesofnyfw\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faiththedog\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falunhr\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanglizhi\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangong\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fbcdn\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?famunion\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangbinxing\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanswong\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fastly\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favorious\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faststone\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favstar\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fb\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fb\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fbsbx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourface\\.nodesnoop\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feedzshare\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feelssh\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?felixcat\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feministteacher\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fengzhenghu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?finalion\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fireofliberty\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falsefire\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flickr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?staticflickr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fotop\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fringenetwork\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flecheinthepeche\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fofg\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fooooo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourthinternational\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxdie\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxsub\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fqrouter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?franklc\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?free4u\\.com\\.ar")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allonlinux\\.free\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dimitrik\\.free\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?puttycm\\.free\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freealim\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freedomhouse\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freelotto\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeoz\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.bulbous\\.freeserve\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freessh\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?free-ssh\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freenetproject\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freewallpaper4\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeweibo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fring\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?frommel\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fscked\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckcnnic\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furinkan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futuremessage\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fw\\.cm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gabocorp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?galenwu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?game735\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamer\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamez\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaoming\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gappp\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gardennetworks\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gartlive\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gather\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaymap\\.cc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gazotube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gclooney\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geek-art\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmanuals\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?genuitec\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geohot\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geometrictools\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?get-digital-help\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getfoxyproxy\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getlantern\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ggssl\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ghost\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?giga-web\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gimpshop\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?girlbanker\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?glennhilton\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalrescue\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalvoicesonline\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmhz\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goagent\\.biz")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goagentplus\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?godfootsteps\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goldwave\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreads\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreaders\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goofind\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googleusercontent\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googledrive\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googlevideo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gopetition\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gotw\\.ca/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graphis\\.ne\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greenvpn\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gtricks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gutteruncensored\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gvm\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gzone-anime\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apis\\.google\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?appspot\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+appspot\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?golang\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.klip\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?encrypted\\.google\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sites\\.google\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegateget\\.googlepages\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gospelherald\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graylog2\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfire\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatroc\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gstatic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?guishan\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gunsamerica\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?h-china\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hackthatphone\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hakkatv\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hardsextube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hasaowall\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hdtvb\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heartyit\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hecaitou\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hechaji\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloandroid\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloqueer\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellotxt\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htxt\\.it/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helpeachpeople\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?date\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flightcaster\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?branch\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?awardwinningfjords\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futureme\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getcloudapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cl\\.ly")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getsmartlinks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?git-scm\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lesscss\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?list\\.ly")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?maxgif\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?overlapr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peerpong\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pose\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?samsoff\\.es")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sendoid\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?speckleapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomayko\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twt\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?views\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heungkongdiscuss\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidden-advent\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidemyass\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hideipvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hihistory\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?highrockmedia\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hikinggfw\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk32168\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkreporter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkzone\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hnjhj\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?holyspiritspeaks\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?derekhsu\\.homeip\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hongzhi\\.li")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hootsuite\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hotspotshield\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hougaige\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?howtoforge\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hqcdp\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hrichina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsjp\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htmldog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huanghuagang\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hugoroy\\.eu")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hungerstrikeforaids\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huping\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hutianyi\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hwinfo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hypeshell\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hyperrate\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i1\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2p2\\.de/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2runner\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\\.ca")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\\.bz")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iblogserv-f\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?icl-fi\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iconpaper\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?identi\\.ca")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?idiomconnection\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifcss\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?antidrm\\.hpg\\.ig\\.com\\.br")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?igfw\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ignitedetroit\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?igvita\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ihakka\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iicns\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?illusionfactory\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ilove80\\.be")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im88\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imageflea\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagevenue\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagezilla\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img\\.ly")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imkev\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?incredibox\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inmediahk\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?innermongolia\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interfaceaddiction\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internationalrivers\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internetpopculture\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inxian\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonehacks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonix\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipicture\\.ru")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ippotv\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipvanish\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironicsoftware\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironbigfools\\.compython\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironpython\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?!--isaacmao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?isgreat\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ismprofessional\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?israbox\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itaboo\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itshidden\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ixquick\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmozomg\\.izihost\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?j\\.mp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jgoodies\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jiaoyou8\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk\\.jiepang\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tw\\.jiepang\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jinbushe\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jingpin\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jitouch\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joachims\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jobso\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joeedelman\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?journalofdemocracy\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juliereyc\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junauza\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junefourth-20\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juziyue\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jwmusic\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ka-wai\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kagyuoffice\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kakao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?karayou\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kcsoftwares\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kenengba\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?killwall\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kodingen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kompozer\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koolsolutions\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koornk\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kurtmunger\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kzeng\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?labiennale\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laogai\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laptoplockdown\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?larsgeorge\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lastfm\\.es")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lazarsearlymusic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?leecheukyan\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lenwhite\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lerosua\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?letscorp\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liaowangxizang\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liberal\\.org\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?line\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?api\\.linksalpha\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apidocs\\.linksalpha\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.linksalpha\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?help\\.linksalpha\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linux-engineer\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxconfig\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxreviews\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?listentoyoutube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liudejun\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liujianshu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liuxiaotong\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liveleak\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livestream\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingonline\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingstream\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livevideo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockdown\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockestek\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logiqx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logmike\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?longtermly\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookingglasstheatre\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookpic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lrfz\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsd\\.org\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsm\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmchinese\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmkorean\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lupm\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lvhai\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mh4u\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mad-ar\\.ch")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marc\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martincartoons\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?makemymood\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marines\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martau\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marxist\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mashable\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matainja\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mathiew-badimon\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsushimakaede\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mcadforums\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?md-t\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meetup\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megarotic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megurineluka\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?melon-peach\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meteorshowersonline\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?metrolife\\.ca")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mgstage\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?michaelmarketl\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minghui\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mingjinglishi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minzhuhua\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?miroguide\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixero\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mizzmona\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mmaaxx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobatek\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobileways\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mondex\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?monitorchina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?morningsun\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?movabletype\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moviefap\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.moztw\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mp/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mpettis\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mrtweet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mthruf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?multiply\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muouju\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muselinks\\.co\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mx981\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myaudiocast\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbs\\.mychat\\.to")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mychinamyhome\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.mycould\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myeclipseide\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\\.com\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myparagliding\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mypopescu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naacoalition\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naitik\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?namsisi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyang\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyangpost\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navicat\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nakido\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navy\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncn\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etools\\.ncol\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nekoslovakia\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newchen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newscn\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newsminer\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newtalk\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nexton-net\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nga\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nighost\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njactb\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njuice\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nobodycanstop\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokogiri\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokola\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noobbox\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?novelasia\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nownews\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noypf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npa\\.go\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nrk\\.no")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nsc\\.gov\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cbs\\.ntu\\.edu\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nuexpo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nurgo-software\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nyt\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytco\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytimes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytimg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nzchinese\\.net\\.nz")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?october-review\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ogaoga\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?olumpo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myopenid\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openid\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.openinkpot\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openleaks\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openvpn\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openwebster\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?demo\\.opera-mini\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orient-doll\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orientaldaily\\.com\\.my")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orn\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\\.orzdream\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orzistic\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?osfoora\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ourdearamy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ow\\.ly")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pagodabox\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paint\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coveringweb\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paper-replika\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eriversoft\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panluan\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pastie\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pathtosharepoint\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbworks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?developers\\.box\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.oauth\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.phonegap\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.jqueryui\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pct\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pdproxy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pekingduck\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?penchinese\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pentalogic\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peopo\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?perlhowto\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photofocus\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?phuquocservices\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img.*\\.picturedip\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pin6\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ping\\.fm/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pinoy-n\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixelqi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?css\\.pixnet\\.in")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixnet\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?placemix\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?playboy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?m\\.plixi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?po2b\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?podictionary\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pokerstars\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popularpages\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popyard\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornmm\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornrapidshare\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?powercx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.powerpointninja\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pts\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?post\\.anyu\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bralio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?calebelston\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?designerol\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.fizzik\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nf\\.id\\.au")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?markmilian\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?log\\.riku\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogrady\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vatn\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?veempiire\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.vegorpedersen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ventureswell\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?webfee\\.tk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whereiswerner\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill\\.zhong\\.pp\\.ru")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?power\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?abc\\.pp\\.ru")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prayforchina\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?premeforwindows7\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?presentationzen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prestige-av\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privacybox\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privateinternetaccess\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatepaste\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatetunnel\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?procopytips\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prosiben\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxomitron\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxypy\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?psblog\\.name")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pullfolio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pureconcepts\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purepdf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purevpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qanote\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qienkuen\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qoos\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?efksoft\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qstatus\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtweeter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtrac\\.eu")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?quadedge\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.getyouram\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hiitch\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?radiovaticana\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?raidcall\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ranyunfei\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rapidshare8\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?readingtimes\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?referer\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?reflectivecode\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?renyurenquan\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweetrank\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rferl\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rfi\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rlwlw\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?robustnessiskey\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rocmp\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rojo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ronjoneswriter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf\\.org/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf-chinese\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rssmeme\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s1heng\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s8forum\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sacom\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sadpanda\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?saiq\\.me/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?salvation\\.org\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sankaizok\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?say2\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?scriptspot\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secretgarden\\.no")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?default\\.secureserver\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seevpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seezone\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sesawe\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sethwklein\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sevenload\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sexinsex\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shadowsocks\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shangfang\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharecool\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharkdolphin\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharpdaily\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shaunthesheep\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shellmix\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shenzhoufilm\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shixiao\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shizhao\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shodanhq\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?magazines\\.sina\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?singtao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp\\.sinica\\.edu\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinocast\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinoants\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site90\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?siteks\\.uk\\.to")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sitemaps\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sis001\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sjum\\.cn/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skimtube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skybet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xskywalker\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slavasoft\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slheng\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-ga\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-news\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soc\\.mil/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sockslist\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softether\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softether-download\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogclub\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohcradio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.somee\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sorting-algorithms\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soup\\.io/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slickvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snaptu\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snooper\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sobees\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softwarebychuck\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soh\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohfrance\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?somee\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?songjianjun\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundcloud\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundofhope\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soupofmedia\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wlx\\.sowiki\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?space-scape\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spencertipping\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sproutcore\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ssh91\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?starp2p\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?startpage\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?steel-storm\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sthoo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stonegames\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoneip\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?storagenewsletter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoptibetcrisis\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoweboyd\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?streamingthe\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?strongvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sufeng\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sugarsync\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?svwind\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sweux\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?swift-tools\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?syncback\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sysadmin1138\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?szetowah\\.org\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t66y\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tafaward\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tagwalk\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taipeisociety\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwantt\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwandaily\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwannews\\.com\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tamiaode\\.tk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tanc\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taolun\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taweet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tbpic\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teamseesmic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techlifeweb\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techparaiso\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teck\\.in/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?telegraph\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theampfactory\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theappleblog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theatrum-belli\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebodyshop-usa\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebcomplex\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedieline\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedw\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thegatesnotes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehun\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelifeyoucansave\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelius\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thepiratebay\\.se")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thesartorialist\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thetibetpost\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thomasbernhard\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?throughnightsfire\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tiananmenuniv\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tiananmenuniv\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tiandixing\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetanyouthcongress\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetwrites\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.tiney\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tinypaste\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tidyread\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkcs-collins\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkforum\\.tk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tnaflix\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tokyocn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topshare\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topstyle4\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topsy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torproject\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torrentcrazy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torvpn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?toutfr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpi\\.org\\.tw")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?transgressionism\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?travelinlocal\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trendsmap\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trialofccp\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tripod\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trustedbi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?truthcn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tt1069\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tttan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tube8\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tubewolf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumutanzi\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tunnelbear\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turningtorso\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tuxtraining\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?301works\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?365singles\\.com\\.ar")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?all-that-is-interesting\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?art-or-porn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\\.atebits\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblr\\.awflasher\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?badassjs\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?basetimesheightdividedby2\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?benjaminste\\.in")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.birdhouseapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bobulate\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bonjourlesgeeks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bookshelfporn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.boxcar\\.io")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.bitly\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chevronwp7\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?clientsfromhell\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeboxapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cookingtothegoodlife\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cubicle17\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photos\\.dailyme\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?davidslog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.davidziegler\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.dayoneapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drewolanoff\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.dribbble\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chaos\\.e-spacy\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eamonnbrennan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?everyday-carry\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyespirit\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?life\\.fly4ever\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fredwilson\\.vc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckgfw\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmade\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?generesis\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\\.ghostery\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?givemesomethingtoread\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.gowalla\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heiyo\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellonewyork\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.hotpotato\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ialmostlaugh\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.ifttt\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.instagram\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.instapaper\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interestinglaugh\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.iphone-dev\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jayparkinsonmd\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.joeyrobert\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kt\\.kcome\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?my\\.keso\\.cn")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kickstarter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kl\\.am")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.klip\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\\.kun\\.im")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.lightbox\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?littlebigdetails\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lovequicksilver\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lyricsquote\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?madmenunbuttoned\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marco\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minimalmac\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixedmedialabs\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?modfetish\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.mongodb\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navigeaters\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?london\\.neighborhoodr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.path\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?parislemon\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pikchur\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.rockmelt\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.romanandreg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?solozorro\\.tk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.sparrowmailapp\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.summify\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedailywh\\.at")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theinternetwishlist\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thisiswhyyouarefat\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tiffanyarment\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tjholowaychuk\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomsc\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.topify\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehungrydudes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblweed\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?status\\.twhirl\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.usa\\.gov")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photo\\.utom\\.us")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?v-state\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wellplacedpixels\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whydidyoubuymethat\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordboner\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordsandturds\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?worstthingieverate\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xmusic\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuzhuoer\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bd\\.zhe\\.la")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cocoa\\.zonble\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tv\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tv-intros\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tvunetworks\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twapperkeeper\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twaud\\.io")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twblogger\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepml\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetbackup\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboard\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboner\\.biz")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetdeck\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweete\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mtw\\.tl")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetedtimes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetmylast\\.fm")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetphoto\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetrans\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetree\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetwally\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twftp\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibble\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibs\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiffo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimbow\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twindexx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twipple\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twip\\.me/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitcause\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitgether\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiggit\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitiq\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitlonger\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitoaster\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitonmsn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitpic\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twit2d\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitstat\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotheyfolloweachother\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?firstfivefollowers\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweeteffect\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweeplike\\.me")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepguide\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turbotwitter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitvid\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twttr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+twitter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter4j\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittercounter\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittergadget\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitterkr\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittermail\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittertim\\.es")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitturly\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twreg\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twstar\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twyac\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tycool\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tzangms\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?typepad\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.expofutures\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?legaltech\\.law\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.loiclemeur\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?latimesblogs\\.latimes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.palm\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogs\\.tampabay\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?contests\\.twilio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?embr\\.in")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ucdc1998\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uderzo\\.it")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?udn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ukliferadio\\.co\\.uk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ultravpn\\.fr")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unblock\\.cn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unholyknight\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unknownspace\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uocn\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlborg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlparser\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usacn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usfk\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usmc\\.mil")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ustream\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uyghurcongress\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vaayoo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?value-domain\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vapurl\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcf-online\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcfbuilder\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?verybs\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?videobam\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vidoemo\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?viki\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimgolf\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimperator\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vincnd\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vinniev\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vmixcore\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachineseblog\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voacantonese\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachinese\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voatibetan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vot\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.vpncup\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpngate\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpngate\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpop\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpronet\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vtunnel\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?waffle1999\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jyzj\\.waqn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wallpapercasa\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.wan-press\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanderinghorse\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangafu\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangjinbo\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wearn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hudatoriq\\.web\\.id")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?web2project\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wengewang\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenku\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenyunchao\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westca\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westernwolves\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wepn\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wexiaobo\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wezone\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wforum\\.com/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whatblocked\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whyx\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.ch")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.de")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.eu")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.lu")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.pl")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimapia\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secure\\.wikimedia\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimedia\\.org\\.mo")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikiwiki\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sports\\.williamhill\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?willw\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?windowsphoneme\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredbytes\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredpen\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wisevid\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woeser\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wolfax\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womensrightsofchina\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\\.tv")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?workatruna\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordpress\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wpoforum\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wqyd\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wujieliulan\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?x-art\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?x-wall\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xbookcn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaoma\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaohexie\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xing\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xinmiao\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xjp\\.cc")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xml-training-guide\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xnxx\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xpud\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?k2\\.xrea\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xtube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xxxx\\.com\\.au")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\\.com\\.hk")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yam\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yasukuni\\.or\\.jp")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yeelou\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yegle\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yhcw\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yidio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yipub\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yogichen\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youxu\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yyii\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yzzk\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youjizz\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youpai\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yousendit\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youporn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtu\\.be")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube-nocookie\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youversion\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ytimg\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yunchao\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvesgeleyn\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yymaya\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zannel\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tap11\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zaobao\\.com\\.sg")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zarias\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zeutch\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhanbin\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhenlibu\\.info")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongguotese\\.net")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongmeng\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhreader\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhuichaguoji\\.org")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zillionk\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zinio\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ziplib\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zkaip\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zlib\\.net/")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zonaeuropa\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zootool\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuo\\.la")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuola\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zvereff\\.com")) return 'PROXY proxy.bj.tianler.com:3128';
-	return 'DIRECT';
+// Generated by gfwlist2pac in precise mode
+// https://github.com/clowwindy/gfwlist2pac
+
+var proxy = "SOCKS5 127.0.0.1:1086; SOCKS 127.0.0.1:1086; DIRECT;";
+
+var rules = [
+  "||ws.stream.qqmusic.qq.com",
+  "||cc.stream.qqmusic.qq.com",
+  "||dl.stream.qqmusic.qq.com",
+  "||*.stream.qqmusic.qq.com",
+  "||ipip.net",
+  "||2dbook.com",
+  "||4tern.com",
+  "|http:\/\/85.17.73.31\/",
+  "||adorama.com",
+  "||agnesb.fr",
+  "||akiba-web.com",
+  "||alien-ufos.com",
+  "||altrec.com",
+  "||apartments.com",
+  "||arena.taipei",
+  "||asianspiss.com",
+  "||assimp.org",
+  "||athenaeizou.com",
+  "||azubu.tv",
+  "||banorte.com",
+  "||bash-hackers.org",
+  "||beeg.com",
+  "||global.bing.com",
+  "||bloombergview.com",
+  "||boysmaster.com",
+  "||bynet.co.il",
+  "||carfax.com",
+  ".casinobellini.com",
+  "||casinobellini.com",
+  "||centauro.com.br",
+  "||images.comico.tw",
+  "||static.comico.tw",
+  "||crossfire.co.kr",
+  "||d2pass.com",
+  "||darpa.mil",
+  "||dawangidc.com",
+  "||deezer.com",
+  "||desipro.de",
+  "||dingchin.com.tw",
+  "||dish.com",
+  "|http:\/\/img.dlsite.jp\/",
+  "||dm530.net",
+  "share.dmhy.org",
+  "@@|https:\/\/share.dmhy.org",
+  "||dmm.co.jp",
+  "|http:\/\/www.dmm.com\/netgame",
+  "||dnvod.tv",
+  "||eesti.ee",
+  ".expekt.com",
+  "||expekt.com",
+  ".extmatrix.com",
+  "||extmatrix.com",
+  "||fakku.net",
+  "||fastpic.ru",
+  "||filesor.com",
+  "||financetwitter.com",
+  "||flipboard.com",
+  "||flitto.com",
+  "||funkyimg.com",
+  "||fxnetworks.com",
+  "||g-area.org",
+  "||gettyimages.com",
+  "||getuploader.com",
+  "|https:\/\/raw.githubusercontent.com\/programthink\/zhao",
+  "||glass8.eu",
+  "||glype.com",
+  "||go141.com",
+  "||guo.media",
+  "||hautelook.com",
+  "||hautelookcdn.com",
+  "||hmvdigital.ca",
+  "||hmvdigital.com",
+  "||homedepot.com",
+  "||hoovers.com",
+  "||hulu.com",
+  "||huluim.com",
+  "|http:\/\/secure.hustler.com",
+  "|http:\/\/hustlercash.com",
+  "|http:\/\/www.hustlercash.com",
+  "||hybrid-analysis.com",
+  "||cdn*.i-scmp.com",
+  "||ilovelongtoes.com",
+  "|http:\/\/imgmega.com\/*.gif.html",
+  "|http:\/\/imgmega.com\/*.jpg.html",
+  "|http:\/\/imgmega.com\/*.jpeg.html",
+  "|http:\/\/imgmega.com\/*.png.html",
+  "|http:\/\/imgur.com\/upload",
+  "|https:\/\/imgur.com\/upload",
+  "||imlive.com",
+  "||javhub.net",
+  "||javhuge.com",
+  ".javlibrary.com",
+  "||javlibrary.com",
+  "||jcpenney.com",
+  "||jims.net",
+  "||jukujo-club.com",
+  "||juliepost.com",
+  "||kawaiikawaii.jp",
+  "||kendatire.com",
+  "||khatrimaza.org",
+  "||kkbox.com",
+  "||leisurepro.com",
+  "||lifemiles.com",
+  "||longtoes.com",
+  "||lovetvshow.com",
+  "|http:\/\/www.m-sport.co.uk",
+  "||macgamestore.com",
+  "||madonna-av.com",
+  "||mangafox.com",
+  "||mangafox.me",
+  "||manta.com",
+  "||matome-plus.com",
+  "||matome-plus.net",
+  "||mattwilcox.net",
+  "||metarthunter.com",
+  "||mfxmedia.com",
+  "||kb.monitorware.com",
+  "||monster.com",
+  "||moodyz.com",
+  "||mos.ru",
+  "||msha.gov",
+  "||muzu.tv",
+  "||mvg.jp",
+  ".mybet.com",
+  "||mybet.com",
+  "||nationwide.com",
+  "|http:\/\/www.nbc.com\/live",
+  "||neo-miracle.com",
+  "||netflix.com",
+  "||nflximg.com",
+  "||nflximg.net",
+  "||nflxext.com",
+  "||nflxso.net",
+  "||nflxvideo.net",
+  "||nic.gov",
+  "|http:\/\/mo.nightlife141.com",
+  "||nordstrom.com",
+  "||nordstromimage.com",
+  "||nordstromrack.com",
+  "||nottinghampost.com",
+  "||ntdtv.cz",
+  "||s1.nudezz.com",
+  "||nusatrip.com",
+  "||nuuvem.com",
+  "||omni7.jp",
+  "||onapp.com",
+  "||ontrac.com",
+  "@@|http:\/\/blog.ontrac.com",
+  "||pandora.com",
+  ".pandora.tv",
+  "||parkansky.com",
+  "||phmsociety.org",
+  "|http:\/\/*.pimg.tw\/",
+  "||pure18.com",
+  "||qq.co.za",
+  "||r18.com",
+  "|http:\/\/radiko.jp",
+  "||ramcity.com.au",
+  "||rd.com",
+  "||rdio.com",
+  "|https:\/\/riseup.net",
+  "||sadistic-v.com",
+  "|http:\/\/cdn*.search.xxx\/",
+  "||shiksha.com",
+  "||slacker.com",
+  "||sm-miracle.com",
+  "||spotify.com",
+  "||spreadshirt.es",
+  "||springboardplatform.com",
+  "||sprite.org",
+  "@@|http:\/\/store.sprite.org",
+  "||superokayama.com",
+  "||superpages.com",
+  "||swagbucks.com",
+  "||switch1.jp",
+  "||tapanwap.com",
+  "||thebodyshop-usa.com",
+  "||tma.co.jp",
+  "||tracfone.com",
+  "||tryheart.jp",
+  "||turntable.fm",
+  "||twerkingbutt.com",
+  "||ulop.net",
+  "||vegasred.com",
+  "||vevo.com",
+  "||vip-enterprise.com",
+  "|http:\/\/viu.tv\/ch\/",
+  "|http:\/\/viu.tv\/encore\/",
+  "|http:\/\/ecsm.vs.com\/",
+  "||wanz-factory.com",
+  "||ssl.webpack.de",
+  "||wheretowatch.com",
+  "||wingamestore.com",
+  "||wizcrafts.net",
+  "||vod.wwe.com",
+  "||xfinity.com",
+  "||ytn.co.kr",
+  "||zattoo.com",
+  "||zim.vn",
+  "||zozotown.com",
+  "14.102.250.18",
+  "14.102.250.19",
+  "50.7.31.230:8898",
+  "174.142.105.153",
+  "69.65.19.160",
+  "||xn--4gq171p.com",
+  "||xn--czq75pvv1aj5c.org",
+  "||xn--i2ru8q2qg.com",
+  "||xn--p8j9a0d9c9a.xn--q9jyb4c",
+  "|https:\/\/*.s3.amazonaws.com",
+  "||s3-ap-southeast-2.amazonaws.com",
+  "||binance.com",
+  "||bitfinex.com",
+  "||bitmex.com",
+  "||hitbtc.com",
+  "||huobi.com",
+  "||huobi.pro",
+  "||huobipro.com",
+  "||livecoin.net",
+  "||okex.com",
+  "||zb.com",
+  "||agro.hk",
+  "||apkmirror.com",
+  "||boomssr.com",
+  "||castbox.fm",
+  "||depositphotos.com",
+  "||fangeqiang.com",
+  "||blog.fuckgfw233.org",
+  "||globalvoices.org",
+  "||glorystar.me",
+  "||jiji.com",
+  "||line-scdn.net",
+  "||i.lithium.com",
+  "||cloud.mail.ru",
+  "||cdn-images.mailchimp.com",
+  "||dictionary.goo.ne.jp",
+  "||go.nesnode.com",
+  "||nikkei.com",
+  "||my.pcloud.com",
+  "||picacomic.com",
+  "||pixiv.net",
+  "||secure.raxcdn.com",
+  "||shadowsocks9.com",
+  "||sosreader.com",
+  "||sulian.me",
+  "||unseen.is",
+  "||cn.uptodown.com",
+  "||wire.com",
+  "||xm.com",
+  "||xuehua.us",
+  "||read01.com",
+  "||kknews.cc",
+  "china-mmm.jp.net",
+  ".lsxszzg.com",
+  ".china-mmm.net",
+  "||china-mmm.net",
+  "china-mmm.sa.com",
+  ".allowed.org",
+  ".now.im",
+  ".amazon.com\/Dalai-Lama",
+  "s3-ap-northeast-1.amazonaws.com",
+  "||aolchannels.aol.com",
+  "video.aol.ca\/video-detail",
+  "video.aol.co.uk\/video-detail",
+  "video.aol.com",
+  "||video.aol.com",
+  "||search.aol.com",
+  "www.aolnews.com",
+  ".avmo.pw",
+  ".avmoo.com",
+  "|http:\/\/avmoo.com",
+  ".avmoo.net",
+  "|http:\/\/avmoo.net",
+  "||avmoo.pw",
+  ".javmoo.xyz",
+  "|http:\/\/javmoo.xyz",
+  ".javtag.com",
+  "|http:\/\/javtag.com",
+  ".javzoo.com",
+  "|http:\/\/javzoo.com",
+  ".tellme.pw",
+  ".bbc.co.uk\/blogs",
+  ".bbc.co.uk\/chinese",
+  ".bbc.co.uk\/news\/world-asia-china",
+  ".bbc.co.uk\/tv",
+  ".bbc.co.uk\/zhongwen",
+  ".bbc.com\/ukchina",
+  ".bbc.com\/zhongwen",
+  ".bbc.com%2Fzhongwen",
+  "news.bbc.co.uk\/onthisday*newsid_2496000\/2496277",
+  "newsforums.bbc.co.uk",
+  ".bbcchinese.com",
+  "||bbcchinese.com",
+  "|http:\/\/bbc.in",
+  ".1dumb.com",
+  ".25u.com",
+  ".2waky.com",
+  ".3-a.net",
+  ".4dq.com",
+  ".4mydomain.com",
+  ".4pu.com",
+  ".acmetoy.com",
+  ".almostmy.com",
+  ".americanunfinished.com",
+  ".authorizeddns.net",
+  ".authorizeddns.org",
+  ".authorizeddns.us",
+  ".bigmoney.biz",
+  ".changeip.name",
+  ".changeip.net",
+  ".changeip.org",
+  ".cleansite.biz",
+  ".cleansite.info",
+  ".cleansite.us",
+  ".compress.to",
+  ".ddns.info",
+  ".ddns.me.uk",
+  ".ddns.mobi",
+  ".ddns.ms",
+  ".ddns.name",
+  ".ddns.us",
+  ".dhcp.biz",
+  ".dns-dns.com",
+  ".dns-stuff.com",
+  ".dns04.com",
+  ".dns05.com",
+  ".dns1.us",
+  ".dns2.us",
+  ".dnset.com",
+  ".dnsrd.com",
+  ".dsmtp.com",
+  ".dumb1.com",
+  ".dynamic-dns.net",
+  ".dynamicdns.biz",
+  ".dynamicdns.co.uk",
+  ".dynamicdns.me.uk",
+  ".dynamicdns.org.uk",
+  ".dyndns.pro",
+  ".dynssl.com",
+  ".edns.biz",
+  ".epac.to",
+  ".esmtp.biz",
+  ".ezua.com",
+  ".faqserv.com",
+  ".fartit.com",
+  ".freeddns.com",
+  ".freetcp.com",
+  ".freewww.biz",
+  ".freewww.info",
+  ".ftp1.biz",
+  ".ftpserver.biz",
+  ".gettrials.com",
+  ".got-game.org",
+  ".gr8domain.biz",
+  ".gr8name.biz",
+  ".https443.net",
+  ".https443.org",
+  ".ikwb.com",
+  ".instanthq.com",
+  ".iownyour.biz",
+  ".iownyour.org",
+  ".isasecret.com",
+  ".itemdb.com",
+  ".itsaol.com",
+  ".jetos.com",
+  ".jkub.com",
+  ".jungleheart.com",
+  ".justdied.com",
+  ".lflink.com",
+  ".lflinkup.com",
+  ".lflinkup.net",
+  ".lflinkup.org",
+  ".longmusic.com",
+  ".mefound.com",
+  ".moneyhome.biz",
+  ".mrbasic.com",
+  ".mrbonus.com",
+  ".mrface.com",
+  ".mrslove.com",
+  ".my03.com",
+  ".mydad.info",
+  ".myddns.com",
+  ".myftp.info",
+  ".myftp.name",
+  ".mylftv.com",
+  ".mymom.info",
+  ".mynetav.net",
+  ".mynetav.org",
+  ".mynumber.org",
+  ".mypicture.info",
+  ".mypop3.net",
+  ".mypop3.org",
+  ".mysecondarydns.com",
+  ".mywww.biz",
+  ".myz.info",
+  ".ninth.biz",
+  ".ns01.biz",
+  ".ns01.info",
+  ".ns01.us",
+  ".ns02.biz",
+  ".ns02.info",
+  ".ns02.us",
+  ".ns1.name",
+  ".ns2.name",
+  ".ns3.name",
+  ".ocry.com",
+  ".onedumb.com",
+  ".onmypc.biz",
+  ".onmypc.info",
+  ".onmypc.net",
+  ".onmypc.org",
+  ".onmypc.us",
+  ".organiccrap.com",
+  ".otzo.com",
+  ".ourhobby.com",
+  ".pcanywhere.net",
+  ".port25.biz",
+  ".proxydns.com",
+  ".qhigh.com",
+  ".qpoe.com",
+  ".rebatesrule.net",
+  ".sellclassics.com",
+  ".sendsmtp.com",
+  ".serveuser.com",
+  ".serveusers.com",
+  ".sexidude.com",
+  ".sexxxy.biz",
+  ".sixth.biz",
+  ".squirly.info",
+  ".ssl443.org",
+  ".toh.info",
+  ".toythieves.com",
+  ".trickip.net",
+  ".trickip.org",
+  ".vizvaz.com",
+  ".wha.la",
+  ".wikaba.com",
+  ".www1.biz",
+  ".wwwhost.biz",
+  "@@|http:\/\/xx.wwwhost.biz",
+  ".x24hr.com",
+  ".xxuz.com",
+  ".xxxy.biz",
+  ".xxxy.info",
+  ".ygto.com",
+  ".youdontcare.com",
+  ".yourtrap.com",
+  ".zyns.com",
+  ".zzux.com",
+  "d1b183sg0nvnuh.cloudfront.net",
+  "|https:\/\/d1b183sg0nvnuh.cloudfront.net",
+  "d1c37gjwa26taa.cloudfront.net",
+  "|https:\/\/d1c37gjwa26taa.cloudfront.net",
+  "d3c33hcgiwev3.cloudfront.net",
+  "|https:\/\/d3c33hcgiwev3.cloudfront.net",
+  "||d3rhr7kgmtrq1v.cloudfront.net",
+  ".3d-game.com",
+  ".4irc.com",
+  ".b0ne.com",
+  ".chatnook.com",
+  ".darktech.org",
+  ".deaftone.com",
+  ".dtdns.net",
+  ".effers.com",
+  ".etowns.net",
+  ".etowns.org",
+  ".flnet.org",
+  ".gotgeeks.com",
+  ".scieron.com",
+  ".slyip.com",
+  ".slyip.net",
+  ".suroot.com",
+  ".blogdns.org",
+  ".dyndns.org",
+  ".dyndns-ip.com",
+  ".dyndns-pics.com",
+  ".from-sd.com",
+  ".from-pr.com",
+  ".is-a-hunter.com",
+  ".dynu.com",
+  ".dynu.net",
+  ".freeddns.org",
+  "cdninstagram.com",
+  "||cdninstagram.com",
+  "||facebook.br",
+  ".facebook.com",
+  "||facebook.com",
+  "@@||v6.facebook.com",
+  "||facebook.design",
+  "||connect.facebook.net",
+  "||facebook.hu",
+  "||facebook.in",
+  "||facebook.nl",
+  "||facebook.se",
+  "||fb.com",
+  "||fb.me",
+  "||fbcdn.net",
+  "||fbsbx.com",
+  ".instagram.com",
+  "||instagram.com",
+  "||m.me",
+  "||messenger.com",
+  "||oculus.com",
+  "||oculuscdn.com",
+  "||rocksdb.org",
+  "@@||ip6.static.sl-reverse.com",
+  "||thefacebook.com",
+  "||whatsapp.net",
+  "||1e100.net",
+  "||466453.com",
+  "||abc.xyz",
+  "||admob.com",
+  "||adsense.com",
+  "||agoogleaday.com",
+  "||ampproject.org",
+  "||android.com",
+  "||androidify.com",
+  "||api.ai",
+  ".appspot.com",
+  "||appspot.com",
+  "||autodraw.com",
+  "||blog.google",
+  "||blogblog.com",
+  "blogspot.com",
+  "\/^https?:\\\/\\\/[^\\\/]+blogspot\\.(.*)\/",
+  ".blogspot.hk",
+  ".blogspot.jp",
+  "||certificate-transparency.org",
+  "||chrome.com",
+  "||chromecast.com",
+  "||chromeexperiments.com",
+  "||chromercise.com",
+  "||chromestatus.com",
+  "||chromium.org",
+  "||com.google",
+  "||creativelab5.com",
+  "||crrev.com",
+  "||data-vocabulary.org",
+  "||debug.com",
+  "||deepmind.com",
+  "||deja.com",
+  "||design.google",
+  "||digisfera.com",
+  "||domains.google",
+  "||duck.com",
+  "||environment.google",
+  "||feedburner.com",
+  "||firebaseio.com",
+  "||g.co",
+  "||gcr.io",
+  "||get.how",
+  "||getmdl.io",
+  "||ggpht.com",
+  "||gmail.com",
+  "||gmodules.com",
+  "||godoc.org",
+  "||golang.org",
+  "||goo.gl",
+  ".google.ae",
+  ".google.as",
+  ".google.am",
+  ".google.at",
+  ".google.az",
+  ".google.ba",
+  ".google.be",
+  ".google.bg",
+  ".google.ca",
+  ".google.cd",
+  ".google.ci",
+  ".google.co.id",
+  ".google.co.jp",
+  ".google.co.kr",
+  ".google.co.ma",
+  ".google.co.uk",
+  ".google.com",
+  ".google.de",
+  ".google.dj",
+  ".google.dk",
+  ".google.es",
+  ".google.fi",
+  ".google.fm",
+  ".google.fr",
+  ".google.gg",
+  ".google.gl",
+  ".google.gr",
+  ".google.ie",
+  ".google.is",
+  ".google.it",
+  ".google.jo",
+  ".google.kz",
+  ".google.lv",
+  ".google.mn",
+  ".google.ms",
+  ".google.nl",
+  ".google.nu",
+  ".google.no",
+  ".google.ro",
+  ".google.ru",
+  ".google.rw",
+  ".google.sc",
+  ".google.sh",
+  ".google.sk",
+  ".google.sm",
+  ".google.sn",
+  ".google.tk",
+  ".google.tm",
+  ".google.to",
+  ".google.tt",
+  ".google.vu",
+  ".google.ws",
+  "\/^https?:\\\/\\\/([^\\\/]+\\.)*google\\.(ac|ad|ae|af|al|am|as|at|az|ba|be|bf|bg|bi|bj|bs|bt|by|ca|cat|cd|cf|cg|ch|ci|cl|cm|co.ao|co.bw|co.ck|co.cr|co.id|co.il|co.in|co.jp|co.ke|co.kr|co.ls|co.ma|com|com.af|com.ag|com.ai|com.ar|com.au|com.bd|com.bh|com.bn|com.bo|com.br|com.bz|com.co|com.cu|com.cy|com.do|com.ec|com.eg|com.et|com.fj|com.gh|com.gi|com.gt|com.hk|com.jm|com.kh|com.kw|com.lb|com.ly|com.mm|com.mt|com.mx|com.my|com.na|com.nf|com.ng|com.ni|com.np|com.om|com.pa|com.pe|com.pg|com.ph|com.pk|com.pr|com.py|com.qa|com.sa|com.sb|com.sg|com.sl|com.sv|com.tj|com.tr|com.tw|com.ua|com.uy|com.vc|com.vn|co.mz|co.nz|co.th|co.tz|co.ug|co.uk|co.uz|co.ve|co.vi|co.za|co.zm|co.zw|cv|cz|de|dj|dk|dm|dz|ee|es|eu|fi|fm|fr|ga|ge|gg|gl|gm|gp|gr|gy|hk|hn|hr|ht|hu|ie|im|iq|is|it|it.ao|je|jo|kg|ki|kz|la|li|lk|lt|lu|lv|md|me|mg|mk|ml|mn|ms|mu|mv|mw|mx|ne|nl|no|nr|nu|org|pl|pn|ps|pt|ro|rs|ru|rw|sc|se|sh|si|sk|sm|sn|so|sr|st|td|tg|tk|tl|tm|tn|to|tt|us|vg|vn|vu|ws)\\\/.*\/",
+  "||googleapis.cn",
+  "||googleapis.com",
+  "||googleapps.com",
+  "||googleartproject.com",
+  "||googleblog.com",
+  "||googlebot.com",
+  "||googlechinawebmaster.com",
+  "||googlecode.com",
+  "||googlecommerce.com",
+  "||googledomains.com",
+  "||googlearth.com",
+  "||googleearth.com",
+  "||googledrive.com",
+  "||googlegroups.com",
+  "||googlehosted.com",
+  "||googleideas.com",
+  "||googleinsidesearch.com",
+  "||googlelabs.com",
+  "||googlemail.com",
+  "||googlemashups.com",
+  "||googlepagecreator.com",
+  "||googleplay.com",
+  "||googleplus.com",
+  "||googlescholar.com",
+  "||googlesource.com",
+  "||googleusercontent.com",
+  ".googlevideo.com",
+  "||googlevideo.com",
+  "||googleweblight.com",
+  "||googlezip.net",
+  "||groups.google.cn",
+  "||gstatic.com",
+  "||gvt0.com",
+  "||gvt1.com",
+  "@@||redirector.gvt1.com",
+  "||gvt3.com",
+  "||gwtproject.org",
+  "||html5rocks.com",
+  "||iam.soy",
+  "||igoogle.com",
+  "||itasoftware.com",
+  "||lers.google",
+  "||like.com",
+  "||madewithcode.com",
+  "||material.io",
+  "||nic.google",
+  "||on2.com",
+  "||panoramio.com",
+  "||picasaweb.com",
+  "||polymer-project.org",
+  "||questvisual.com",
+  "||api.recaptcha.net",
+  "||api-secure.recaptcha.net",
+  "||api-verify.recaptcha.net",
+  "||redhotlabs.com",
+  "||registry.google",
+  "||savethedate.foo",
+  "||schema.org",
+  "||shattered.io",
+  "|http:\/\/sipml5.org\/",
+  "||stories.google",
+  "||synergyse.com",
+  "||teachparentstech.org",
+  "||tensorflow.org",
+  "||thinkwithgoogle.com",
+  "||tiltbrush.com",
+  "||urchin.com",
+  "||waveprotocol.org",
+  "||waymo.com",
+  "||webmproject.org",
+  "||webrtc.org",
+  "||whatbrowser.org",
+  "||widevine.com",
+  "||withgoogle.com",
+  "||withyoutube.com",
+  "||x.company",
+  "||xn--ngstr-lra8j.com",
+  "||youtu.be",
+  ".youtube.com",
+  "||youtube.com",
+  "||youtube-nocookie.com",
+  "||youtubeeducation.com",
+  "||youtubegaming.com",
+  "||yt.be",
+  "||ytimg.com",
+  "||zynamics.com",
+  "||naughtyamerica.com",
+  "static01.nyt.com",
+  "||nyt.com",
+  "nytchina.com",
+  "nytcn.me",
+  "||nytcn.me",
+  "||nytco.com",
+  "|http:\/\/nyti.ms\/",
+  ".nytimes.com",
+  "||nytimes.com",
+  "||nytimg.com",
+  "userapi.nytlog.com",
+  "cn.nytstyle.com",
+  "||nytstyle.com",
+  ".steamcommunity.com",
+  "||steamcommunity.com",
+  "|http:\/\/store.steampowered.com\/app\/333600",
+  "||t.me",
+  "||updates.tdesktop.com",
+  "||telegram.dog",
+  "||telegram.me",
+  "||telegram.org",
+  ".telegramdownload.com",
+  "||telesco.pe",
+  "||periscope.tv",
+  ".pscp.tv",
+  "||pscp.tv",
+  ".t.co",
+  "||t.co",
+  ".tweetdeck.com",
+  "||tweetdeck.com",
+  "||twimg.com",
+  ".twitpic.com",
+  "||twitpic.com",
+  ".twitter.com",
+  "||twitter.com",
+  "||twitter.jp",
+  "||vine.co",
+  "||gov.taipei",
+  ".gov.tw",
+  "|https:\/\/aiss.anws.gov.tw",
+  "||archives.gov.tw",
+  "||tacc.cwb.gov.tw",
+  "||data.gov.tw",
+  "||epa.gov.tw",
+  "||fa.gov.tw",
+  "||fda.gov.tw",
+  "||hpa.gov.tw",
+  "||immigration.gov.tw",
+  "||itaiwan.gov.tw",
+  "||mjib.gov.tw",
+  "||moeaic.gov.tw",
+  "||mol.gov.tw",
+  "||mvdis.gov.tw",
+  "||nat.gov.tw",
+  "||nhi.gov.tw",
+  "||npa.gov.tw",
+  "||nsc.gov.tw",
+  "||ntbk.gov.tw",
+  "||ntbna.gov.tw",
+  "||ntbt.gov.tw",
+  "||ntsna.gov.tw",
+  "||pcc.gov.tw",
+  "||stat.gov.tw",
+  "||taipei.gov.tw",
+  "||taiwanjobs.gov.tw",
+  "||thb.gov.tw",
+  "||tipo.gov.tw",
+  "||wda.gov.tw",
+  "@@||aftygh.gov.tw",
+  "@@||aide.gov.tw",
+  "@@||tpde.aide.gov.tw",
+  "@@||arte.gov.tw",
+  "@@||chukuang.gov.tw",
+  "@@||cwb.gov.tw",
+  "@@||cycab.gov.tw",
+  "@@||dbnsa.gov.tw",
+  "@@||df.gov.tw",
+  "@@||eastcoast-nsa.gov.tw",
+  "@@||erv-nsa.gov.tw",
+  "@@||grb.gov.tw",
+  "@@||gysd.nyc.gov.tw",
+  "@@||hchcc.gov.tw",
+  "@@||hsinchu-cc.gov.tw",
+  "@@||iner.gov.tw",
+  "@@||klsio.gov.tw",
+  "@@||kmseh.gov.tw",
+  "@@||lungtanhr.gov.tw",
+  "@@||maolin-nsa.gov.tw",
+  "@@||matsu-news.gov.tw",
+  "@@||matsu-nsa.gov.tw",
+  "@@||matsucc.gov.tw",
+  "@@||moe.gov.tw",
+  "@@||mvdis.gov.tw",
+  "@@||nankan.gov.tw",
+  "@@||ncree.gov.tw",
+  "@@||necoast-nsa.gov.tw",
+  "@@||siraya-nsa.gov.tw",
+  "@@||cromotc.nat.gov.tw",
+  "@@||tax.nat.gov.tw",
+  "@@||necoast-nsa.gov.tw",
+  "@@||ner.gov.tw",
+  "@@||nmmba.gov.tw",
+  "@@||nmp.gov.tw",
+  "@@||nmvttc.gov.tw",
+  "@@||northguan-nsa.gov.tw",
+  "@@||npm.gov.tw",
+  "@@||nstm.gov.tw",
+  "@@||ntdmh.gov.tw",
+  "@@||ntl.gov.tw",
+  "@@||ntsec.gov.tw",
+  "@@||ntuh.gov.tw",
+  "@@||nvri.gov.tw",
+  "@@||penghu-nsa.gov.tw",
+  "@@||post.gov.tw",
+  "@@||siraya-nsa.gov.tw",
+  "@@||stdtime.gov.tw",
+  "@@||sunmoonlake.gov.tw",
+  "@@||taitung-house.gov.tw",
+  "@@||taoyuan.gov.tw",
+  "@@||tphcc.gov.tw",
+  "@@||trimt-nsa.gov.tw",
+  "@@||vghtpe.gov.tw",
+  "@@||vghks.gov.tw",
+  "@@||vghtc.gov.tw",
+  "@@||wanfang.gov.tw",
+  "@@||yatsen.gov.tw",
+  "@@||yda.gov.tw",
+  "||kinmen.org.tw",
+  ".v2ex.com",
+  "@@|http:\/\/v2ex.com",
+  "@@|http:\/\/cdn.v2ex.com",
+  "@@|http:\/\/cn.v2ex.com",
+  "@@|http:\/\/hk.v2ex.com",
+  "@@|http:\/\/i.v2ex.com",
+  "@@|http:\/\/lax.v2ex.com",
+  "@@|http:\/\/neue.v2ex.com",
+  "@@|http:\/\/pagespeed.v2ex.com",
+  "@@|http:\/\/static.v2ex.com",
+  "@@|http:\/\/workspace.v2ex.com",
+  "@@|http:\/\/www.v2ex.com",
+  "||data.flurry.com",
+  "page.bid.yahoo.com",
+  "tw.bid.yahoo.com",
+  "|https:\/\/tw.bid.yahoo.com",
+  "blogs.yahoo.co.jp",
+  "||search.yahoo.co.jp",
+  "buy.yahoo.com.tw\/gdsale",
+  "hk.yahoo.com",
+  "hk.knowledge.yahoo.com",
+  "tw.money.yahoo.com",
+  "hk.myblog.yahoo.com",
+  "news.yahoo.com\/china-blocks-bbc",
+  "||hk.news.yahoo.com",
+  "hk.rd.yahoo.com",
+  "hk.search.yahoo.com\/search",
+  "hk.video.news.yahoo.com\/video",
+  "meme.yahoo.com",
+  "tw.answers.yahoo.com",
+  "|https:\/\/tw.answers.yahoo.com",
+  "||tw.knowledge.yahoo.com",
+  "||tw.mall.yahoo.com",
+  "tw.yahoo.com",
+  "||tw.mobi.yahoo.com",
+  "tw.myblog.yahoo.com",
+  "||tw.news.yahoo.com",
+  "pulse.yahoo.com",
+  "upcoming.yahoo.com",
+  "video.yahoo.com",
+  "||yahoo.com.hk",
+  "||duckduckgo-owned-server.yahoo.net",
+  ".030buy.com",
+  ".0rz.tw",
+  "|http:\/\/0rz.tw",
+  "1-apple.com.tw",
+  "||1-apple.com.tw",
+  ".10.tt",
+  ".100ke.org",
+  ".1000giri.net",
+  "||1000giri.net",
+  ".10conditionsoflove.com",
+  "||10musume.com",
+  "123rf.com",
+  ".12bet.com",
+  "||12bet.com",
+  ".12vpn.com",
+  ".12vpn.net",
+  "||12vpn.com",
+  "||12vpn.net",
+  "141hongkong.com\/forum",
+  "||141jj.com",
+  ".141tube.com",
+  ".1688.com.au",
+  ".173ng.com",
+  "||173ng.com",
+  ".177pic.info",
+  ".17t17p.com",
+  "||18board.com",
+  "||18board.info",
+  "18onlygirls.com",
+  ".18p2p.com",
+  ".18virginsex.com",
+  ".1949er.org",
+  "zhao.1984.city",
+  "||zhao.1984.city",
+  "1984bbs.com",
+  "||1984bbs.com",
+  ".1984bbs.org",
+  "||1984bbs.org",
+  ".1991way.com",
+  "||1991way.com",
+  ".1998cdp.org",
+  ".1bao.org",
+  "|http:\/\/1bao.org",
+  ".1eew.com",
+  ".1mobile.com",
+  "|http:\/\/*.1mobile.tw",
+  "||1pondo.tv",
+  ".2-hand.info",
+  ".2000fun.com\/bbs",
+  ".2008xianzhang.info",
+  "||2008xianzhang.info",
+  "||2017.hk",
+  "21andy.com\/blog",
+  ".21pron.com",
+  "21sextury.com",
+  ".228.net.tw",
+  "||233abc.com",
+  "||24hrs.ca",
+  "24smile.org",
+  "2lipstube.com",
+  ".2shared.com",
+  "30boxes.com",
+  ".315lz.com",
+  "||32red.com",
+  "||36rain.com",
+  ".3a5a.com",
+  "3arabtv.com",
+  ".3boys2girls.com",
+  ".3proxy.ru",
+  ".3ren.ca",
+  ".3tui.net",
+  "||4bluestones.biz",
+  ".4chan.com",
+  ".4everproxy.com",
+  "||4everproxy.com",
+  "||4rbtv.com",
+  "||4shared.com",
+  "taiwannation.50webs.com",
+  "||51.ca",
+  "||51jav.org",
+  ".51luoben.com",
+  "||51luoben.com",
+  ".5278.cc",
+  "5aimiku.com",
+  "5i01.com",
+  ".5isotoi5.org",
+  ".5maodang.com",
+  "||63i.com",
+  ".64museum.org",
+  "64tianwang.com",
+  "64wiki.com",
+  ".66.ca",
+  "666kb.com",
+  "6park.com",
+  "||6park.com",
+  "||6parker.com",
+  "||7capture.com",
+  ".7cow.com",
+  ".8-d.com",
+  "|http:\/\/8-d.com",
+  "85cc.net",
+  ".85cc.us",
+  "|http:\/\/85cc.us",
+  "|http:\/\/85st.com",
+  ".881903.com\/page\/zh-tw\/",
+  "||881903.com",
+  ".888.com",
+  ".888poker.com",
+  "89.64.charter.constitutionalism.solutions",
+  "89-64.org",
+  "||89-64.org",
+  ".8news.com.tw",
+  ".8z1.net",
+  "||8z1.net",
+  ".9001700.com",
+  "|http:\/\/908taiwan.org\/",
+  "||91porn.com",
+  "||91vps.club",
+  ".92ccav.com",
+  ".991.com",
+  "|http:\/\/991.com",
+  ".99btgc01.com",
+  "||99btgc01.com",
+  ".99cn.info",
+  "|http:\/\/99cn.info",
+  "||9bis.com",
+  "||9bis.net",
+  ".tibet.a.se",
+  "|http:\/\/tibet.a.se",
+  "||a-normal-day.com",
+  "a5.com.ru",
+  "|http:\/\/aamacau.com",
+  ".abc.com",
+  ".abchinese.com",
+  "abclite.net",
+  "|https:\/\/www.abclite.net",
+  ".ablwang.com",
+  ".aboluowang.com",
+  "||aboluowang.com",
+  ".aboutgfw.com",
+  ".abs.edu",
+  ".accim.org",
+  ".aceros-de-hispania.com",
+  ".acevpn.com",
+  "||acevpn.com",
+  ".acg18.me",
+  "|http:\/\/acg18.me",
+  "||acgkj.com",
+  ".acmedia365.com",
+  ".acnw.com.au",
+  "actfortibet.org",
+  "actimes.com.au",
+  "activpn.com",
+  "||activpn.com",
+  "||aculo.us",
+  "||addictedtocoffee.de",
+  ".adelaidebbs.com\/bbs",
+  ".adpl.org.hk",
+  "|http:\/\/adpl.org.hk",
+  ".adult-sex-games.com",
+  "||adult-sex-games.com",
+  "adultfriendfinder.com",
+  "adultkeep.net\/peepshow\/members\/main.htm",
+  "||advanscene.com",
+  "||advertfan.com",
+  ".ae.org",
+  "||aenhancers.com",
+  "||af.mil",
+  ".afantibbs.com",
+  "|http:\/\/afantibbs.com",
+  ".ai-kan.net",
+  "||ai-kan.net",
+  "ai-wen.net",
+  ".aiph.net",
+  "||aiph.net",
+  ".airasia.com",
+  "||airconsole.com",
+  "|http:\/\/download.aircrack-ng.org",
+  ".airvpn.org",
+  "||airvpn.org",
+  ".aisex.com",
+  "||ait.org.tw",
+  "aiweiwei.com",
+  ".aiweiweiblog.com",
+  "||aiweiweiblog.com",
+  "||www.ajsands.com",
+  "|https:\/\/fbcdn*.akamaihd.net\/",
+  "a248.e.akamai.net",
+  "||a248.e.akamai.net",
+  "voa-11.akacast.akamaistream.net",
+  ".akademiye.org\/ug",
+  "|http:\/\/akademiye.org\/ug",
+  "||akiba-online.com",
+  ".al-islam.com",
+  "||al-qimmah.net",
+  "||alabout.com",
+  ".alanhou.com",
+  "|http:\/\/alanhou.com",
+  ".alarab.qa",
+  "||alasbarricadas.org",
+  "alexlur.org",
+  "||alforattv.net",
+  ".alhayat.com",
+  ".alicejapan.co.jp",
+  "aliengu.com",
+  "||alkasir.com",
+  "||allconnected.co",
+  ".alldrawnsex.com",
+  "||alldrawnsex.com",
+  ".allervpn.com",
+  "||allfinegirls.com",
+  ".allgirlmassage.com",
+  "allgirlsallowed.org",
+  ".allgravure.com",
+  "alliance.org.hk",
+  ".allinfa.com",
+  "|http:\/\/allinfa.com",
+  ".alljackpotscasino.com",
+  "||allmovie.com",
+  "||almasdarnews.com",
+  ".alphaporno.com",
+  "||alternate-tools.com",
+  "alternativeto.net\/software",
+  "alvinalexander.com",
+  "alwaysdata.com",
+  "||alwaysdata.com",
+  "||alwaysdata.net",
+  ".alwaysvpn.com",
+  "||alwaysvpn.com",
+  "||am730.com.hk",
+  "amazon.com\/Prisoner-State-Secret-Journal-Premier",
+  "ameblo.jp",
+  "||ameblo.jp",
+  "www1.american.edu\/ted\/ice\/tibet",
+  "||americangreencard.com",
+  "|http:\/\/www.americorps.gov",
+  "||amiblockedornot.com",
+  ".amigobbs.net",
+  ".amitabhafoundation.us",
+  "|http:\/\/amitabhafoundation.us",
+  ".amnesty.org",
+  "||amnesty.org",
+  "||amnesty.org.hk",
+  ".amnesty.tw",
+  ".amnestyusa.org",
+  "||amnestyusa.org",
+  ".amnyemachen.org",
+  ".amoiist.com",
+  ".amtb-taipei.org",
+  "androidplus.co\/apk",
+  ".andygod.com",
+  "|http:\/\/andygod.com",
+  "annatam.com\/chinese",
+  "||anchorfree.com",
+  "||ancsconf.org",
+  "||andfaraway.net",
+  "||android-x86.org",
+  "angelfire.com\/hi\/hayashi",
+  "||angularjs.org",
+  "animecrazy.net",
+  ".animeshippuuden.com",
+  "aniscartujo.com",
+  "||aniscartujo.com",
+  "||anobii.com",
+  "anonymise.us",
+  ".anonymitynetwork.com",
+  ".anonymizer.com",
+  "anontext.com",
+  ".anpopo.com",
+  ".answering-islam.org",
+  "|http:\/\/www.antd.org",
+  "||anthonycalzadilla.com",
+  ".anti1984.com",
+  "antichristendom.com",
+  ".antiwave.net",
+  "|http:\/\/antiwave.net",
+  ".anyporn.com",
+  ".anysex.com",
+  "|http:\/\/anysex.com",
+  "||aobo.com.au",
+  ".aofriend.com",
+  "|http:\/\/aofriend.com",
+  ".aofriend.com.au",
+  ".aojiao.org",
+  "||aomiwang.com",
+  "video.ap.org",
+  ".apetube.com",
+  "||apiary.io",
+  ".apigee.com",
+  "||apigee.com",
+  "apk-dl.com",
+  "apkdler.com\/apk\/view",
+  ".apkmonk.com\/app",
+  "||apkplz.com",
+  "apkpure.com",
+  "||apkpure.com",
+  ".aplusvpn.com",
+  ".appdownloader.net\/Android",
+  ".appledaily.com",
+  "||appledaily.com",
+  ".appshopper.com",
+  "|http:\/\/appshopper.com",
+  "||appsocks.net",
+  "||appsto.re",
+  "||archives.gov",
+  ".archive.is",
+  "||archive.is",
+  ".archive.fo",
+  "||archive.org",
+  ".arctosia.com",
+  "|http:\/\/arctosia.com",
+  "||areca-backup.org",
+  ".arethusa.su",
+  "||arethusa.su",
+  "||arlingtoncemetery.mil",
+  "||army.mil",
+  ".art4tibet1998.org",
+  "artofpeacefoundation.org",
+  "artsy.net",
+  "||asacp.org",
+  ".asahichinese.com",
+  "||asahichinese.com",
+  "asdfg.jp\/dabr",
+  "asg.to",
+  ".asia-gaming.com",
+  ".asiaharvest.org",
+  "||asiaharvest.org",
+  "asianews.it",
+  "|http:\/\/japanfirst.asianfreeforum.com\/",
+  "||asiansexdiary.com",
+  "||asianwomensfilm.de",
+  ".asiatgp.com",
+  ".asiatoday.us",
+  "||askstudent.com",
+  ".askynz.net",
+  "||askynz.net",
+  "||assembla.com",
+  "||astrill.com",
+  "||atc.org.au",
+  ".atchinese.com",
+  "|http:\/\/atchinese.com",
+  "atgfw.org",
+  ".atlaspost.com",
+  "||atlaspost.com",
+  "||atdmt.com",
+  ".atlanta168.com\/forum",
+  ".atnext.com",
+  "||atnext.com",
+  "ice.audionow.com",
+  ".av.com",
+  "||av.movie",
+  "avaaz.org",
+  "||avaaz.org",
+  ".avbody.tv",
+  ".avcity.tv",
+  ".avcool.com",
+  ".avdb.in",
+  "||avdb.in",
+  ".avdb.tv",
+  "||avdb.tv",
+  ".avfantasy.com",
+  "||avidemux.org",
+  "||avoision.com",
+  ".avyahoo.com",
+  "||axureformac.com",
+  ".azerbaycan.tv",
+  "azerimix.com",
+  "boxun*.azurewebsites.net",
+  "||boxun*.azurewebsites.net",
+  "forum.baby-kingdom.com",
+  "babynet.com.hk",
+  "backchina.com",
+  "||backchina.com",
+  ".backpackers.com.tw\/forum",
+  "backtotiananmen.com",
+  ".badjojo.com",
+  "badoo.com",
+  "|http:\/\/*2.bahamut.com.tw",
+  "||baidu.jp",
+  "||bailandaily.com",
+  "||baixing.me",
+  "||bakgeekhome.tk",
+  ".banana-vpn.com",
+  "||banana-vpn.com",
+  ".bandwagonhost.com",
+  "||bandwagonhost.com",
+  ".bangbrosnetwork.com",
+  ".bangchen.net",
+  "|http:\/\/bangchen.net",
+  "||bangyoulater.com",
+  "bannedbook.org",
+  "||bannedbook.org",
+  ".bannednews.org",
+  ".baramangaonline.com",
+  "|http:\/\/baramangaonline.com",
+  ".barenakedislam.com",
+  "||barnabu.co.uk",
+  "bartvpn.com",
+  ".bastillepost.com",
+  "bayvoice.net",
+  "||bayvoice.net",
+  "dajusha.baywords.com",
+  "||bbchat.tv",
+  "||bb-chat.tv",
+  ".bbg.gov",
+  ".bbkz.com\/forum",
+  ".bbnradio.org",
+  "bbs-tw.com",
+  ".bbsdigest.com\/thread",
+  "||bbsfeed.com",
+  "bbsland.com",
+  ".bbsmo.com",
+  ".bbsone.com",
+  "bbtoystore.com",
+  ".bcast.co.nz",
+  ".bcc.com.tw\/board",
+  ".bcchinese.net",
+  ".bcmorning.com",
+  "bdsmvideos.net",
+  ".beaconevents.com",
+  ".bebo.com",
+  "||bebo.com",
+  ".beevpn.com",
+  "||beevpn.com",
+  ".behindkink.com",
+  "||beijing1989.com",
+  "beijingspring.com",
+  "||beijingspring.com",
+  ".beijingzx.org",
+  "|http:\/\/beijingzx.org",
+  ".belamionline.com",
+  ".bell.wiki",
+  "|http:\/\/bell.wiki",
+  "bemywife.cc",
+  "beric.me",
+  ".berlintwitterwall.com",
+  "||berlintwitterwall.com",
+  ".berm.co.nz",
+  ".bestforchina.org",
+  "||bestforchina.org",
+  ".bestgore.com",
+  ".bestpornstardb.com",
+  "||bestvpn.com",
+  ".bestvpnanalysis.com",
+  ".bestvpnserver.com",
+  ".bestvpnservice.com",
+  ".bestvpnusa.com",
+  "||bet365.com",
+  ".betfair.com",
+  "||betternet.co",
+  ".bettervpn.com",
+  "||bettervpn.com",
+  ".bettween.com",
+  "||bettween.com",
+  "||betvictor.com",
+  ".bewww.net",
+  ".beyondfirewall.com",
+  "||bfnn.org",
+  "||bfsh.hk",
+  ".bgvpn.com",
+  "||bgvpn.com",
+  ".bianlei.com",
+  "@@||bianlei.com",
+  "biantailajiao.com",
+  "biantailajiao.in",
+  ".biblesforamerica.org",
+  "|http:\/\/biblesforamerica.org",
+  ".bic2011.org",
+  "bigfools.com",
+  "||bigjapanesesex.com",
+  ".bignews.org",
+  "||bignews.org",
+  ".bigsound.org",
+  ".biliworld.com",
+  "|http:\/\/biliworld.com",
+  "|http:\/\/billypan.com\/wiki",
+  ".binux.me",
+  "ai.binwang.me\/couplet",
+  "bipic.net",
+  ".bit.do",
+  "|http:\/\/bit.do",
+  ".bit.ly",
+  "|http:\/\/bit.ly",
+  "||bitcointalk.org",
+  ".bitshare.com",
+  "||bitshare.com",
+  "bitsnoop.com",
+  ".bitvise.com",
+  "||bitvise.com",
+  "bizhat.com",
+  "||bl-doujinsouko.com",
+  ".bjnewlife.org",
+  ".bjs.org",
+  "bjzc.org",
+  "||bjzc.org",
+  ".blacklogic.com",
+  ".blackvpn.com",
+  "||blackvpn.com",
+  "blewpass.com",
+  "tor.blingblingsquad.net",
+  ".blinkx.com",
+  "||blinkx.com",
+  "blinw.com",
+  ".blip.tv",
+  "||blip.tv\/",
+  ".blockcn.com",
+  "||blockcn.com",
+  "||blockless.com",
+  "||blog.de",
+  ".blog.jp",
+  "|http:\/\/blog.jp",
+  "@@||jpush.cn",
+  ".blogcatalog.com",
+  "||blogcatalog.com",
+  "||blogcity.me",
+  ".blogger.com",
+  "||blogger.com",
+  "blogimg.jp",
+  "||blog.kangye.org",
+  ".bloglines.com",
+  "||bloglines.com",
+  "||bloglovin.com",
+  "rconversation.blogs.com",
+  "blogtd.net",
+  ".blogtd.org",
+  "|http:\/\/blogtd.org",
+  "||bloodshed.net",
+  ".bloomberg.cn",
+  "||bloomberg.cn",
+  ".bloomberg.com",
+  "||bloomberg.com",
+  "bloomberg.de",
+  "||bloomberg.de",
+  "||bloomfortune.com",
+  "blueangellive.com",
+  ".bmfinn.com",
+  ".bnews.co",
+  "||bnews.co",
+  "||bnrmetal.com",
+  "boardreader.com\/thread",
+  "||boardreader.com",
+  ".bod.asia",
+  "|http:\/\/bod.asia",
+  ".bodog88.com",
+  ".bolehvpn.net",
+  "||bolehvpn.net",
+  "bonbonme.com",
+  ".bonbonsex.com",
+  ".bonfoundation.org",
+  ".bongacams.com",
+  "||boobstagram.com",
+  "||book.com.tw",
+  "bookepub.com",
+  "||books.com.tw",
+  "||botanwang.com",
+  ".bot.nu",
+  ".bowenpress.com",
+  "||bowenpress.com",
+  "||app.box.com",
+  "dl.box.net",
+  "||dl.box.net",
+  ".boxpn.com",
+  "||boxpn.com",
+  "boxun.com",
+  "||boxun.com",
+  ".boxun.tv",
+  "||boxun.tv",
+  "boxunblog.com",
+  "||boxunblog.com",
+  ".boxunclub.com",
+  "boyangu.com",
+  ".boyfriendtv.com",
+  ".boysfood.com",
+  "||br.st",
+  ".brainyquote.com\/quotes\/authors\/d\/dalai_lama",
+  "||brandonhutchinson.com",
+  "||braumeister.org",
+  ".bravotube.net",
+  "||bravotube.net",
+  ".brazzers.com",
+  "||brazzers.com",
+  ".break.com",
+  "||break.com",
+  "breakgfw.com",
+  "||breakgfw.com",
+  "breaking911.com",
+  ".breakingtweets.com",
+  "||breakingtweets.com",
+  "||breakwall.net",
+  "briian.com\/6511\/freegate",
+  ".briefdream.com\/%E7%B4%A0%E6%A3%BA",
+  "brizzly.com",
+  "||brizzly.com",
+  "||brkmd.com",
+  "broadbook.com",
+  ".broadpressinc.com",
+  "||broadpressinc.com",
+  "bbs.brockbbs.com",
+  "brucewang.net",
+  ".brutaltgp.com",
+  "||brutaltgp.com",
+  ".bt2mag.com",
+  "||bt95.com",
+  ".btaia.com",
+  ".btbtav.com",
+  "|http:\/\/btdigg.org",
+  ".btku.me",
+  "||btku.me",
+  "||btku.org",
+  ".btspread.com",
+  ".budaedu.org",
+  "||budaedu.org",
+  ".buddhanet.com.tw\/zfrop\/tibet",
+  ".buddhistchannel.tv",
+  ".buffered.com",
+  "|http:\/\/buffered.com",
+  ".bullog.org",
+  "||bullog.org",
+  ".bullogger.com",
+  "||bullogger.com",
+  "bunbunhk.com",
+  ".busayari.com",
+  "|http:\/\/busayari.com",
+  ".businessinsider.com\/bing-could-be-censoring-search-results-2014",
+  ".businessinsider.com\/china-banks-preparing-for-debt-implosion-2014",
+  ".businessinsider.com\/hong-kong-activists-defy-police-tear-gas-as-protests-continue-overnight-2014",
+  ".businessinsider.com\/internet-outages-reported-in-north-korea-2014",
+  ".businessinsider.com\/iphone-6-is-approved-for-sale-in-china-2014",
+  ".businessinsider.com\/nfl-announcers-surface-tablets-2014",
+  ".businessinsider.com\/panama-papers",
+  ".businessinsider.com\/umbrella-man-hong-kong-2014",
+  "|http:\/\/www.businessinsider.com.au\/*",
+  ".businessweek.com",
+  ".busu.org\/news",
+  "|http:\/\/busu.org\/news",
+  "busytrade.com",
+  ".buugaa.com",
+  ".buzzhand.com",
+  ".buzzhand.net",
+  ".buzzorange.com",
+  "||buzzorange.com",
+  "||bvpn.com",
+  "bwsj.hk",
+  "||bx.tl",
+  ".c-spanvideo.org",
+  "||c-spanvideo.org",
+  "||c-est-simple.com",
+  ".c100tibet.org",
+  "||cablegatesearch.net",
+  ".cachinese.com",
+  ".cacnw.com",
+  "|http:\/\/cacnw.com",
+  ".cactusvpn.com",
+  "||cactusvpn.com",
+  ".cafepress.com",
+  ".cahr.org.tw",
+  ".calameo.com\/books",
+  "cn.calameo.com",
+  "|http:\/\/cn.calameo.com",
+  ".calgarychinese.ca",
+  ".calgarychinese.com",
+  ".calgarychinese.net",
+  "|http:\/\/blog.calibre-ebook.com",
+  "|http:\/\/google.calstate.edu",
+  "falun.caltech.edu",
+  ".its.caltech.edu\/~falun\/",
+  ".cam4.com",
+  ".cam4.jp",
+  ".cam4.sg",
+  ".camfrog.com",
+  "||camfrog.com",
+  "||cams.com",
+  ".cams.org.sg",
+  "canadameet.com",
+  ".canalporno.com",
+  "|http:\/\/bbs.cantonese.asia\/",
+  ".canyu.org",
+  "||canyu.org",
+  ".cao.im",
+  ".caobian.info",
+  "||caobian.info",
+  "caochangqing.com",
+  "||caochangqing.com",
+  ".cap.org.hk",
+  "||cap.org.hk",
+  ".carabinasypistolas.com",
+  "cardinalkungfoundation.org",
+  "carmotorshow.com",
+  "ss.carryzhou.com",
+  ".cartoonmovement.com",
+  "||cartoonmovement.com",
+  ".casadeltibetbcn.org",
+  ".casatibet.org.mx",
+  "|http:\/\/casatibet.org.mx",
+  "cari.com.my",
+  "||caribbeancom.com",
+  ".casinoking.com",
+  ".casinoriva.com",
+  "||catch22.net",
+  ".catchgod.com",
+  "|http:\/\/catchgod.com",
+  "||catfightpayperview.xxx",
+  ".catholic.org.hk",
+  "||catholic.org.hk",
+  "catholic.org.tw",
+  "||catholic.org.tw",
+  ".cathvoice.org.tw",
+  "||cattt.com",
+  ".cbc.ca",
+  "||cbc.ca",
+  ".cbsnews.com\/video",
+  ".cbtc.org.hk",
+  "||cccat.cc",
+  "||cccat.co",
+  ".ccdtr.org",
+  "||ccdtr.org",
+  ".cchere.com",
+  "||cchere.com",
+  ".ccim.org",
+  ".cclife.ca",
+  "cclife.org",
+  "cclifefl.org",
+  ".ccthere.com",
+  "||ccthere.com",
+  ".cctmweb.net",
+  ".cctongbao.com\/article\/2078732",
+  "ccue.ca",
+  "ccue.com",
+  ".ccvoice.ca",
+  ".ccw.org.tw",
+  ".cgdepot.org",
+  "|http:\/\/cgdepot.org",
+  "||cdbook.org",
+  ".cdcparty.com",
+  ".cdef.org",
+  "||cdef.org",
+  "||cdig.info",
+  "cdjp.org",
+  "||cdjp.org",
+  ".cdn-apple.com",
+  "||cdn-apple.com",
+  ".cdnews.com.tw",
+  "cdp1989.org",
+  "cdp1998.org",
+  "||cdp1998.org",
+  "cdp2006.org",
+  "||cdp2006.org",
+  ".cdpa.url.tw",
+  "cdpeu.org",
+  "cdpusa.org",
+  "cdpweb.org",
+  "||cdpweb.org",
+  "cdpwu.org",
+  "||cdpwu.org",
+  "||cdw.com",
+  ".cecc.gov",
+  "||cecc.gov",
+  "||cellulo.info",
+  "||cenews.eu",
+  "||centerforhumanreprod.com",
+  "||centralnation.com",
+  ".centurys.net",
+  "|http:\/\/centurys.net",
+  ".cfhks.org.hk",
+  ".cftfc.com",
+  ".cgst.edu",
+  ".change.org",
+  "||change.org",
+  ".changp.com",
+  "||changp.com",
+  ".changsa.net",
+  "|http:\/\/changsa.net",
+  ".channel8news.sg\/news8",
+  ".chapm25.com",
+  ".chaturbate.com",
+  ".chuang-yen.org",
+  "chengmingmag.com",
+  ".chenguangcheng.com",
+  "||chenguangcheng.com",
+  ".chenpokong.com",
+  ".chenpokong.net",
+  "|http:\/\/chenpokong.net",
+  "||cherrysave.com",
+  ".chhongbi.org",
+  "chicagoncmtv.com",
+  "|http:\/\/chicagoncmtv.com",
+  ".china-week.com",
+  "china101.com",
+  "||china101.com",
+  "||china18.org",
+  "||china21.com",
+  "china21.org",
+  "||china21.org",
+  ".china5000.us",
+  "chinaaffairs.org",
+  "||chinaaffairs.org",
+  "||chinaaid.me",
+  "chinaaid.us",
+  "chinaaid.org",
+  "chinaaid.net",
+  "chinacomments.org",
+  "||chinacomments.org",
+  ".chinachange.org",
+  "||chinachange.org",
+  "chinachannel.hk",
+  "||chinachannel.hk",
+  ".chinacitynews.be",
+  ".chinadialogue.net",
+  ".chinadigitaltimes.net",
+  "||chinadigitaltimes.net",
+  ".chinaelections.org",
+  "||chinaelections.org",
+  ".chinaeweekly.com",
+  "||chinaeweekly.com",
+  "||chinafreepress.org",
+  ".chinagate.com",
+  "chinageeks.org",
+  "chinagfw.org",
+  "||chinagfw.org",
+  ".chinagonet.com",
+  ".chinagreenparty.org",
+  "||chinagreenparty.org",
+  ".chinahorizon.org",
+  "||chinahorizon.org",
+  ".chinahush.com",
+  ".chinainperspective.com",
+  "||chinainterimgov.org",
+  "chinalaborwatch.org",
+  "chinalawtranslate.com",
+  ".chinapost.com.tw\/taiwan\/national\/national-news",
+  "chinaxchina.com\/howto",
+  "chinalawandpolicy.com",
+  ".chinamule.com",
+  "||chinamule.com",
+  "chinamz.org",
+  ".chinapress.com.my",
+  "||chinapress.com.my",
+  ".china-review.com.ua",
+  "|http:\/\/china-review.com.ua",
+  ".chinarightsia.org",
+  "chinasmile.net\/forums",
+  "chinasocialdemocraticparty.com",
+  "||chinasocialdemocraticparty.com",
+  "chinasoul.org",
+  "||chinasoul.org",
+  ".chinasucks.net",
+  ".chinatimes.com\/realtimenews\/260409\/",
+  "||chinatopsex.com",
+  ".chinatown.com.au",
+  "chinatweeps.com",
+  "chinaway.org",
+  ".chinaworker.info",
+  "||chinaworker.info",
+  "chinayouth.org.hk",
+  "chinayuanmin.org",
+  "||chinayuanmin.org",
+  ".chinese-hermit.net",
+  "chinese-leaders.org",
+  "chinese-memorial.org",
+  ".chinesedaily.com",
+  "||chinesedailynews.com",
+  ".chinesedemocracy.com",
+  "||chinesedemocracy.com",
+  "||chinesegay.org",
+  ".chinesen.de",
+  "||chinesen.de",
+  ".chinesepen.org",
+  ".chinesetalks.net\/ch",
+  "||chineseupress.com",
+  ".chingcheong.com",
+  "||chingcheong.com",
+  ".chinman.net",
+  "|http:\/\/chinman.net",
+  "chithu.org",
+  "|http:\/\/chn.chosun.com",
+  "cnnews.chosun.com\/client\/news\/viw.asp?cate=C01&mcate",
+  ".chrdnet.com",
+  "|http:\/\/chrdnet.com",
+  ".christianfreedom.org",
+  "|http:\/\/christianfreedom.org",
+  "christianstudy.com",
+  "||christianstudy.com",
+  "christusrex.org\/www1\/sdc",
+  ".chubold.com",
+  "chubun.com",
+  "chuizi.net",
+  "christiantimes.org.hk",
+  ".chrlawyers.hk",
+  "|http:\/\/chrlawyers.hk",
+  ".churchinhongkong.org\/b5\/index.php",
+  "|http:\/\/churchinhongkong.org\/b5\/index.php",
+  ".chushigangdrug.ch",
+  ".cienen.com",
+  ".cineastentreff.de",
+  ".cipfg.org",
+  "||circlethebayfortibet.org",
+  ".citizencn.com",
+  "||citizencn.com",
+  "|http:\/\/citizenlab.org",
+  "|http:\/\/www.citizenlab.org",
+  "||citizenscommission.hk",
+  ".citizenlab.org",
+  "citizensradio.org",
+  ".city365.ca",
+  "|http:\/\/city365.ca",
+  "city9x.com",
+  "||citypopulation.de",
+  ".citytalk.tw\/event",
+  ".civicparty.hk",
+  "||civicparty.hk",
+  ".civildisobediencemovement.org",
+  "civilhrfront.org",
+  "||civilhrfront.org",
+  ".civiliangunner.com",
+  ".civilmedia.tw",
+  "||civilmedia.tw",
+  "psiphon.civisec.org",
+  "||vpn.cjb.net",
+  ".ck101.com",
+  "||ck101.com",
+  ".clarionproject.org\/news\/islamic-state-isis-isil-propaganda",
+  "||classicalguitarblog.net",
+  ".clb.org.hk",
+  "clearharmony.net",
+  "clearwisdom.net",
+  "clinica-tibet.ru",
+  ".clipfish.de",
+  "cloakpoint.com",
+  "||club1069.com",
+  "cmi.org.tw",
+  "|http:\/\/www.cmoinc.org",
+  "cmp.hku.hk",
+  "hkupop.hku.hk",
+  "||cmule.com",
+  "||cmule.org",
+  "||cms.gov",
+  "|http:\/\/vpn.cmu.edu",
+  "|http:\/\/vpn.sv.cmu.edu",
+  ".cn6.eu",
+  ".cna.com.tw",
+  "||cna.com.tw",
+  ".cnabc.com",
+  ".cnd.org",
+  "||cnd.org",
+  "download.cnet.com",
+  ".cnex.org.cn",
+  ".cnineu.com",
+  "wiki.cnitter.com",
+  ".cnn.com\/video",
+  ".cnpolitics.org",
+  "||cnpolitics.org",
+  ".cn-proxy.com",
+  "|http:\/\/cn-proxy.com",
+  ".cnproxy.com",
+  "blog.cnyes.com",
+  "news.cnyes.com",
+  "||coat.co.jp",
+  ".cochina.co",
+  "||cochina.co",
+  "||cochina.org",
+  ".code1984.com\/64",
+  "|http:\/\/goagent.codeplex.com",
+  "||codeshare.io",
+  "||codeskulptor.org",
+  "|http:\/\/tosh.comedycentral.com",
+  "comefromchina.com",
+  "||comefromchina.com",
+  ".comic-mega.me",
+  "commandarms.com",
+  "||commentshk.com",
+  ".communistcrimes.org",
+  "||communistcrimes.org",
+  "||communitychoicecu.com",
+  "||compileheart.com",
+  "||conoha.jp",
+  ".contactmagazine.net",
+  ".convio.net",
+  ".coobay.com",
+  "|http:\/\/www.cool18.com\/bbs*\/",
+  ".coolaler.com",
+  "||coolaler.com",
+  "coolder.com",
+  "||coolder.com",
+  "||coolloud.org.tw",
+  ".coolncute.com",
+  "corumcollege.com",
+  ".cos-moe.com",
+  "|http:\/\/cos-moe.com",
+  ".cosplayjav.pl",
+  "|http:\/\/cosplayjav.pl",
+  ".cotweet.com",
+  "||cotweet.com",
+  ".coursehero.com",
+  "||coursehero.com",
+  "cpj.org",
+  "||cpj.org",
+  ".cq99.us",
+  "|http:\/\/cq99.us",
+  "crackle.com",
+  "||crackle.com",
+  ".crazys.cc",
+  "||crchina.org",
+  "crd-net.org",
+  "creaders.net",
+  "||creaders.net",
+  ".creadersnet.com",
+  "||cristyli.com",
+  ".crocotube.com",
+  "|http:\/\/crocotube.com",
+  ".crossthewall.net",
+  "||crossthewall.net",
+  ".crossvpn.net",
+  "||crossvpn.net",
+  "||crucial.com",
+  "csdparty.com",
+  "||csdparty.com",
+  "||csuchen.de",
+  ".csw.org.uk",
+  ".ct.org.tw",
+  "||ct.org.tw",
+  ".ctao.org",
+  ".ctfriend.net",
+  ".ctitv.com.tw",
+  "cts.com.tw",
+  "|http:\/\/library.usc.cuhk.edu.hk\/",
+  "|http:\/\/mjlsh.usc.cuhk.edu.hk\/",
+  ".cuhkacs.org\/~benng",
+  ".cuihua.org",
+  "||cuihua.org",
+  ".cuiweiping.net",
+  "||cuiweiping.net",
+  "||culture.tw",
+  ".cumlouder.com",
+  "||cumlouder.com",
+  "||curvefish.com",
+  ".cusu.hk",
+  "||cusu.hk",
+  ".cw.com.tw",
+  "|http:\/\/forum.cyberctm.com",
+  "cyberghostvpn.com",
+  "||cyberghostvpn.com",
+  "||cynscribe.com",
+  "cytode.us",
+  "||ifan.cz.cc",
+  "||mike.cz.cc",
+  "||nic.cz.cc",
+  ".d-fukyu.com",
+  "|http:\/\/d-fukyu.com",
+  "cl.d0z.net",
+  ".d100.net",
+  "||d100.net",
+  ".d2bay.com",
+  "|http:\/\/d2bay.com",
+  ".dabr.co.uk",
+  "||dabr.co.uk",
+  "dabr.eu",
+  "dabr.mobi",
+  "||dabr.mobi",
+  "||dabr.me",
+  "dadazim.com",
+  "||dadazim.com",
+  ".dadi360.com",
+  "dafagood.com",
+  "dafahao.com",
+  ".dafoh.org",
+  ".dagelijksestandaard.nl",
+  ".daidostup.ru",
+  "|http:\/\/daidostup.ru",
+  ".dailidaili.com",
+  "||dailidaili.com",
+  ".dailymotion.com",
+  "||dailymotion.com",
+  "daiphapinfo.net",
+  ".dajiyuan.com",
+  "||dajiyuan.de",
+  "dajiyuan.eu",
+  "dalailama.com",
+  ".dalailama.mn",
+  "|http:\/\/dalailama.mn",
+  ".dalailama.ru",
+  "||dalailama.ru",
+  "dalailama80.org",
+  ".dalailama-archives.org",
+  ".dalailamacenter.org",
+  "|http:\/\/dalailamacenter.org",
+  "dalailamafellows.org",
+  ".dalailamafilm.com",
+  ".dalailamafoundation.org",
+  ".dalailamahindi.com",
+  ".dalailamainaustralia.org",
+  ".dalailamajapanese.com",
+  ".dalailamaprotesters.info",
+  ".dalailamaquotes.org",
+  ".dalailamatrust.org",
+  ".dalailamavisit.org.nz",
+  ".dalailamaworld.com",
+  "||dalailamaworld.com",
+  "dalianmeng.org",
+  "||dalianmeng.org",
+  ".daliulian.org",
+  "||daliulian.org",
+  ".danke4china.net",
+  "||danke4china.net",
+  ".danwei.org",
+  "daolan.net",
+  ".daozhongxing.org",
+  "darktoy.net",
+  "||dastrassi.org",
+  "blog.daum.net\/_blog",
+  ".david-kilgour.com",
+  "|http:\/\/david-kilgour.com",
+  "daxa.cn",
+  "||daxa.cn",
+  "cn.dayabook.com",
+  ".daylife.com\/topic\/dalai_lama",
+  "||db.tt",
+  ".dbc.hk\/main",
+  "||dcard.tw",
+  "dcmilitary.com",
+  ".ddc.com.tw",
+  ".ddhw.info",
+  "||de-sci.org",
+  ".de-sci.org",
+  "packages.debian.org\/zh-cn\/lenny\/gpass",
+  "||decodet.co",
+  ".definebabe.com",
+  "||delcamp.net",
+  "delicious.com\/GFWbookmark",
+  ".democrats.org",
+  "||democrats.org",
+  "||desc.se",
+  "||dessci.com",
+  ".destroy-china.jp",
+  "||deutsche-welle.de",
+  "||devio.us",
+  "||devpn.com",
+  "||dfas.mil",
+  "dfn.org",
+  "dharmakara.net",
+  ".dharamsalanet.com",
+  ".diaoyuislands.org",
+  "||diaoyuislands.org",
+  "|http:\/\/digiland.tw\/",
+  "||digitalnomadsproject.org",
+  ".diigo.com",
+  "||diigo.com",
+  "||dilber.se",
+  "||furl.net",
+  ".dipity.com",
+  "||directcreative.com",
+  "|https:\/\/search.disconnect.me",
+  ".discuss.com.hk",
+  "||discuss.com.hk",
+  ".discuss4u.com",
+  "disp.cc",
+  ".disqus.com",
+  "||disqus.com",
+  ".dit-inc.us",
+  "||dit-inc.us",
+  ".dizhidizhi.com",
+  "||dizhuzhishang.com",
+  "djangosnippets.org",
+  ".djorz.com",
+  "||djorz.com",
+  "||dl-laby.jp",
+  "||dlsite.com",
+  "||dlyoutube.com",
+  "||dmcdn.net",
+  ".dnscrypt.org",
+  "||dnscrypt.org",
+  "||dns2go.com",
+  "||dnssec.net",
+  "doctorvoice.org",
+  ".dogfartnetwork.com\/tour",
+  "gloryhole.com",
+  ".dojin.com",
+  ".dok-forum.net",
+  "||dolc.de",
+  "||dolf.org.hk",
+  "||dollf.com",
+  ".domain.club.tw",
+  ".domaintoday.com.au",
+  "chinese.donga.com",
+  "dongtaiwang.com",
+  "||dongtaiwang.com",
+  ".dongtaiwang.net",
+  "||dongtaiwang.net",
+  ".dongyangjing.com",
+  "|http:\/\/danbooru.donmai.us",
+  ".dontfilter.us",
+  "||dontmovetochina.com",
+  ".dorjeshugden.com",
+  ".dotplane.com",
+  "||dotplane.com",
+  "||dotsub.com",
+  ".dotvpn.com",
+  "||dotvpn.com",
+  ".doub.io",
+  "||doub.io",
+  "||dougscripts.com",
+  "||douhokanko.net",
+  "||doujincafe.com",
+  "dowei.org",
+  "dphk.org",
+  "dpp.org.tw",
+  "||dpp.org.tw",
+  "||dpr.info",
+  "||dragonsprings.org",
+  ".dreamamateurs.com",
+  ".drepung.org",
+  "||drgan.net",
+  ".drmingxia.org",
+  "|http:\/\/drmingxia.org",
+  "||dropbooks.tv",
+  "||dropbox.com",
+  "||api.dropboxapi.com",
+  "||dropboxusercontent.com",
+  "drsunacademy.com",
+  ".drtuber.com",
+  ".dscn.info",
+  "|http:\/\/dscn.info",
+  ".dstk.dk",
+  "|http:\/\/dstk.dk",
+  "||dtiblog.com",
+  "||dtic.mil",
+  ".dtwang.org",
+  ".duanzhihu.com",
+  ".duckdns.org",
+  "|http:\/\/duckdns.org",
+  ".duckduckgo.com",
+  "||duckduckgo.com",
+  ".duckload.com\/download",
+  "||duckmylife.com",
+  ".duga.jp",
+  "|http:\/\/duga.jp",
+  ".duihua.org",
+  "||duihua.org",
+  "||duihuahrjournal.org",
+  ".dunyabulteni.net",
+  ".duoweitimes.com",
+  "||duoweitimes.com",
+  "duping.net",
+  "||duplicati.com",
+  "dupola.com",
+  "dupola.net",
+  ".dushi.ca",
+  "||dvorak.org",
+  ".dw.com",
+  "||dw.com",
+  "||dw.de",
+  ".dw-world.com",
+  "||dw-world.com",
+  ".dw-world.de",
+  "|http:\/\/dw-world.de",
+  "www.dwheeler.com",
+  "dwnews.com",
+  "||dwnews.com",
+  "dwnews.net",
+  "||dwnews.net",
+  "xys.dxiong.com",
+  "||dynawebinc.com",
+  ".dzze.com",
+  "||e-classical.com.tw",
+  "||e-gold.com",
+  ".e-gold.com",
+  ".e-hentai.org",
+  "||e-hentai.org",
+  ".e-hentaidb.com",
+  "|http:\/\/e-hentaidb.com",
+  "e-info.org.tw",
+  ".e-traderland.net\/board",
+  ".e-zone.com.hk\/discuz",
+  "|http:\/\/e-zone.com.hk\/discuz",
+  ".e123.hk",
+  "||e123.hk",
+  ".earlytibet.com",
+  "|http:\/\/earlytibet.com",
+  ".earthcam.com",
+  ".earthvpn.com",
+  "||earthvpn.com",
+  "eastern-ark.com",
+  ".easternlightning.org",
+  ".eastturkestan.com",
+  "|http:\/\/www.eastturkistan.net\/",
+  ".eastturkistan-gov.org",
+  ".eastturkistancc.org",
+  ".eastturkistangovernmentinexile.us",
+  "||eastturkistangovernmentinexile.us",
+  ".easyca.ca",
+  ".easypic.com",
+  ".ebony-beauty.com",
+  "ebookbrowse.com",
+  "ebookee.com",
+  "||ecfa.org.tw",
+  "ushuarencity.echainhost.com",
+  "||ecimg.tw",
+  "ecministry.net",
+  ".economist.com",
+  "bbs.ecstart.com",
+  "||edgecastcdn.net",
+  "\/twimg\\.edgesuite\\.net\\\/\\\/?appledaily\/",
+  "edicypages.com",
+  ".edmontonchina.cn",
+  ".edmontonservice.com",
+  "edoors.com",
+  ".edubridge.com",
+  "||edubridge.com",
+  ".edupro.org",
+  "||eevpn.com",
+  "efcc.org.hk",
+  ".efukt.com",
+  "|http:\/\/efukt.com",
+  "||eic-av.com",
+  "||eireinikotaerukai.com",
+  ".eisbb.com",
+  ".eksisozluk.com",
+  "||eksisozluk.com",
+  "electionsmeter.com",
+  "||elgoog.im",
+  ".elpais.com",
+  "||elpais.com",
+  ".eltondisney.com",
+  ".emaga.com\/info\/3407",
+  "emilylau.org.hk",
+  ".emanna.com\/chineseTraditional",
+  "bitc.bme.emory.edu\/~lzhou\/blogs",
+  ".empfil.com",
+  ".emule-ed2k.com",
+  "|http:\/\/emule-ed2k.com",
+  ".emulefans.com",
+  "|http:\/\/emulefans.com",
+  ".emuparadise.me",
+  ".enanyang.my",
+  "||enewstree.com",
+  ".enfal.de",
+  "chinese.engadget.com",
+  "||engagedaily.org",
+  "englishforeveryone.org",
+  "||englishfromengland.co.uk",
+  "englishpen.org",
+  ".enlighten.org.tw",
+  "||entermap.com",
+  ".entnt.com",
+  "|http:\/\/entnt.com",
+  ".episcopalchurch.org",
+  ".epochhk.com",
+  "|http:\/\/epochhk.com",
+  "epochtimes-bg.com",
+  "||epochtimes-bg.com",
+  "epochtimes-romania.com",
+  "||epochtimes-romania.com",
+  "epochtimes.co.il",
+  "||epochtimes.co.il",
+  "epochtimes.co.kr",
+  "||epochtimes.co.kr",
+  "epochtimes.com",
+  "||epochtimes.com",
+  ".epochtimes.cz",
+  "epochtimes.de",
+  "epochtimes.fr",
+  ".epochtimes.ie",
+  ".epochtimes.it",
+  "epochtimes.jp",
+  "epochtimes.ru",
+  "epochtimes.se",
+  "epochtimestr.com",
+  ".epochweek.com",
+  "||epochweek.com",
+  "||epochweekly.com",
+  ".eporner.com",
+  ".equinenow.com",
+  "erabaru.net",
+  ".eracom.com.tw",
+  ".eraysoft.com.tr",
+  ".erepublik.com",
+  ".erights.net",
+  "||erights.net",
+  ".erktv.com",
+  "|http:\/\/erktv.com",
+  "||ernestmandel.org",
+  "||erodaizensyu.com",
+  "||erodoujinlog.com",
+  "||erodoujinworld.com",
+  "||eromanga-kingdom.com",
+  "||eromangadouzin.com",
+  ".eromon.net",
+  "|http:\/\/eromon.net",
+  ".eroprofile.com",
+  ".eroticsaloon.net",
+  ".eslite.com\/product",
+  ".eslite.com\/Search_BW.aspx?q",
+  "wiki.esu.im\/%E8%9B%A4%E8%9B%A4%E8%AF%AD%E5%BD%95",
+  ".etaa.org.au",
+  ".etadult.com",
+  "etaiwannews.com",
+  "||etizer.org",
+  "||etokki.com",
+  ".ettoday.net\/news\/20151216\/614081",
+  "etvonline.hk",
+  ".eu.org",
+  "||eu.org",
+  ".eucasino.com",
+  ".eulam.com",
+  ".eurekavpt.com",
+  "||eurekavpt.com",
+  "eeas.europa.eu\/delegations\/china\/press_corner\/all_news\/news\/2015\/20150716_zh",
+  "eeas.europa.eu\/statements-eeas\/2015\/151022",
+  ".evschool.net",
+  "|http:\/\/evschool.net",
+  "||exblog.jp",
+  "||blog.exblog.co.jp",
+  "@@||www.exblog.jp",
+  ".exchristian.hk",
+  "||exchristian.hk",
+  "|http:\/\/blog.excite.co.jp",
+  "||exmormon.org",
+  "||expatshield.com",
+  ".expecthim.com",
+  "||expecthim.com",
+  "experts-univers.com",
+  "||exploader.net",
+  ".expressvpn.com",
+  "|http:\/\/expressvpn.com",
+  ".extremetube.com",
+  "eyevio.jp",
+  "||eyevio.jp",
+  ".eyny.com",
+  "||eyny.com",
+  ".ezpc.tk\/category\/soft",
+  ".ezpeer.com",
+  "||facebookquotes4u.com",
+  ".faceless.me",
+  "||faceless.me",
+  "|http:\/\/facesoftibetanselfimmolators.info",
+  "||facesofnyfw.com",
+  ".faith100.org",
+  "|http:\/\/faith100.org",
+  ".faithfuleye.com",
+  "||faiththedog.info",
+  ".fakku.net",
+  ".falsefire.com",
+  "||falsefire.com",
+  "falun-co.org",
+  "falunart.org",
+  "||falunasia.info",
+  "|http:\/\/falunau.org",
+  ".falunaz.net",
+  "falundafa.org",
+  "falundafa-dc.org",
+  "||falundafa-florida.org",
+  "||falundafa-nc.org",
+  "||falundafa-pa.net",
+  "||falundafa-sacramento.org",
+  "falun-ny.net",
+  "||falundafaindia.org",
+  "falundafamuseum.org",
+  ".falungong.club",
+  ".falungong.de",
+  "falungong.org.uk",
+  "||falunhr.org",
+  "faluninfo.de",
+  "faluninfo.net",
+  ".falunpilipinas.net",
+  "||falunworld.net",
+  "familyfed.org",
+  ".fangeming.com",
+  "||fanglizhi.info",
+  "||fangong.org",
+  "fangongheike.com",
+  ".fanqiang.tk",
+  "fanqianghou.com",
+  "||fanqianghou.com",
+  ".fanqiangzhe.com",
+  "||fanqiangzhe.com",
+  "fapdu.com",
+  "faproxy.com",
+  ".fawanghuihui.org",
+  "fanqiangyakexi.net",
+  "fail.hk",
+  "||famunion.com",
+  ".fan-qiang.com",
+  ".fangbinxing.com",
+  "||fangbinxing.com",
+  "fangeming.com",
+  ".fangmincn.org",
+  "||fangmincn.org",
+  ".fanhaodang.com",
+  "||fanswong.com",
+  ".fanyue.info",
+  ".farwestchina.com",
+  "en.favotter.net",
+  "nytimes.map.fastly.net",
+  "||nytimes.map.fastly.net",
+  "||fast.wistia.com",
+  "||fastssh.com",
+  "||faststone.org",
+  "favstar.fm",
+  "||favstar.fm",
+  "faydao.com\/weblog",
+  "||fbsbx.com",
+  ".fc2.com",
+  ".fc2china.com",
+  ".fc2cn.com",
+  "||fc2cn.com",
+  "fc2blog.net",
+  "|http:\/\/uygur.fc2web.com\/",
+  "video.fdbox.com",
+  ".fdc64.de",
+  ".fdc64.org",
+  ".fdc89.jp",
+  "||fourface.nodesnoop.com",
+  "||feelssh.com",
+  "feer.com",
+  ".feifeiss.com",
+  "|http:\/\/feitianacademy.org",
+  ".feitian-california.org",
+  "||feministteacher.com",
+  ".fengzhenghu.com",
+  "||fengzhenghu.com",
+  ".fengzhenghu.net",
+  "||fengzhenghu.net",
+  ".fevernet.com",
+  "|http:\/\/ff.im",
+  "fffff.at",
+  "fflick.com",
+  ".ffvpn.com",
+  "fgmtv.net",
+  ".fgmtv.org",
+  ".fhreports.net",
+  "|http:\/\/fhreports.net",
+  ".figprayer.com",
+  "||figprayer.com",
+  ".fileflyer.com",
+  "||fileflyer.com",
+  "|http:\/\/feeds.fileforum.com",
+  ".files2me.com",
+  ".fileserve.com\/file",
+  "fillthesquare.org",
+  "filmingfortibet.org",
+  ".filthdump.com",
+  ".finchvpn.com",
+  "||finchvpn.com",
+  "findmespot.com",
+  "||findyoutube.com",
+  ".fingerdaily.com",
+  "finler.net",
+  ".firearmsworld.net",
+  "|http:\/\/firearmsworld.net",
+  ".fireofliberty.org",
+  "||fireofliberty.org",
+  ".firetweet.io",
+  "||firetweet.io",
+  ".flagsonline.it",
+  "fleshbot.com",
+  ".fleursdeslettres.com",
+  "|http:\/\/fleursdeslettres.com",
+  "||flgg.us",
+  "||flgjustice.org",
+  "||flickr.com",
+  "||staticflickr.com",
+  "flickrhivemind.net",
+  ".flickriver.com",
+  ".fling.com",
+  "||flipkart.com",
+  "||flog.tw",
+  "|http:\/\/cn.fmnnow.com",
+  "fofldfradio.org",
+  "blog.foolsmountain.com",
+  ".forum4hk.com",
+  "fangong.forums-free.com",
+  "pioneer-worker.forums-free.com",
+  "|https:\/\/ss*.4sqi.net",
+  "video.foxbusiness.com",
+  "|http:\/\/foxgay.com",
+  "||fringenetwork.com",
+  "||flecheinthepeche.fr",
+  ".fochk.org",
+  "|http:\/\/fochk.org",
+  "||focustaiwan.tw",
+  ".focusvpn.com",
+  "||fofg.org",
+  ".fofg-europe.net",
+  ".fooooo.com",
+  "||fooooo.com",
+  "footwiball.com",
+  ".fotile.me",
+  "||fourthinternational.org",
+  "||foxdie.us",
+  "||foxsub.com",
+  "foxtang.com",
+  ".fpmt.org",
+  "|http:\/\/fpmt.org",
+  ".fpmt.tw",
+  ".fpmt-osel.org",
+  "||fpmtmexico.org",
+  "fqok.org",
+  "||fqrouter.com",
+  "||franklc.com",
+  ".freakshare.com",
+  "|http:\/\/freakshare.com",
+  "||free4u.com.ar",
+  "free-gate.org",
+  ".free-hada-now.org",
+  "free-proxy.cz",
+  ".free.fr\/adsl",
+  "kineox.free.fr",
+  "tibetlibre.free.fr",
+  "||freealim.com",
+  "whitebear.freebearblog.org",
+  "||freebrowser.org",
+  ".freechal.com",
+  ".freedomchina.info",
+  "||freedomchina.info",
+  ".freedomhouse.org",
+  "||freedomhouse.org",
+  ".freedomsherald.org",
+  "||freedomsherald.org",
+  ".freefq.com",
+  ".freefuckvids.com",
+  ".freegao.com",
+  "||freegao.com",
+  "freeilhamtohti.org",
+  ".freekwonpyong.org",
+  "||saveliuxiaobo.com",
+  ".freelotto.com",
+  "||freelotto.com",
+  "freeman2.com",
+  ".freeopenvpn.com",
+  "freemoren.com",
+  "freemorenews.com",
+  "freemuse.org\/archives\/789",
+  "freenet-china.org",
+  "freenewscn.com",
+  "cn.freeones.com",
+  ".freeoz.org\/bbs",
+  "||freeoz.org",
+  "||freessh.us",
+  "free4u.com.ar",
+  ".free-ssh.com",
+  "||free-ssh.com",
+  ".freechina.news\/",
+  "||freechinaforum.org",
+  ".freedomcollection.org\/interviews\/rebiya_kadeer",
+  ".freeforums.org",
+  "||freenetproject.org",
+  ".freeoz.org",
+  ".freetibet.net",
+  "||freetibet.org",
+  ".freetibetanheroes.org",
+  "|http:\/\/freetibetanheroes.org",
+  ".freeviewmovies.com",
+  ".freevpn.me",
+  "|http:\/\/freevpn.me",
+  "||freewallpaper4.me",
+  ".freewebs.com",
+  ".freewechat.com",
+  "||freewechat.com",
+  "freeweibo.com",
+  "||freeweibo.com",
+  ".freexinwen.com",
+  ".freeyoutubeproxy.net",
+  "||freeyoutubeproxy.net",
+  "friendfeed.com",
+  "friendfeed-media.com\/e99a4ebe2fb4c1985c2a58775eb4422961aa5a2e",
+  "friends-of-tibet.org",
+  ".friendsoftibet.org",
+  "freechina.net",
+  "|http:\/\/www.zensur.freerk.com\/",
+  "freevpn.nl",
+  "freeyellow.com",
+  "hk.frienddy.com\/hk",
+  "|http:\/\/adult.friendfinder.com\/",
+  ".fring.com",
+  "||fring.com",
+  ".fromchinatousa.net",
+  "||frommel.net",
+  ".frontlinedefenders.org",
+  ".frootvpn.com",
+  "||frootvpn.com",
+  "||fscked.org",
+  ".fsurf.com",
+  "|https:\/\/www.ftchinese.com",
+  ".ftchinese.com\/channel\/video",
+  ".ftchinese.com\/story\/00102753",
+  ".ftchinese.com\/story\/001026616",
+  ".ftchinese.com\/story\/001026749",
+  ".ftchinese.com\/story\/001026807",
+  ".ftchinese.com\/story\/001026808",
+  ".ftchinese.com\/story\/001026834",
+  ".ftchinese.com\/story\/001026880",
+  ".ftchinese.com\/story\/001027429",
+  ".ftchinese.com\/story\/001030341",
+  ".ftchinese.com\/story\/001030502",
+  ".ftchinese.com\/story\/001030803",
+  ".ftchinese.com\/story\/001031317",
+  ".ftchinese.com\/story\/001032617",
+  ".ftchinese.com\/story\/001032636",
+  ".ftchinese.com\/story\/001032692",
+  ".ftchinese.com\/story\/001032762",
+  ".ftchinese.com\/story\/001033138",
+  ".ftchinese.com\/story\/001034917",
+  ".ftchinese.com\/story\/001034926",
+  ".ftchinese.com\/story\/001034927",
+  ".ftchinese.com\/story\/001034928",
+  ".ftchinese.com\/story\/001034952",
+  ".ftchinese.com\/story\/001035890",
+  ".ftchinese.com\/story\/001035972",
+  ".ftchinese.com\/story\/001035993",
+  ".ftchinese.com\/story\/001036417",
+  ".ftchinese.com\/story\/001037090",
+  ".ftchinese.com\/story\/001037091",
+  ".ftchinese.com\/story\/001038178",
+  ".ftchinese.com\/story\/001038199",
+  ".ftchinese.com\/story\/001038220",
+  ".ftchinese.com\/story\/001038819",
+  ".ftchinese.com\/story\/001038862",
+  ".ftchinese.com\/story\/001039067",
+  ".ftchinese.com\/story\/001039178",
+  ".ftchinese.com\/story\/001039211",
+  ".ftchinese.com\/story\/001039271",
+  ".ftchinese.com\/story\/001039295",
+  ".ftchinese.com\/story\/001039369",
+  ".ftchinese.com\/story\/001039482",
+  ".ftchinese.com\/story\/001039534",
+  ".ftchinese.com\/story\/001039555",
+  ".ftchinese.com\/story\/001039576",
+  ".ftchinese.com\/story\/001039712",
+  ".ftchinese.com\/story\/001039779",
+  ".ftchinese.com\/story\/001039809",
+  ".ftchinese.com\/story\/001040134",
+  ".ftchinese.com\/story\/001040835",
+  ".ftchinese.com\/story\/001040890",
+  ".ftchinese.com\/story\/001040918",
+  ".ftchinese.com\/story\/001040992",
+  ".ftchinese.com\/story\/001041209",
+  ".ftchinese.com\/story\/001042100",
+  ".ftchinese.com\/story\/001042252",
+  ".ftchinese.com\/story\/001042272",
+  ".ftchinese.com\/story\/001042280",
+  ".ftchinese.com\/story\/001043029",
+  ".ftchinese.com\/story\/001043066",
+  ".ftchinese.com\/story\/001043096",
+  ".ftchinese.com\/story\/001043124",
+  ".ftchinese.com\/story\/001043152",
+  ".ftchinese.com\/story\/001043189",
+  ".ftchinese.com\/story\/001043428",
+  ".ftchinese.com\/story\/001043439",
+  ".ftchinese.com\/story\/001043534",
+  ".ftchinese.com\/story\/001043675",
+  ".ftchinese.com\/story\/001043680",
+  ".ftchinese.com\/story\/001043702",
+  ".ftchinese.com\/story\/001043849",
+  ".ftchinese.com\/story\/001044099",
+  ".ftchinese.com\/story\/001044776",
+  ".ftchinese.com\/story\/001044871",
+  ".ftchinese.com\/story\/001044897",
+  ".ftchinese.com\/story\/001045114",
+  ".ftchinese.com\/story\/001045139",
+  ".ftchinese.com\/story\/001045186",
+  ".ftchinese.com\/story\/001045755",
+  ".ftchinese.com\/story\/001046087",
+  ".ftchinese.com\/story\/001046105",
+  ".ftchinese.com\/story\/001046118",
+  ".ftchinese.com\/story\/001046132",
+  ".ftchinese.com\/story\/001046517",
+  ".ftchinese.com\/story\/001046822",
+  ".ftchinese.com\/story\/001046866",
+  ".ftchinese.com\/story\/001046942",
+  ".ftchinese.com\/story\/001047180",
+  ".ftchinese.com\/story\/001047206",
+  ".ftchinese.com\/story\/001047304",
+  ".ftchinese.com\/story\/001047317",
+  ".ftchinese.com\/story\/001047345",
+  ".ftchinese.com\/story\/001047358",
+  ".ftchinese.com\/story\/001047375",
+  ".ftchinese.com\/story\/001047381",
+  ".ftchinese.com\/story\/001047413",
+  ".ftchinese.com\/story\/001047456",
+  ".ftchinese.com\/story\/001047491",
+  ".ftchinese.com\/story\/001047545",
+  ".ftchinese.com\/story\/001047558",
+  ".ftchinese.com\/story\/001047568",
+  ".ftchinese.com\/story\/001047627",
+  ".ftchinese.com\/story\/001048293",
+  ".ftchinese.com\/story\/001048343",
+  ".ftchinese.com\/story\/001048710",
+  ".ftchinese.com\/story\/001049289",
+  ".ftchinese.com\/story\/001049360",
+  ".ftchinese.com\/story\/001049896",
+  ".ftchinese.com\/story\/001050152",
+  ".ftchinese.com\/story\/001051027",
+  ".ftchinese.com\/story\/001051161",
+  ".ftchinese.com\/story\/001051372",
+  ".ftchinese.com\/story\/001051479",
+  ".ftchinese.com\/story\/001052138",
+  ".ftchinese.com\/story\/001052161",
+  ".ftchinese.com\/story\/001052525",
+  ".ftchinese.com\/story\/001052549",
+  ".ftchinese.com\/story\/001052701",
+  ".ftchinese.com\/story\/001052965",
+  ".ftchinese.com\/story\/001053149",
+  ".ftchinese.com\/story\/001053150",
+  ".ftchinese.com\/story\/001053200",
+  ".ftchinese.com\/story\/001053425",
+  ".ftchinese.com\/story\/001053496",
+  ".ftchinese.com\/story\/001053526",
+  ".ftchinese.com\/story\/001053906",
+  ".ftchinese.com\/story\/001054049",
+  ".ftchinese.com\/story\/001054103",
+  ".ftchinese.com\/story\/001054109",
+  ".ftchinese.com\/story\/001054119",
+  ".ftchinese.com\/story\/001054123",
+  ".ftchinese.com\/story\/001054139",
+  ".ftchinese.com\/story\/001054166",
+  ".ftchinese.com\/story\/001054168",
+  ".ftchinese.com\/story\/001054190",
+  ".ftchinese.com\/story\/001054437",
+  ".ftchinese.com\/story\/001054526",
+  ".ftchinese.com\/story\/001054607",
+  ".ftchinese.com\/story\/001054644",
+  ".ftchinese.com\/story\/001054786",
+  ".ftchinese.com\/story\/001054843",
+  ".ftchinese.com\/story\/001054925",
+  ".ftchinese.com\/story\/001054940",
+  ".ftchinese.com\/story\/001055051",
+  ".ftchinese.com\/story\/001055063",
+  ".ftchinese.com\/story\/001055069",
+  ".ftchinese.com\/story\/001055136",
+  ".ftchinese.com\/story\/001055170",
+  ".ftchinese.com\/story\/001055202",
+  ".ftchinese.com\/story\/001055242",
+  ".ftchinese.com\/story\/001055263",
+  ".ftchinese.com\/story\/001055274",
+  ".ftchinese.com\/story\/001055299",
+  ".ftchinese.com\/story\/001055480",
+  ".ftchinese.com\/story\/001055551",
+  ".ftchinese.com\/story\/001055559",
+  ".ftchinese.com\/story\/001055566",
+  ".ftchinese.com\/story\/001056099",
+  ".ftchinese.com\/story\/001056108",
+  ".ftchinese.com\/story\/001056131",
+  ".ftchinese.com\/story\/001056375",
+  ".ftchinese.com\/story\/001056491",
+  ".ftchinese.com\/story\/001056529",
+  ".ftchinese.com\/story\/001056534",
+  ".ftchinese.com\/story\/001056538",
+  ".ftchinese.com\/story\/001056541",
+  ".ftchinese.com\/story\/001056554",
+  ".ftchinese.com\/story\/001056557",
+  ".ftchinese.com\/story\/001056560",
+  ".ftchinese.com\/story\/001056567",
+  ".ftchinese.com\/story\/001056574",
+  ".ftchinese.com\/story\/001056588",
+  ".ftchinese.com\/story\/001056594",
+  ".ftchinese.com\/story\/001056596",
+  ".ftchinese.com\/story\/001056684",
+  ".ftchinese.com\/story\/001056832",
+  ".ftchinese.com\/story\/001056833",
+  ".ftchinese.com\/story\/001056851",
+  ".ftchinese.com\/story\/001056874",
+  ".ftchinese.com\/story\/001056896",
+  ".ftchinese.com\/story\/001056927",
+  ".ftchinese.com\/story\/001057011",
+  ".ftchinese.com\/story\/001057018",
+  ".ftchinese.com\/story\/001057044",
+  ".ftchinese.com\/story\/001057162",
+  ".ftchinese.com\/story\/001057500",
+  ".ftchinese.com\/story\/001057504",
+  ".ftchinese.com\/story\/001057509",
+  ".ftchinese.com\/story\/001057518",
+  ".ftchinese.com\/story\/001057532",
+  ".ftchinese.com\/story\/001057533",
+  ".ftchinese.com\/story\/001057556",
+  ".ftchinese.com\/story\/001057580",
+  ".ftchinese.com\/story\/001057638",
+  ".ftchinese.com\/story\/001057644",
+  ".ftchinese.com\/story\/001057817",
+  ".ftchinese.com\/story\/001057875",
+  ".ftchinese.com\/story\/001058009",
+  ".ftchinese.com\/story\/001058056",
+  ".ftchinese.com\/story\/001058224",
+  ".ftchinese.com\/story\/001058257",
+  ".ftchinese.com\/story\/001058295",
+  ".ftchinese.com\/story\/001058328",
+  ".ftchinese.com\/story\/001058339",
+  ".ftchinese.com\/story\/001058344",
+  ".ftchinese.com\/story\/001058352",
+  ".ftchinese.com\/story\/001058413",
+  ".ftchinese.com\/story\/001058421",
+  ".ftchinese.com\/story\/001058440",
+  ".ftchinese.com\/story\/001058458",
+  ".ftchinese.com\/story\/001058468",
+  ".ftchinese.com\/story\/001058561",
+  ".ftchinese.com\/story\/001058566",
+  ".ftchinese.com\/story\/001058567",
+  ".ftchinese.com\/story\/001058585",
+  ".ftchinese.com\/story\/001058628",
+  ".ftchinese.com\/story\/001058656",
+  ".ftchinese.com\/story\/001058665",
+  ".ftchinese.com\/story\/001058678",
+  ".ftchinese.com\/story\/001058691",
+  ".ftchinese.com\/story\/001058721",
+  ".ftchinese.com\/story\/001058728",
+  ".ftchinese.com\/story\/001059464",
+  ".ftchinese.com\/story\/001059484",
+  ".ftchinese.com\/story\/001059537",
+  ".ftchinese.com\/story\/001059538",
+  ".ftchinese.com\/story\/001059551",
+  ".ftchinese.com\/story\/001059818",
+  ".ftchinese.com\/story\/001059914",
+  ".ftchinese.com\/story\/001059920",
+  ".ftchinese.com\/story\/001059957",
+  ".ftchinese.com\/story\/001060088",
+  ".ftchinese.com\/story\/001060156",
+  ".ftchinese.com\/story\/001060157",
+  ".ftchinese.com\/story\/001060160",
+  ".ftchinese.com\/story\/001060181",
+  ".ftchinese.com\/story\/001060185",
+  ".ftchinese.com\/story\/001060493",
+  ".ftchinese.com\/story\/001060495",
+  ".ftchinese.com\/story\/001060590",
+  ".ftchinese.com\/story\/001060846",
+  ".ftchinese.com\/story\/001060847",
+  ".ftchinese.com\/story\/001060875",
+  ".ftchinese.com\/story\/001060921",
+  ".ftchinese.com\/story\/001060946",
+  ".ftchinese.com\/story\/001061120",
+  ".ftchinese.com\/story\/001061474",
+  ".ftchinese.com\/story\/001061524",
+  ".ftchinese.com\/story\/001061642",
+  ".ftchinese.com\/story\/001062017",
+  ".ftchinese.com\/story\/001062020",
+  ".ftchinese.com\/story\/001062028",
+  ".ftchinese.com\/story\/001062092",
+  ".ftchinese.com\/story\/001062096",
+  ".ftchinese.com\/story\/001062147",
+  ".ftchinese.com\/story\/001062176",
+  ".ftchinese.com\/story\/001062188",
+  ".ftchinese.com\/story\/001062254",
+  ".ftchinese.com\/story\/001062374",
+  ".ftchinese.com\/story\/001062482",
+  ".ftchinese.com\/story\/001062496",
+  ".ftchinese.com\/story\/001062501",
+  ".ftchinese.com\/story\/001062508",
+  ".ftchinese.com\/story\/001062519",
+  ".ftchinese.com\/story\/001062554",
+  ".ftchinese.com\/story\/001062741",
+  ".ftchinese.com\/story\/001062794",
+  ".ftchinese.com\/story\/001063160",
+  ".ftchinese.com\/story\/001063359",
+  ".ftchinese.com\/story\/001063512",
+  ".ftchinese.com\/story\/001063668",
+  ".ftchinese.com\/story\/001063692",
+  ".ftchinese.com\/story\/001063763",
+  ".ftchinese.com\/story\/001063764",
+  ".ftchinese.com\/story\/001063826",
+  ".ftchinese.com\/story\/001064127",
+  ".ftchinese.com\/story\/001064312",
+  ".ftchinese.com\/story\/001064705",
+  ".ftchinese.com\/story\/001064807",
+  ".ftchinese.com\/story\/001065120",
+  ".ftchinese.com\/story\/001065168",
+  ".ftchinese.com\/story\/001065249",
+  ".ftchinese.com\/story\/001065287",
+  ".ftchinese.com\/story\/001065337",
+  ".ftchinese.com\/story\/001065541",
+  ".ftchinese.com\/story\/001065715",
+  ".ftchinese.com\/story\/001065735",
+  ".ftchinese.com\/story\/001065756",
+  ".ftchinese.com\/story\/001066112",
+  ".ftchinese.com\/story\/001066136",
+  ".ftchinese.com\/story\/001066140",
+  ".ftchinese.com\/story\/001066465",
+  ".ftchinese.com\/story\/001066881",
+  ".ftchinese.com\/story\/001066950",
+  ".ftchinese.com\/story\/001066959",
+  ".ftchinese.com\/story\/001067435",
+  "www.ftchinese.com\/story\/001067479",
+  ".ftchinese.com\/story\/001067528",
+  ".ftchinese.com\/story\/001067545",
+  ".ftchinese.com\/story\/001067572",
+  ".ftchinese.com\/story\/001067648",
+  ".ftchinese.com\/story\/001067650",
+  ".ftchinese.com\/story\/001067680",
+  ".ftchinese.com\/story\/001067692",
+  ".ftchinese.com\/story\/001067871",
+  ".ftchinese.com\/story\/001067923",
+  ".ftchinese.com\/story\/001068248",
+  ".ftchinese.com\/story\/001068278",
+  ".ftchinese.com\/story\/001068379",
+  ".ftchinese.com\/story\/001068483",
+  ".ftchinese.com\/story\/001068506",
+  ".ftchinese.com\/story\/001068547",
+  ".ftchinese.com\/story\/001068616",
+  ".ftchinese.com\/story\/001068622",
+  ".ftchinese.com\/story\/001068707",
+  ".ftchinese.com\/story\/001069146",
+  ".ftchinese.com\/story\/001069373",
+  ".ftchinese.com\/story\/001069516",
+  ".ftchinese.com\/story\/001069517",
+  ".ftchinese.com\/story\/001069687",
+  ".ftchinese.com\/story\/001069741",
+  ".ftchinese.com\/story\/001069861",
+  ".ftchinese.com\/story\/001069952",
+  ".ftchinese.com\/story\/001070053",
+  ".ftchinese.com\/story\/001070177",
+  ".ftchinese.com\/story\/001070307",
+  ".ftchinese.com\/story\/001070809",
+  ".ftchinese.com\/story\/001070990",
+  ".ftchinese.com\/story\/001071042",
+  ".ftchinese.com\/story\/001071044",
+  ".ftchinese.com\/story\/001071106",
+  ".ftchinese.com\/story\/001071166",
+  ".ftchinese.com\/story\/001071181",
+  "ftchinese.com\/story\/001071200",
+  ".ftchinese.com\/story\/001071208",
+  ".ftchinese.com\/story\/001071238",
+  ".ftchinese.com\/story\/001072271",
+  ".ftchinese.com\/story\/001072348",
+  ".ftchinese.com\/story\/001072677",
+  ".ftchinese.com\/story\/001072794",
+  ".ftchinese.com\/story\/001072853",
+  ".ftchinese.com\/story\/001072895",
+  ".ftchinese.com\/story\/001072993",
+  ".ftchinese.com\/story\/001073043",
+  ".ftchinese.com\/story\/001073103",
+  ".ftchinese.com\/story\/001073157",
+  ".ftchinese.com\/story\/001073216",
+  ".ftchinese.com\/story\/001073246",
+  ".ftchinese.com\/story\/001073305",
+  ".ftchinese.com\/story\/001073307",
+  ".ftchinese.com\/story\/001073408",
+  ".ftchinese.com\/story\/001073537",
+  ".ftchinese.com\/story\/001073672",
+  ".ftchinese.com\/story\/001073906",
+  ".ftchinese.com\/story\/001074089",
+  ".ftchinese.com\/story\/001074110",
+  ".ftchinese.com\/story\/001074128",
+  ".ftchinese.com\/story\/001074157",
+  ".ftchinese.com\/story\/001074246",
+  ".ftchinese.com\/story\/001074307",
+  ".ftchinese.com\/story\/001074347",
+  ".ftchinese.com\/story\/001074423",
+  ".ftchinese.com\/story\/001074454",
+  ".ftchinese.com\/story\/001074467",
+  ".ftchinese.com\/story\/001074493",
+  ".ftchinese.com\/story\/001074550",
+  ".ftchinese.com\/story\/001074562",
+  ".ftchinese.com\/story\/001074653",
+  ".ftchinese.com\/story\/001074693",
+  ".ftchinese.com\/story\/001074699",
+  ".ftchinese.com\/story\/001074712",
+  ".ftchinese.com\/story\/001074713",
+  ".ftchinese.com\/story\/001074768",
+  ".ftchinese.com\/story\/001074782",
+  ".ftchinese.com\/story\/001074794",
+  ".ftchinese.com\/story\/001074822",
+  ".ftchinese.com\/story\/001074874",
+  ".ftchinese.com\/story\/001074891",
+  ".ftchinese.com\/story\/001074918",
+  ".ftchinese.com\/story\/001075081",
+  ".ftchinese.com\/story\/001075216",
+  ".ftchinese.com\/story\/001075230",
+  ".ftchinese.com\/story\/001075262",
+  ".ftchinese.com\/story\/001075269",
+  ".ftchinese.com\/story\/001075500",
+  ".ftchinese.com\/story\/001075650",
+  ".ftchinese.com\/story\/001075678",
+  ".ftchinese.com\/story\/001075703",
+  ".ftchinese.com\/story\/001076142",
+  ".ftchinese.com\/story\/001076470",
+  ".ftchinese.com\/story\/001076538",
+  ".ftchinese.com\/tag\/%E5%8D%81%E5%85%AB%E5%B1%8A%E4%B8%89%E4%B8%AD%E5%85%A8%E4%BC%9A",
+  ".ftchinese.com\/tag\/%E6%B8%A9%E5%AE%B6%E5%AE%9D",
+  ".ftchinese.com\/tag\/%E8%96%84%E7%86%99%E6%9D%A5",
+  ".ftchinese.com\/video\/1437",
+  ".ftchinese.com\/video\/1882",
+  ".ftchinese.com\/video\/2446",
+  ".ftchinese.com\/video\/2601",
+  ".ftchinese.com\/comments",
+  ".ftv.com.tw",
+  "fucd.com",
+  ".fuckcnnic.net",
+  "||fuckcnnic.net",
+  "fuckgfw.org",
+  "||fullerconsideration.com",
+  "fulue.com",
+  ".funf.tw",
+  "funp.com",
+  ".fuq.com",
+  ".furhhdl.org",
+  "||furinkan.com",
+  ".futurechinaforum.org",
+  "||futuremessage.org",
+  ".fux.com",
+  ".fuyin.net",
+  ".fuyindiantai.org",
+  ".fuyu.org.tw",
+  "||fw.cm",
+  ".fxcm-chinese.com",
+  "||fxcm-chinese.com",
+  "fzh999.com",
+  "fzh999.net",
+  "fzlm.com",
+  ".g6hentai.com",
+  "|http:\/\/g6hentai.com",
+  "||g-queen.com",
+  "||gabocorp.com",
+  ".gaeproxy.com",
+  ".gaforum.org",
+  ".galaxymacau.com",
+  "||galenwu.com",
+  ".galstars.net",
+  "||game735.com",
+  "gamebase.com.tw",
+  "gamejolt.com",
+  "|http:\/\/wiki.gamerp.jp",
+  "||gamer.com.tw",
+  ".gamer.com.tw",
+  ".gamez.com.tw",
+  "||gamez.com.tw",
+  ".gamousa.com",
+  ".gaoming.net",
+  "||gaoming.net",
+  "ganges.com",
+  ".gaopi.net",
+  "|http:\/\/gaopi.net",
+  ".gaozhisheng.org",
+  ".gaozhisheng.net",
+  "gardennetworks.com",
+  "||gardennetworks.org",
+  "72.52.81.22",
+  "||gartlive.com",
+  "||gate-project.com",
+  "||gather.com",
+  ".gatherproxy.com",
+  "gati.org.tw",
+  ".gaybubble.com",
+  ".gaycn.net",
+  ".gayhub.com",
+  "||gaymap.cc",
+  ".gaytube.com",
+  "||images-gaytube.com",
+  ".gaywatch.com",
+  "|http:\/\/gaywatch.com",
+  ".gazotube.com",
+  "||gazotube.com",
+  "||gcc.org.hk",
+  "||gclooney.com",
+  ".gcpnews.com",
+  "|http:\/\/gcpnews.com",
+  ".gdbt.net\/forum",
+  "gdzf.org",
+  "||geek-art.net",
+  "geekerhome.com\/2010\/03\/xixiang-project-cross-gfw",
+  "||geekheart.info",
+  ".gekikame.com",
+  "|http:\/\/gekikame.com",
+  ".gelbooru.com",
+  "|http:\/\/gelbooru.com",
+  ".geocities.co.jp",
+  ".geocities.com\/SiliconValley\/Circuit\/5683\/download.html",
+  "hk.geocities.com",
+  "geocities.jp",
+  ".gerefoundation.org",
+  "||getastrill.com",
+  ".getchu.com",
+  ".getcloak.com",
+  "||getcloak.com",
+  "||getfoxyproxy.org",
+  ".getfreedur.com",
+  "||getgom.com",
+  ".geti2p.net",
+  "||geti2p.net",
+  ".getlantern.org",
+  "||getlantern.org",
+  ".getjetso.com\/forum",
+  "getiton.com",
+  ".getsocialscope.com",
+  "||getsync.com",
+  "gfbv.de",
+  ".gfgold.com.hk",
+  ".gfsale.com",
+  "||gfsale.com",
+  "gfw.org.ua",
+  ".gfw.press",
+  "||gfw.press",
+  ".ggssl.com",
+  "||ggssl.com",
+  "||ghost.org",
+  ".ghostpath.com",
+  "||ghostpath.com",
+  "||ghut.org",
+  ".giantessnight.com",
+  "|http:\/\/giantessnight.com",
+  ".gifree.com",
+  "||giga-web.jp",
+  "tw.gigacircle.com",
+  "|http:\/\/cn.giganews.com\/",
+  "gigporno.ru",
+  "||girlbanker.com",
+  ".git.io",
+  "||git.io",
+  "|http:\/\/softwaredownload.gitbooks.io",
+  "|https:\/\/gist.github.com",
+  "http:\/\/cthlo.github.io\/hktv",
+  "||haoel.github.io",
+  "||sodatea.github.io",
+  "wsgzao.github.io",
+  "|https:\/\/wsgzao.github.io",
+  ".gizlen.net",
+  "||gizlen.net",
+  ".gjczz.com",
+  "||gjczz.com",
+  "globaljihad.net",
+  "globalmediaoutreach.com",
+  "globalmuseumoncommunism.org",
+  "||globalrescue.net",
+  ".globaltm.org",
+  ".globalvoicesonline.org",
+  "||globalvoicesonline.org",
+  "||globalvpn.net",
+  ".glock.com",
+  "gluckman.com\/DalaiLama",
+  "gmbd.cn",
+  "||gmhz.org",
+  "|http:\/\/www.gmiddle.com",
+  "|http:\/\/www.gmiddle.net",
+  ".gmll.org",
+  "||gnci.org.hk",
+  "go-pki.com",
+  "||goagent.biz",
+  "||goagentplus.com",
+  "gobet.cc",
+  "godfootsteps.org",
+  "||godfootsteps.org",
+  "godns.work",
+  "godsdirectcontact.co.uk",
+  ".godsdirectcontact.org",
+  "godsdirectcontact.org.tw",
+  ".godsimmediatecontact.com",
+  ".gogotunnel.com",
+  "||gohappy.com.tw",
+  ".gokbayrak.com",
+  ".goldbet.com",
+  "||goldbetsports.com",
+  "||goldeneyevault.com",
+  ".goldenfrog.com",
+  "||goldenfrog.com",
+  ".goldjizz.com",
+  "|http:\/\/goldjizz.com",
+  ".goldstep.net",
+  "||goldwave.com",
+  "gongmeng.info",
+  "gongm.in",
+  "gongminliliang.com",
+  ".gongwt.com",
+  "|http:\/\/gongwt.com",
+  "blog.goo.ne.jp\/duck-tail_2009",
+  ".gooday.xyz",
+  "|http:\/\/gooday.xyz",
+  ".goodreads.com",
+  "||goodreads.com",
+  ".goodreaders.com",
+  "||goodreaders.com",
+  ".goodtv.com.tw",
+  ".goodtv.tv",
+  "||goofind.com",
+  ".googlesile.com",
+  ".gopetition.com",
+  "||gopetition.com",
+  ".goproxing.net",
+  ".gotrusted.com",
+  "||gotrusted.com",
+  "||gotw.ca",
+  "||grammaly.com",
+  "grandtrial.org",
+  ".graphis.ne.jp",
+  "||graphis.ne.jp",
+  "||graphql.org",
+  "greatfirewall.biz",
+  "||greatfirewallofchina.net",
+  ".greatfirewallofchina.org",
+  "||greatfirewallofchina.org",
+  "||greenfieldbookstore.com.hk",
+  ".greenparty.org.tw",
+  "||greenpeace.org",
+  ".greenreadings.com\/forum",
+  "great-firewall.com",
+  "great-roc.org",
+  "greatroc.org",
+  "greatzhonghua.org",
+  ".greenpeace.com.tw",
+  ".greenvpn.net",
+  "||greenvpn.net",
+  ".greenvpn.org",
+  "gs-discuss.com",
+  "||gtricks.com",
+  "guancha.org",
+  ".guardster.com",
+  ".gun-world.net",
+  "gunsandammo.com",
+  "||gutteruncensored.com",
+  "||gvm.com.tw",
+  ".gzm.tv",
+  "||gzone-anime.info",
+  "||clementine-player.org",
+  "echofon.com",
+  "||greasespot.net",
+  "||www.klip.me",
+  "@@||site.locql.com",
+  "||stephaniered.com",
+  "@@||download.syniumsoftware.com",
+  "|http:\/\/ub0.cc",
+  "wozy.in",
+  "gospelherald.com",
+  "||gospelherald.com",
+  "|http:\/\/hk.gradconnection.com\/",
+  "||grangorz.org",
+  "greatfire.org",
+  "||greatfire.org",
+  "greatfirewallofchina.org",
+  "||greatroc.tw",
+  ".gts-vpn.com",
+  "|http:\/\/gts-vpn.com",
+  ".gu-chu-sum.org",
+  "|http:\/\/gu-chu-sum.org",
+  ".guaguass.com",
+  "|http:\/\/guaguass.com",
+  ".guaguass.org",
+  "|http:\/\/guaguass.org",
+  ".guangming.com.my",
+  "guishan.org",
+  "||guishan.org",
+  ".gumroad.com",
+  "||gumroad.com",
+  "||gunsamerica.com",
+  "guruonline.hk",
+  "|http:\/\/gvlib.com",
+  ".gyalwarinpoche.com",
+  ".gyatsostudio.com",
+  ".h528.com",
+  ".h5dm.com",
+  ".h5galgame.me",
+  "||h-china.org",
+  ".h-moe.com",
+  "|http:\/\/h-moe.com",
+  "h1n1china.org",
+  ".hacg.club",
+  "||hacg.club",
+  ".hacg.in",
+  "|http:\/\/hacg.in",
+  ".hacg.li",
+  "|http:\/\/hacg.li",
+  ".hacg.me",
+  "|http:\/\/hacg.me",
+  ".hacg.red",
+  "|http:\/\/hacg.red",
+  ".hacken.cc\/bbs",
+  ".hacker.org",
+  "||hackthatphone.net",
+  "hahlo.com",
+  "||hakkatv.org.tw",
+  ".handcraftedsoftware.org",
+  "|http:\/\/bbs.hanminzu.org\/",
+  ".hanunyi.com",
+  ".hao.news\/news",
+  "|http:\/\/ae.hao123.com",
+  "|http:\/\/ar.hao123.com",
+  "|http:\/\/br.hao123.com",
+  "|http:\/\/en.hao123.com",
+  "|http:\/\/id.hao123.com",
+  "|http:\/\/jp.hao123.com",
+  "|http:\/\/ma.hao123.com",
+  "|http:\/\/mx.hao123.com",
+  "|http:\/\/sa.hao123.com",
+  "|http:\/\/th.hao123.com",
+  "|http:\/\/tw.hao123.com",
+  "|http:\/\/vn.hao123.com",
+  "|http:\/\/hk.hao123img.com",
+  "|http:\/\/ld.hao123img.com",
+  "||happy-vpn.com",
+  ".haproxy.org",
+  "||hardsextube.com",
+  ".harunyahya.com",
+  "|http:\/\/harunyahya.com",
+  "bbs.hasi.wang",
+  "have8.com",
+  "@@||haygo.com",
+  ".hclips.com",
+  "||hdlt.me",
+  "||hdtvb.net",
+  ".hdzog.com",
+  "|http:\/\/hdzog.com",
+  "||heartyit.com",
+  ".hec.su",
+  "|http:\/\/hec.su",
+  ".hecaitou.net",
+  "||hecaitou.net",
+  ".hechaji.com",
+  "||hechaji.com",
+  "||heeact.edu.tw",
+  ".hegre-art.com",
+  "|http:\/\/hegre-art.com",
+  "||cdn.helixstudios.net",
+  "||helplinfen.com",
+  "||helloandroid.com",
+  "||helloqueer.com",
+  ".helloss.pw",
+  "hellotxt.com",
+  "||hellotxt.com",
+  ".hentai.to",
+  ".hellouk.org\/forum\/lofiversion",
+  ".helpeachpeople.com",
+  "||helpeachpeople.com",
+  "||helpster.de",
+  ".helpzhuling.org",
+  "hentaitube.tv",
+  ".hentaivideoworld.com",
+  "||id.heroku.com",
+  "heqinglian.net",
+  "||heungkongdiscuss.com",
+  ".hexieshe.com",
+  "||hexieshe.com",
+  "||hexieshe.xyz",
+  "||hexxeh.net",
+  "app.heywire.com",
+  ".heyzo.com",
+  ".hgseav.com",
+  ".hhdcb3office.org",
+  ".hhthesakyatrizin.org",
+  "hi-on.org.tw",
+  "hidden-advent.org",
+  "||hidden-advent.org",
+  "hidecloud.com\/blog\/2008\/07\/29\/fuck-beijing-olympics.html",
+  "||hide.me",
+  ".hidein.net",
+  ".hideipvpn.com",
+  "||hideipvpn.com",
+  ".hideman.net",
+  "||hideman.net",
+  "hideme.nl",
+  "||hidemy.name",
+  ".hidemyass.com",
+  "||hidemyass.com",
+  "hidemycomp.com",
+  "||hidemycomp.com",
+  ".hihiforum.com",
+  ".hihistory.net",
+  "||hihistory.net",
+  ".higfw.com",
+  "highpeakspureearth.com",
+  "||highrockmedia.com",
+  "||hiitch.com",
+  "||hikinggfw.org",
+  ".hilive.tv",
+  ".himalayan-foundation.org",
+  "himalayanglacier.com",
+  ".himemix.com",
+  "||himemix.com",
+  ".himemix.net",
+  "times.hinet.net",
+  ".hitomi.la",
+  "|http:\/\/hitomi.la",
+  ".hiwifi.com",
+  "@@||hiwifi.com",
+  "hizbuttahrir.org",
+  "hizb-ut-tahrir.info",
+  "hizb-ut-tahrir.org",
+  ".hjclub.info",
+  ".hk-pub.com\/forum",
+  "|http:\/\/hk-pub.com",
+  ".hk01.com",
+  "||hk01.com",
+  ".hk32168.com",
+  "||hk32168.com",
+  "||hkacg.com",
+  "||hkacg.net",
+  ".hkatvnews.com",
+  "hkbc.net",
+  ".hkbf.org",
+  ".hkbookcity.com",
+  "||hkbookcity.com",
+  ".hkchurch.org",
+  "hkci.org.hk",
+  ".hkcmi.edu",
+  "||hkcnews.com",
+  "||hkcoc.com",
+  "hkday.net",
+  ".hkdailynews.com.hk\/china.php",
+  "hkdf.org",
+  ".hkej.com",
+  ".hkepc.com\/forum\/viewthread.php?tid=1153322",
+  "china.hket.com",
+  "||hkfaa.com",
+  "hkfreezone.com",
+  "hkfront.org",
+  "m.hkgalden.com",
+  "|https:\/\/m.hkgalden.com",
+  "hkgolden.com",
+  ".hkgreenradio.org\/home",
+  ".hkheadline.com*blog",
+  ".hkheadline.com\/instantnews",
+  "hkhkhk.com",
+  "hkhrc.org.hk",
+  "hkhrm.org.hk",
+  "||hkip.org.uk",
+  "1989report.hkja.org.hk",
+  "hkjc.com",
+  ".hkjp.org",
+  ".hklft.com",
+  ".hklts.org.hk",
+  "||hklts.org.hk",
+  "news.hkpeanut.com",
+  "hkptu.org",
+  ".hkreporter.com",
+  "||hkreporter.com",
+  "|http:\/\/hkupop.hku.hk\/",
+  ".hkusu.net",
+  "||hkusu.net",
+  ".hkvwet.com",
+  ".hkwcc.org.hk",
+  "||hkzone.org",
+  ".hmonghot.com",
+  "|http:\/\/hmonghot.com",
+  "hnjhj.com",
+  "||hnjhj.com",
+  ".hnntube.com",
+  "||hola.com",
+  "||hola.org",
+  "holymountaincn.com",
+  "holyspiritspeaks.org",
+  "||holyspiritspeaks.org",
+  "||derekhsu.homeip.net",
+  ".homeperversion.com",
+  "|http:\/\/homeservershow.com",
+  "|http:\/\/old.honeynet.org\/scans\/scan31\/sub\/doug_eric\/spam_translation.html",
+  ".hongkongfp.com",
+  "||hongkongfp.com",
+  "hongmeimei.com",
+  "||hongzhi.li",
+  ".hootsuite.com",
+  "||hootsuite.com",
+  ".hopedialogue.org",
+  "|http:\/\/hopedialogue.org",
+  ".hopto.org",
+  ".hornygamer.com",
+  ".hornytrip.com",
+  "|http:\/\/hornytrip.com",
+  ".hotav.tv",
+  ".hotels.cn",
+  "hotfrog.com.tw",
+  "hotgoo.com",
+  ".hotpornshow.com",
+  "hotpot.hk",
+  ".hotshame.com",
+  "||hotspotshield.com",
+  ".hotvpn.com",
+  "||hotvpn.com",
+  "||hougaige.com",
+  "||howtoforge.com",
+  ".hqcdp.org",
+  "||hqcdp.org",
+  "||hqjapanesesex.com",
+  "hqmovies.com",
+  ".hrcir.com",
+  ".hrcchina.org",
+  ".hrea.org",
+  ".hrichina.org",
+  "||hrichina.org",
+  ".hrw.org",
+  "||hrw.org",
+  "hrweb.org",
+  "||hsjp.net",
+  "||hsselite.com",
+  "|http:\/\/hst.net.tw",
+  ".hstern.net",
+  ".hstt.net",
+  ".htkou.net",
+  "||htkou.net",
+  ".hua-yue.net",
+  ".huaglad.com",
+  "||huaglad.com",
+  ".huanghuagang.org",
+  "||huanghuagang.org",
+  ".huangyiyu.com",
+  ".huaren.us",
+  "||huaren.us",
+  ".huaren4us.com",
+  ".huashangnews.com",
+  "|http:\/\/huashangnews.com",
+  "bbs.huasing.org",
+  "huaxia-news.com",
+  "huaxiabao.org",
+  "huaxin.ph",
+  "||huayuworld.org",
+  ".huffingtonpost.com\/rebiya-kadeer",
+  "||hugoroy.eu",
+  "||huhaitai.com",
+  "||huhamhire.com",
+  "huiyi.in",
+  ".hulkshare.com",
+  "humanrightsbriefing.org",
+  "||hung-ya.com",
+  "||hungerstrikeforaids.org",
+  "||huping.net",
+  "hurgokbayrak.com",
+  ".hurriyet.com.tr",
+  ".hut2.ru",
+  "||hutianyi.net",
+  "hutong9.net",
+  "huyandex.com",
+  ".hwadzan.tw",
+  "||hwayue.org.tw",
+  "||hwinfo.com",
+  "||hxwk.org",
+  "hxwq.org",
+  "||hyperrate.com",
+  "ebook.hyread.com.tw",
+  "||ebook.hyread.com.tw",
+  "||i1.hk",
+  "||i2p2.de",
+  "||i2runner.com",
+  "||i818hk.com",
+  ".i-cable.com",
+  ".i-part.com.tw",
+  ".iamtopone.com",
+  "iask.ca",
+  "||iask.ca",
+  "iask.bz",
+  "||iask.bz",
+  ".iav19.com",
+  "ibiblio.org\/pub\/packages\/ccic",
+  ".iblist.com",
+  "||iblogserv-f.net",
+  "ibros.org",
+  "|http:\/\/cn.ibtimes.com",
+  ".ibvpn.com",
+  "||ibvpn.com",
+  "icams.com",
+  "blogs.icerocket.com\/tag",
+  ".icij.org",
+  "||icij.org",
+  "||icl-fi.org",
+  ".icoco.com",
+  "||icoco.com",
+  "||furbo.org",
+  "||warbler.iconfactory.net",
+  "||iconpaper.org",
+  "||icu-project.org",
+  "w.idaiwan.com\/forum",
+  "||iddddg.com",
+  "idemocracy.asia",
+  ".identi.ca",
+  "||identi.ca",
+  "||idiomconnection.com",
+  "|http:\/\/www.idlcoyote.com",
+  ".idouga.com",
+  ".idreamx.com",
+  "forum.idsam.com",
+  ".idv.tw",
+  ".ieasy5.com",
+  "|http:\/\/ieasy5.com",
+  ".ied2k.net",
+  ".ienergy1.com",
+  "|http:\/\/if.ttt\/",
+  "ifanqiang.com",
+  ".ifcss.org",
+  "||ifcss.org",
+  "ifjc.org",
+  ".ift.tt",
+  "|http:\/\/ift.tt",
+  "||ifreewares.com",
+  "||igcd.net",
+  ".igfw.net",
+  "||igfw.net",
+  ".igfw.tech",
+  "||igfw.tech",
+  ".igmg.de",
+  "||ignitedetroit.net",
+  ".igotmail.com.tw",
+  "||igvita.com",
+  "||ihakka.net",
+  ".ihao.org\/dz5",
+  "||iicns.com",
+  ".ikstar.com",
+  "||illusionfactory.com",
+  "||ilove80.be",
+  "||im.tv",
+  "@@||myvlog.im.tv",
+  "||im88.tw",
+  ".imgchili.net",
+  "|http:\/\/imgchili.net",
+  ".imageab.com",
+  ".imagefap.com",
+  "||imagefap.com",
+  "||imageflea.com",
+  "imageshack.us",
+  "||imagevenue.com",
+  "||imagezilla.net",
+  ".imb.org",
+  "|http:\/\/imb.org",
+  "|http:\/\/www.imdb.com\/name\/nm0482730",
+  ".imdb.com\/title\/tt0819354",
+  ".imdb.com\/title\/tt1540068",
+  ".imdb.com\/title\/tt4908644",
+  ".img.ly",
+  "||img.ly",
+  ".imkev.com",
+  "||imkev.com",
+  ".imlive.com",
+  ".immoral.jp",
+  "impact.org.au",
+  "impp.mn",
+  "|http:\/\/tech2.in.com\/video\/",
+  "in99.org",
+  "in-disguise.com",
+  ".incapdns.net",
+  ".incloak.com",
+  "||incloak.com",
+  "||incredibox.fr",
+  "||indiandefensenews.in",
+  "timesofindia.indiatimes.com\/dalai",
+  "timesofindia.indiatimes.com\/defaultinterstitial.cms",
+  ".indiemerch.com",
+  "||indiemerch.com",
+  "info-graf.fr",
+  "website.informer.com",
+  ".initiativesforchina.org",
+  ".inkui.com",
+  ".inmediahk.net",
+  "||inmediahk.net",
+  "||innermongolia.org",
+  "|http:\/\/blog.inoreader.com",
+  ".inote.tw",
+  ".insecam.org",
+  "|http:\/\/insecam.org",
+  "||insidevoa.com",
+  ".institut-tibetain.org",
+  "|http:\/\/internet.org\/",
+  "internetdefenseleague.org",
+  "internetfreedom.org",
+  "||internetpopculture.com",
+  "inxian.com",
+  "||inxian.com",
+  "ipalter.com",
+  ".ipfire.org",
+  "||iphone4hongkong.com",
+  "||iphonehacks.com",
+  "||iphonetaiwan.org",
+  "||iphonix.fr",
+  "||ipicture.ru",
+  ".ipjetable.net",
+  "||ipjetable.net",
+  ".ipobar.com\/read.php?",
+  "ipoock.com\/img",
+  ".iportal.me",
+  "|http:\/\/iportal.me",
+  "||ippotv.com",
+  ".ipredator.se",
+  "||ipredator.se",
+  ".iptv.com.tw",
+  "||iptvbin.com",
+  "||ipvanish.com",
+  "iredmail.org",
+  "chinese.irib.ir",
+  "||ironbigfools.compython.net",
+  "||ironpython.net",
+  ".ironsocket.com",
+  "||ironsocket.com",
+  ".is.gd",
+  ".islahhaber.net",
+  ".islam.org.hk",
+  "|http:\/\/islam.org.hk",
+  ".islamawareness.net\/Asia\/China",
+  ".islamhouse.com",
+  "||islamhouse.com",
+  ".islamicity.com",
+  ".islamicpluralism.org",
+  ".islamtoday.net",
+  ".isaacmao.com",
+  "||isaacmao.com",
+  "||isgreat.org",
+  "||ismaelan.com",
+  ".ismalltits.com",
+  "||ismprofessional.net",
+  "isohunt.com",
+  "||israbox.com",
+  ".issuu.com",
+  "||issuu.com",
+  ".istars.co.nz",
+  "oversea.istarshine.com",
+  "||oversea.istarshine.com",
+  "blog.istef.info\/2007\/10\/21\/myentunnel",
+  ".istiqlalhewer.com",
+  ".istockphoto.com",
+  "isunaffairs.com",
+  "isuntv.com",
+  "itaboo.info",
+  "||itaboo.info",
+  ".italiatibet.org",
+  "download.ithome.com.tw",
+  "ithelp.ithome.com.tw",
+  "||itshidden.com",
+  ".itsky.it",
+  ".itweet.net",
+  "|http:\/\/itweet.net",
+  ".iu45.com",
+  ".iuhrdf.org",
+  "||iuhrdf.org",
+  ".iuksky.com",
+  ".ivacy.com",
+  "||ivacy.com",
+  ".iverycd.com",
+  ".ivpn.net",
+  "||ixquick.com",
+  ".ixxx.com",
+  "iyouport.com",
+  "||iyouport.com",
+  ".izaobao.us",
+  "||gmozomg.izihost.org",
+  ".izles.net",
+  ".izlesem.org",
+  "||j.mp",
+  "blog.jackjia.com",
+  "jamaat.org",
+  ".jamyangnorbu.com",
+  "|http:\/\/jamyangnorbu.com",
+  ".jandyx.com",
+  "||janwongphoto.com",
+  "||japan-whores.com",
+  ".jav.com",
+  ".jav101.com",
+  ".jav2be.com",
+  "||jav2be.com",
+  ".jav68.tv",
+  ".javakiba.org",
+  "|http:\/\/javakiba.org",
+  ".javbus.com",
+  "||javbus.com",
+  "||javfor.me",
+  ".javhd.com",
+  ".javhip.com",
+  ".javmobile.net",
+  "|http:\/\/javmobile.net",
+  ".javmoo.com",
+  ".javseen.com",
+  "|http:\/\/javseen.com",
+  "jbtalks.cc",
+  "jbtalks.com",
+  "jbtalks.my",
+  ".jdwsy.com",
+  "jeanyim.com",
+  "||jfqu36.club",
+  "||jfqu37.xyz",
+  "||jgoodies.com",
+  ".jiangweiping.com",
+  "||jiangweiping.com",
+  "||jiaoyou8.com",
+  ".jiehua.cz",
+  "||hk.jiepang.com",
+  "||tw.jiepang.com",
+  "jieshibaobao.com",
+  ".jigglegifs.com",
+  "56cun04.jigsy.com",
+  "jigong1024.com",
+  "daodu14.jigsy.com",
+  "specxinzl.jigsy.com",
+  "wlcnew.jigsy.com",
+  ".jihadology.net",
+  "|http:\/\/jihadology.net",
+  "jinbushe.org",
+  "||jinbushe.org",
+  ".jingsim.org",
+  "zhao.jinhai.de",
+  "jingpin.org",
+  "||jingpin.org",
+  "jinpianwang.com",
+  ".jinroukong.com",
+  "ac.jiruan.net",
+  "||jitouch.com",
+  ".jizzthis.com",
+  "jjgirls.com",
+  ".jkb.cc",
+  "|http:\/\/jkb.cc",
+  "jkforum.net",
+  "||jma.go.jp",
+  "research.jmsc.hku.hk\/social",
+  "weiboscope.jmsc.hku.hk",
+  ".jmscult.com",
+  "|http:\/\/jmscult.com",
+  "||joachims.org",
+  "||jobso.tv",
+  ".sunwinism.joinbbs.net",
+  ".journalchretien.net",
+  "||journalofdemocracy.org",
+  ".joymiihub.com",
+  ".joyourself.com",
+  "jpopforum.net",
+  ".jubushoushen.com",
+  "||jubushoushen.com",
+  ".juhuaren.com",
+  "||juliereyc.com",
+  "||junauza.com",
+  ".june4commemoration.org",
+  ".junefourth-20.net",
+  "||junefourth-20.net",
+  "||bbs.junglobal.net",
+  ".juoaa.com",
+  "|http:\/\/juoaa.com",
+  "justfreevpn.com",
+  ".justicefortenzin.org",
+  "justpaste.it",
+  "justtristan.com",
+  "juyuange.org",
+  "juziyue.com",
+  "||juziyue.com",
+  "||jwmusic.org",
+  "@@||music.jwmusic.org",
+  ".jyxf.net",
+  "||k-doujin.net",
+  "||ka-wai.com",
+  ".kagyu.org",
+  "||kagyu.org.za",
+  ".kagyumonlam.org",
+  ".kagyunews.com.hk",
+  ".kagyuoffice.org",
+  "||kagyuoffice.org",
+  "||kagyuoffice.org.tw",
+  ".kaiyuan.de",
+  ".kakao.com",
+  "||kakao.com",
+  ".kalachakralugano.org",
+  ".kankan.today",
+  ".kannewyork.com",
+  "||kannewyork.com",
+  ".kanshifang.com",
+  "||kanshifang.com",
+  "||kantie.org",
+  "kanzhongguo.com",
+  "kanzhongguo.eu",
+  ".kaotic.com",
+  "||karayou.com",
+  "karkhung.com",
+  ".karmapa.org",
+  ".karmapa-teachings.org",
+  ".kba-tx.org",
+  ".kcoolonline.com",
+  ".kebrum.com",
+  "||kebrum.com",
+  ".kechara.com",
+  ".keepandshare.com\/visit\/visit_page.php?i=688154",
+  ".keezmovies.com",
+  ".kendincos.net",
+  ".kenengba.com",
+  "||kenengba.com",
+  "||keontech.net",
+  ".kepard.com",
+  "||kepard.com",
+  "wiki.keso.cn\/Home",
+  "||keycdn.com",
+  ".khabdha.org",
+  ".khmusic.com.tw",
+  "||kichiku-doujinko.com",
+  ".kik.com",
+  "||kik.com",
+  "bbs.kimy.com.tw",
+  ".kindleren.com",
+  "|http:\/\/kindleren.com",
+  "|http:\/\/www.kindleren.com",
+  ".kingdomsalvation.org",
+  "||kingdomsalvation.org",
+  "kinghost.com",
+  "||kingstone.com.tw",
+  ".kink.com",
+  "killwall.com",
+  "||killwall.com",
+  "||kinmen.travel",
+  ".kir.jp",
+  ".kissbbao.cn",
+  "|http:\/\/kiwi.kz",
+  "||kk-whys.co.jp",
+  ".kmuh.org.tw",
+  ".knowledgerush.com\/kr\/encyclopedia",
+  ".kobo.com",
+  "||kobo.com",
+  ".kobobooks.com",
+  "||kobobooks.com",
+  "||kodingen.com",
+  "@@||www.kodingen.com",
+  "||kompozer.net",
+  ".konachan.com",
+  "|http:\/\/konachan.com",
+  ".kone.com",
+  "||koolsolutions.com",
+  ".koornk.com",
+  "||koornk.com",
+  "||koranmandarin.com",
+  ".korenan2.com",
+  "|http:\/\/gojet.krtco.com.tw",
+  ".ksdl.org",
+  ".ksnews.com.tw",
+  "||ktzhk.com",
+  ".kui.name\/event",
+  "kun.im",
+  ".kurashsultan.com",
+  "||kurtmunger.com",
+  "kusocity.com",
+  "||kwcg.ca",
+  "kwongwah.com.my",
+  ".kxsw.life",
+  "||kxsw.life",
+  ".kyofun.com",
+  "kyohk.net",
+  "||kyoyue.com",
+  ".kyzyhello.com",
+  "||kyzyhello.com",
+  ".kzeng.info",
+  "||kzeng.info",
+  "la-forum.org",
+  "ladbrokes.com",
+  "||labiennale.org",
+  ".lagranepoca.com",
+  "||lagranepoca.com",
+  ".lalulalu.com",
+  ".lama.com.tw",
+  "||lama.com.tw",
+  ".lamayeshe.com",
+  "|http:\/\/lamayeshe.com",
+  "|http:\/\/www.lamenhu.com",
+  ".lamnia.co.uk",
+  "||lamnia.co.uk",
+  "lamrim.com",
+  ".lanterncn.cn",
+  "|http:\/\/lanterncn.cn",
+  ".lantosfoundation.org",
+  ".laod.cn",
+  "|http:\/\/laod.cn",
+  "laogai.org",
+  "||laogai.org",
+  "laomiu.com",
+  ".laoyang.info",
+  "|http:\/\/laoyang.info",
+  "||laptoplockdown.com",
+  ".laqingdan.net",
+  "||laqingdan.net",
+  "||larsgeorge.com",
+  ".lastcombat.com",
+  "|http:\/\/lastcombat.com",
+  "||lastfm.es",
+  "latelinenews.com",
+  ".latibet.org",
+  "||le-vpn.com",
+  ".leafyvpn.net",
+  "||leafyvpn.net",
+  "leeao.com.cn\/bbs\/forum.php",
+  "lefora.com",
+  "||left21.hk",
+  ".legalporno.com",
+  ".legsjapan.com",
+  "|http:\/\/leirentv.ca",
+  "leisurecafe.ca",
+  "||lematin.ch",
+  ".lemonde.fr",
+  "||lenwhite.com",
+  "lerosua.org",
+  "||lerosua.org",
+  "blog.lester850.info",
+  "||lesoir.be",
+  ".letou.com",
+  "letscorp.net",
+  "||letscorp.net",
+  "||ss.levyhsu.com",
+  "||cdn.assets.lfpcontent.com",
+  ".lhakar.org",
+  "|http:\/\/lhakar.org",
+  ".lhasocialwork.org",
+  ".liangyou.net",
+  "||liangyou.net",
+  ".lianyue.net",
+  "||liaowangxizang.net",
+  ".liaowangxizang.net",
+  "||liberal.org.hk",
+  ".libertytimes.com.tw",
+  "blogs.libraryinformationtechnology.com\/jxyz",
+  ".lidecheng.com\/blog\/fucking-gfw",
+  ".lighten.org.tw",
+  ".lightnovel.cn",
+  "@@|https:\/\/www.lightnovel.cn",
+  "limiao.net",
+  "linkuswell.com",
+  "abitno.linpie.com\/use-ipv6-to-fuck-gfw",
+  "||line.me",
+  "||line-apps.com",
+  ".linglingfa.com",
+  "||lingvodics.com",
+  ".link-o-rama.com",
+  "|http:\/\/link-o-rama.com",
+  ".linkideo.com",
+  "||api.linksalpha.com",
+  "||apidocs.linksalpha.com",
+  "||www.linksalpha.com",
+  "||help.linksalpha.com",
+  "||linux.org.hk",
+  "linuxtoy.org\/archives\/installing-west-chamber-on-ubuntu",
+  ".lionsroar.com",
+  ".lipuman.com",
+  "||liquidvpn.com",
+  "||greatfire.us7.list-manage.com",
+  "||listentoyoutube.com",
+  "listorious.com",
+  "||liudejun.com",
+  ".liuhanyu.com",
+  ".liujianshu.com",
+  "||liujianshu.com",
+  ".liuxiaobo.net",
+  "|http:\/\/liuxiaobo.net",
+  "liuxiaotong.com",
+  "||liuxiaotong.com",
+  ".livedoor.jp",
+  ".liveleak.com",
+  "||liveleak.com",
+  ".livestation.com",
+  "livestream.com",
+  "||livestream.com",
+  "||livingonline.us",
+  "||livingstream.com",
+  "||livevideo.com",
+  ".livevideo.com",
+  ".liwangyang.com",
+  "lizhizhuangbi.com",
+  "lkcn.net",
+  ".llss.me\/",
+  ".load.to",
+  ".lobsangwangyal.com",
+  ".localdomain.ws",
+  "||localdomain.ws",
+  "localpresshk.com",
+  "||lockestek.com",
+  "logbot.net",
+  "||logiqx.com",
+  "secure.logmein.com",
+  "||secure.logmein.com",
+  ".londonchinese.ca",
+  ".longhair.hk",
+  "longmusic.com",
+  "||longtermly.net",
+  "||lookpic.com",
+  ".looktoronto.com",
+  "|http:\/\/looktoronto.com",
+  ".lotsawahouse.org\/tibetan-masters\/fourteenth-dalai-lama",
+  ".lotuslight.org.hk",
+  ".lotuslight.org.tw",
+  "hkreporter.loved.hk",
+  "||lpsg.com",
+  "||lrfz.com",
+  ".lrip.org",
+  "||lrip.org",
+  ".lsd.org.hk",
+  "||lsd.org.hk",
+  "lsforum.net",
+  ".lsm.org",
+  "||lsm.org",
+  ".lsmchinese.org",
+  "||lsmchinese.org",
+  ".lsmkorean.org",
+  "||lsmkorean.org",
+  ".lsmradio.com\/rad_archives",
+  ".lsmwebcast.com",
+  ".ltn.com.tw",
+  "|http:\/\/ltn.com.tw",
+  ".luke54.com",
+  ".luke54.org",
+  ".lupm.org",
+  "||lupm.org",
+  "||lushstories.com",
+  "luxebc.com",
+  "lvhai.org",
+  "||lvhai.org",
+  "||lvv2.com",
+  ".lyfhk.net",
+  "|http:\/\/lyfhk.net",
+  ".lzmtnews.org",
+  "||lzmtnews.org",
+  "http:\/\/*.m-team.cc",
+  ".macrovpn.com",
+  "macts.com.tw",
+  "||mad-ar.ch",
+  "||madthumbs.com",
+  "||magic-net.info",
+  "mahabodhi.org",
+  "my.mail.ru",
+  ".maiplus.com",
+  "|http:\/\/maiplus.com",
+  ".maizhong.org",
+  "makkahnewspaper.com",
+  ".mamingzhe.com",
+  "manicur4ik.ru",
+  ".maplew.com",
+  "|http:\/\/maplew.com",
+  "||marc.info",
+  "marguerite.su",
+  "||martincartoons.com",
+  "maskedip.com",
+  ".maiio.net",
+  "mail-archive.com",
+  ".malaysiakini.com",
+  "||makemymood.com",
+  ".manchukuo.net",
+  ".maniash.com",
+  "|http:\/\/maniash.com",
+  ".mansion.com",
+  ".mansionpoker.com",
+  "||martau.com",
+  "|http:\/\/blog.martinoei.com",
+  ".martsangkagyuofficial.org",
+  "|http:\/\/martsangkagyuofficial.org",
+  "maruta.be\/forget",
+  ".marxist.com",
+  "||marxist.net",
+  ".marxists.org\/chinese",
+  "||matainja.com",
+  "||mathable.io",
+  "||mathiew-badimon.com",
+  "||matsushimakaede.com",
+  "|http:\/\/maturejp.com",
+  "mayimayi.com",
+  ".maxing.jp",
+  ".mcaf.ee",
+  "|http:\/\/mcaf.ee",
+  "||mcadforums.com",
+  "mcfog.com",
+  "mcreasite.com",
+  ".md-t.org",
+  "||md-t.org",
+  "||meansys.com",
+  ".media.org.hk",
+  ".mediachinese.com",
+  "||mediachinese.com",
+  ".mediafire.com\/?",
+  ".mediafire.com\/download",
+  ".mediafreakcity.com",
+  "||mediafreakcity.com",
+  ".medium.com",
+  "||medium.com",
+  ".meetav.com",
+  "||meetup.com",
+  "mefeedia.com",
+  "jihadintel.meforum.org",
+  "||mega.nz",
+  "||megaproxy.com",
+  "||megarotic.com",
+  "megavideo.com",
+  "||megurineluka.com",
+  "meirixiaochao.com",
+  "||melon-peach.com",
+  ".meltoday.com",
+  ".memehk.com",
+  "||memehk.com",
+  "memorybbs.com",
+  ".memri.org",
+  ".memrijttm.org",
+  ".mercyprophet.org",
+  "|http:\/\/mercyprophet.org",
+  ".meridian-trust.org",
+  "|http:\/\/meridian-trust.org",
+  ".meripet.biz",
+  "|http:\/\/meripet.biz",
+  ".meripet.com",
+  "|http:\/\/meripet.com",
+  "merit-times.com.tw",
+  "meshrep.com",
+  ".mesotw.com\/bbs",
+  "metacafe.com\/watch",
+  "||meteorshowersonline.com",
+  "|http:\/\/www.metro.taipei\/",
+  ".metrohk.com.hk\/?cmd=detail&categoryID=2",
+  "||metrolife.ca",
+  ".metroradio.com.hk",
+  "|http:\/\/metroradio.com.hk",
+  "meyou.jp",
+  ".meyul.com",
+  "||mgoon.com",
+  "||mgstage.com",
+  "||mh4u.org",
+  "mhradio.org",
+  "|http:\/\/michaelanti.com",
+  "||michaelmarketl.com",
+  ".microvpn.com",
+  "|http:\/\/microvpn.com",
+  "middle-way.net",
+  ".mihk.hk\/forum",
+  ".mihr.com",
+  "mihua.org",
+  "||mikesoltys.com",
+  ".milph.net",
+  "|http:\/\/milph.net",
+  ".milsurps.com",
+  "mimiai.net",
+  ".mimivip.com",
+  ".mimivv.com",
+  ".mindrolling.org",
+  "|http:\/\/mindrolling.org",
+  ".minghui.or.kr",
+  "|http:\/\/minghui.or.kr",
+  "minghui.org",
+  "||minghui.org",
+  "minghui-a.org",
+  "minghui-b.org",
+  "minghui-school.org",
+  ".mingjinglishi.com",
+  "||mingjinglishi.com",
+  "mingjingnews.com",
+  "||mingjingtimes.com",
+  ".mingpao.com",
+  "||mingpao.com",
+  ".mingpaocanada.com",
+  ".mingpaomonthly.com",
+  "|http:\/\/mingpaomonthly.com",
+  "mingpaonews.com",
+  ".mingpaony.com",
+  ".mingpaosf.com",
+  ".mingpaotor.com",
+  ".mingpaovan.com",
+  ".mingshengbao.com",
+  ".minhhue.net",
+  ".miniforum.org",
+  ".ministrybooks.org",
+  ".minzhuhua.net",
+  "||minzhuhua.net",
+  "minzhuzhanxian.com",
+  "minzhuzhongguo.org",
+  "||miroguide.com",
+  "mirrorbooks.com",
+  ".mist.vip",
+  "thecenter.mit.edu",
+  ".mitao.com.tw",
+  ".mitbbs.com",
+  "||mitbbs.com",
+  "mitbbsau.com",
+  ".mixero.com",
+  "||mixero.com",
+  "mixpod.com",
+  ".mixx.com",
+  "||mixx.com",
+  "||mizzmona.com",
+  ".mk5000.com",
+  ".mlcool.com",
+  ".mm-cg.com",
+  "||mmaaxx.com",
+  ".mmmca.com",
+  "mnewstv.com",
+  "||mobatek.net",
+  ".mobile01.com",
+  "|http:\/\/mobile01.com",
+  "||mobileways.de",
+  ".mobypicture.com",
+  "|http:\/\/moby.to",
+  "||moeerolibrary.com",
+  "wiki.moegirl.org",
+  ".mofaxiehui.com",
+  ".mofos.com",
+  "||mog.com",
+  "molihua.org",
+  "||mondex.org",
+  ".money-link.com.tw",
+  "|http:\/\/money-link.com.tw",
+  "|http:\/\/www.monlamit.org",
+  ".moonbbs.com",
+  "||moonbbs.com",
+  "c1522.mooo.com",
+  "||monitorchina.org",
+  "bbs.morbell.com",
+  "||morningsun.org",
+  "||moroneta.com",
+  ".motherless.com",
+  "|http:\/\/motherless.com",
+  "motor4ik.ru",
+  ".mousebreaker.com",
+  ".movements.org",
+  "||movements.org",
+  "||moviefap.com",
+  "||www.moztw.org",
+  ".mp3buscador.com",
+  "mp3ye.eu",
+  "||mpettis.com",
+  "mpfinance.com",
+  "mpinews.com",
+  "mponline.hk",
+  ".mqxd.org",
+  "|http:\/\/mqxd.org",
+  "mrtweet.com",
+  "||mrtweet.com",
+  "news.hk.msn.com",
+  "news.msn.com.tw",
+  "msguancha.com",
+  ".mswe1.org",
+  "|http:\/\/mswe1.org",
+  "||mthruf.com",
+  "muchosucko.com",
+  "||multiply.com",
+  "multiproxy.org",
+  "multiupload.com",
+  ".mullvad.net",
+  "||mullvad.net",
+  ".mummysgold.com",
+  ".murmur.tw",
+  "|http:\/\/murmur.tw",
+  ".musicade.net",
+  ".muslimvideo.com",
+  "||muzi.com",
+  "||muzi.net",
+  "||mx981.com",
+  ".my-formosa.com",
+  ".my-proxy.com",
+  ".my-private-network.co.uk",
+  "||my-private-network.co.uk",
+  "forum.my903.com",
+  ".myactimes.com\/actimes",
+  "||myanniu.com",
+  ".myaudiocast.com",
+  "||myaudiocast.com",
+  ".myav.com.tw\/bbs",
+  ".mybbs.us",
+  ".myca168.com",
+  ".mycanadanow.com",
+  "||bbs.mychat.to",
+  "||mychinamyhome.com",
+  ".mychinamyhome.com",
+  ".mychinanet.com",
+  ".mychinanews.com",
+  "||mychinanews.com",
+  ".mychinese.news",
+  "||mycnnews.com",
+  "||mykomica.org",
+  "mycould.com\/discuz",
+  ".myeasytv.com",
+  "||myeclipseide.com",
+  ".myforum.com.hk",
+  "||myforum.com.hk",
+  "||myforum.com.uk",
+  ".myfreecams.com",
+  ".myfreepaysite.com",
+  ".myfreshnet.com",
+  ".myiphide.com",
+  "||myiphide.com",
+  "forum.mymaji.com",
+  "mymediarom.com\/files\/box",
+  "||mymoe.moe",
+  "||mymusic.net.tw",
+  "||myparagliding.com",
+  "||mypopescu.com",
+  "myradio.hk\/podcast",
+  ".myreadingmanga.info",
+  "mysinablog.com",
+  ".myspace.com",
+  "||myspacecdn.com",
+  ".mytalkbox.com",
+  ".mytizi.com",
+  "||naacoalition.org",
+  "old.nabble.com",
+  "||naitik.net",
+  ".nakuz.com\/bbs",
+  "||nalandabodhi.org",
+  "||nalandawest.org",
+  ".namgyal.org",
+  "namgyalmonastery.org",
+  "||namsisi.com",
+  ".nanyang.com",
+  "||nanyang.com",
+  ".nanyangpost.com",
+  "||nanyangpost.com",
+  ".nanzao.com",
+  "||jpl.nasa.gov",
+  "||pds.nasa.gov",
+  "||solarsystem.nasa.gov",
+  ".nakido.com",
+  "||nakido.com",
+  ".naol.ca",
+  ".naol.cc",
+  "uighur.narod.ru",
+  ".nat.moe",
+  "||nat.moe",
+  "cyberghost.natado.com",
+  "||national-lottery.co.uk",
+  "news.nationalgeographic.com\/news\/2014\/06\/140603-tiananmen-square",
+  ".nationsonline.org\/oneworld\/tibet",
+  "||line.naver.jp",
+  "||navyfamily.navy.mil",
+  "||navyreserve.navy.mil",
+  "||nko.navy.mil",
+  "||usno.navy.mil",
+  "naweeklytimes.com",
+  ".nbtvpn.com",
+  "|http:\/\/nbtvpn.com",
+  "nccwatch.org.tw",
+  ".nch.com.tw",
+  ".ncn.org",
+  "||ncn.org",
+  "||etools.ncol.com",
+  ".nde.de",
+  ".ndr.de",
+  ".ned.org",
+  "||nekoslovakia.net",
+  "||nepusoku.com",
+  "||net-fits.pro",
+  "bbs.netbig.com",
+  ".netbirds.com",
+  "netcolony.com",
+  "bolin.netfirms.com",
+  "||netme.cc",
+  "netsneak.com",
+  ".network54.com",
+  "networkedblogs.com",
+  ".networktunnel.net",
+  "neverforget8964.org",
+  "new-3lunch.net",
+  ".new-akiba.com",
+  ".new96.ca",
+  ".newcenturymc.com",
+  "|http:\/\/newcenturymc.com",
+  "newcenturynews.com",
+  "||newchen.com",
+  ".newchen.com",
+  ".newgrounds.com",
+  "newipnow.com",
+  ".newlandmagazine.com.au",
+  ".newnews.ca",
+  "news100.com.tw",
+  "newschinacomment.org",
+  ".newscn.org",
+  "||newscn.org",
+  "newspeak.cc\/story",
+  ".newsancai.com",
+  "||newsancai.com",
+  ".newsdetox.ca",
+  ".newsdh.com",
+  "||newstamago.com",
+  "||newstapa.org",
+  "newstarnet.com",
+  ".newtaiwan.com.tw",
+  "newtalk.tw",
+  "||newtalk.tw",
+  "newyorktimes.com",
+  "||nexon.com",
+  ".next11.co.jp",
+  ".nextmag.com.tw",
+  ".nextmedia.com",
+  "||nexton-net.jp",
+  "nexttv.com.tw",
+  ".nfjtyd.com",
+  "||co.ng.mil",
+  "||nga.mil",
+  "ngensis.com",
+  ".nhentai.net",
+  "|http:\/\/nhentai.net",
+  ".nhk-ondemand.jp",
+  ".nicovideo.jp\/watch",
+  "||nighost.org",
+  "av.nightlife141.com",
+  "ninecommentaries.com",
+  ".ninjacloak.com",
+  "||ninjaproxy.ninja",
+  "nintendium.com",
+  "taiwanyes.ning.com",
+  "usmgtcg.ning.com\/forum",
+  "||niusnews.com",
+  "||njactb.org",
+  "njuice.com",
+  "||njuice.com",
+  "nlfreevpn.com",
+  ".ddns.net\/",
+  ".gooddns.info",
+  "||gotdns.ch",
+  ".maildns.xyz",
+  ".no-ip.org",
+  ".opendn.xyz",
+  ".servehttp.com",
+  "sytes.net",
+  ".whodns.xyz",
+  ".zapto.org",
+  "|http:\/\/dynupdate.no-ip.com\/",
+  "||nobel.se",
+  "nobelprize.org\/nobel_prizes\/peace\/laureates\/1989",
+  "nobelprize.org\/nobel_prizes\/peace\/laureates\/2010",
+  "nobodycanstop.us",
+  "||nobodycanstop.us",
+  "||nokogiri.org",
+  "||nokola.com",
+  "noodlevpn.com",
+  ".norbulingka.org",
+  "nordvpn.com",
+  "||nordvpn.com",
+  "||novelasia.com",
+  ".news.now.com",
+  "|http:\/\/news.now.com",
+  "news.now.com%2Fhome",
+  "||nownews.com",
+  ".nowtorrents.com",
+  ".noypf.com",
+  "||noypf.com",
+  "||npa.go.jp",
+  ".npnt.me",
+  "|http:\/\/npnt.me",
+  ".nps.gov",
+  ".nradio.me",
+  "|http:\/\/nradio.me",
+  ".nrk.no",
+  "||nrk.no",
+  ".ntd.tv",
+  "||ntd.tv",
+  "ntdtv.com",
+  ".ntdtv.co.kr",
+  "ntdtv.ca",
+  "ntdtv.org",
+  "ntdtv.ru",
+  "ntdtvla.com",
+  ".ntrfun.com",
+  "||cbs.ntu.edu.tw",
+  "||media.nu.nl",
+  ".nubiles.net",
+  "||nuexpo.com",
+  ".nukistream.com",
+  "||nurgo-software.com",
+  "||nutaku.net",
+  ".nuvid.com",
+  "||nvdst.com",
+  "nuzcom.com",
+  ".nvquan.org",
+  ".nvtongzhisheng.org",
+  "|http:\/\/nvtongzhisheng.org",
+  ".nwtca.org",
+  "||nyaa.eu",
+  "||nyaa.si",
+  ".nydus.ca",
+  "nylon-angel.com",
+  "nylonstockingsonline.com",
+  ".nzchinese.com",
+  "||nzchinese.net.nz",
+  "observechina.net",
+  ".obutu.com",
+  "ocaspro.com",
+  "occupytiananmen.com",
+  "oclp.hk",
+  ".ocreampies.com",
+  "||october-review.org",
+  "offbeatchina.com",
+  "officeoftibet.com",
+  "|http:\/\/ofile.org",
+  "||ogaoga.org",
+  "twtr2src.ogaoga.org",
+  ".ogate.org",
+  "||ogate.org",
+  "www2.ohchr.org\/english\/bodies\/cat\/docs\/ngos\/II_China_41.pdf",
+  ".oikos.com.tw\/v4",
+  ".oiktv.com",
+  "oizoblog.com",
+  ".ok.ru",
+  "||ok.ru",
+  ".okayfreedom.com",
+  "||okayfreedom.com",
+  "okk.tw",
+  "|http:\/\/filmy.olabloga.pl\/player",
+  "old-cat.net",
+  "||olumpo.com",
+  ".olympicwatch.org",
+  "omgili.com",
+  "||omnitalk.com",
+  "||omnitalk.org",
+  "cling.omy.sg",
+  "forum.omy.sg",
+  "news.omy.sg",
+  "showbiz.omy.sg",
+  "||on.cc",
+  "||onedrive.live.com",
+  "||onion.city",
+  ".onlinecha.com",
+  "||onlineyoutube.com",
+  ".onlytweets.com",
+  "|http:\/\/onlytweets.com",
+  "onmoon.net",
+  "onmoon.com",
+  ".onthehunt.com",
+  "|http:\/\/onthehunt.com",
+  ".oopsforum.com",
+  "open.com.hk",
+  "openallweb.com",
+  "opendemocracy.net",
+  "||opendemocracy.net",
+  ".openervpn.in",
+  "openid.net",
+  "||openid.net",
+  ".openleaks.org",
+  "||openleaks.org",
+  "openvpn.net",
+  "||openvpn.net",
+  "||openwebster.com",
+  ".openwrt.org.cn",
+  "@@||openwrt.org.cn",
+  "my.opera.com\/dahema",
+  "||demo.opera-mini.net",
+  "www.orchidbbs.com",
+  ".organcare.org.tw",
+  "organharvestinvestigation.net",
+  ".orgasm.com",
+  ".orgfree.com",
+  "||orient-doll.com",
+  "orientaldaily.com.my",
+  "||orientaldaily.com.my",
+  "||orn.jp",
+  "t.orzdream.com",
+  "||t.orzdream.com",
+  "tui.orzdream.com",
+  "||orzistic.org",
+  "||osfoora.com",
+  ".otnd.org",
+  "||otnd.org",
+  "||otto.de",
+  "||ourdearamy.com",
+  "oursogo.com",
+  "oursteps.com.au",
+  ".oursweb.net",
+  "||ourtv.hk",
+  "xinqimeng.over-blog.com",
+  "||overplay.net",
+  "share.ovi.com\/media",
+  "|http:\/\/owl.li",
+  "|http:\/\/ht.ly",
+  "|http:\/\/htl.li",
+  "|http:\/\/mash.to",
+  "www.owind.com",
+  "|http:\/\/www.oxid.it",
+  "oyax.com",
+  "oyghan.com\/wps",
+  ".ozchinese.com\/bbs",
+  "||ow.ly",
+  "bbs.ozchinese.com",
+  ".ozvoice.org",
+  "||ozvoice.org",
+  ".ozxw.com",
+  ".ozyoyo.com",
+  "||pachosting.com",
+  ".pacificpoker.com",
+  ".packetix.net",
+  "||pacopacomama.com",
+  ".padmanet.com",
+  "page2rss.com",
+  "||pagodabox.com",
+  ".palacemoon.com",
+  "forum.palmislife.com",
+  "||eriversoft.com",
+  ".paldengyal.com",
+  "paljorpublications.com",
+  ".paltalk.com",
+  "||pangci.net",
+  "||panacom.co.jp",
+  "||pandapow.co",
+  ".pandapow.net",
+  ".pandavpn-jp.com",
+  ".panluan.net",
+  "||panluan.net",
+  "||pao-pao.net",
+  "paper.li",
+  "paperb.us",
+  ".paradisehill.cc",
+  ".paradisepoker.com",
+  ".partycasino.com",
+  ".partypoker.com",
+  ".passion.com",
+  "||passion.com",
+  ".passiontimes.hk",
+  "pastebin.com",
+  ".pastie.org",
+  "||pastie.org",
+  "||blog.pathtosharepoint.com",
+  "pbs.org\/wgbh\/pages\/frontline\/gate",
+  "pbs.org\/wgbh\/pages\/frontline\/tankman",
+  "pbs.org\/wgbh\/pages\/frontline\/tibet",
+  "video.pbs.org",
+  "pbwiki.com",
+  "||pbworks.com",
+  "||developers.box.net",
+  "||wiki.oauth.net",
+  "||wiki.phonegap.com",
+  "||wiki.jqueryui.com",
+  "||pbxes.com",
+  "||pbxes.org",
+  "pcdvd.com.tw",
+  ".pchome.com.tw",
+  "|http:\/\/pcij.org",
+  ".pcstore.com.tw\/ntdtvapshop",
+  "||pct.org.tw",
+  "pdetails.com",
+  "||pdproxy.com",
+  "||peace.ca",
+  "peacefire.org",
+  "peacehall.com",
+  "||peacehall.com",
+  "|http:\/\/pearlher.org",
+  ".peeasian.com",
+  ".pekingduck.org",
+  "||pekingduck.org",
+  ".pemulihan.or.id",
+  "|http:\/\/pemulihan.or.id",
+  "||pen.io",
+  "penchinese.com",
+  "||penchinese.net",
+  ".penchinese.net",
+  "pengyulong.com",
+  "penisbot.com",
+  "||blog.pentalogic.net",
+  ".penthouse.com",
+  ".pentoy.hk\/%E4%B8%AD%E5%9C%8B",
+  ".pentoy.hk\/%E6%99%82%E4%BA%8B",
+  ".peoplebookcafe.com",
+  ".peoplenews.tw",
+  "||peoplenews.tw",
+  ".peopo.org",
+  "||peopo.org",
+  ".percy.in",
+  ".perfectgirls.net",
+  "perfectvpn.net",
+  ".persecutionblog.com",
+  ".persiankitty.com",
+  "pfd.org.hk",
+  "phapluan.org",
+  "phayul.com",
+  "philborges.com",
+  "philly.com",
+  "||phncdn.com",
+  "||photodharma.net",
+  "||photofocus.com",
+  "||phuquocservices.com",
+  "||picacomiccn.com",
+  ".picidae.net",
+  "||img*.picturedip.com",
+  "picturesocial.com",
+  "||pin-cong.com",
+  ".pin6.com",
+  "||pin6.com",
+  ".ping.fm",
+  "||ping.fm",
+  "||pinimg.com",
+  ".pinkrod.com",
+  "||pinoy-n.com",
+  "||pinterest.at",
+  "||pinterest.co.kr",
+  "||pinterest.co.uk",
+  ".pinterest.com",
+  "||pinterest.com",
+  "||pinterest.de",
+  "||pinterest.dk",
+  "||pinterest.fr",
+  "||pinterest.jp",
+  "||pinterest.nl",
+  "||pinterest.se",
+  ".pipii.tv",
+  ".piposay.com",
+  "piraattilahti.org",
+  ".piring.com",
+  "||pixelqi.com",
+  "||css.pixnet.in",
+  "||pixnet.net",
+  ".pixnet.net",
+  ".pk.com",
+  "||placemix.com",
+  "|http:\/\/pictures.playboy.com",
+  "||playboy.com",
+  ".playboyplus.com",
+  "||playboyplus.com",
+  "||player.fm",
+  ".playno1.com",
+  "||playno1.com",
+  "||playpcesor.com",
+  "plays.com.tw",
+  "||m.plixi.com",
+  "plm.org.hk",
+  "plunder.com",
+  ".plus28.com",
+  ".plusbb.com",
+  ".pmatehunter.com",
+  "|http:\/\/pmatehunter.com",
+  ".pmates.com",
+  "||po2b.com",
+  "pobieramy.top",
+  "||podictionary.com",
+  ".pokerstars.net",
+  "zh.pokerstrategy.com",
+  "politicalchina.org",
+  "politicalconsultation.org",
+  "||poloniex.com",
+  ".polymerhk.com",
+  "|http:\/\/polymerhk.com",
+  ".popo.tw",
+  "||popvote.hk",
+  "popyard.com",
+  "||popyard.org",
+  ".porn.com",
+  ".porn2.com",
+  ".porn5.com",
+  ".pornbase.org",
+  ".pornerbros.com",
+  "||pornhd.com",
+  ".pornhost.com",
+  ".pornhub.com",
+  "||pornhub.com",
+  ".pornhubdeutsch.net",
+  "|http:\/\/pornhubdeutsch.net",
+  "||pornmm.net",
+  ".pornoxo.com",
+  ".pornrapidshare.com",
+  "||pornrapidshare.com",
+  ".pornsharing.com",
+  "|http:\/\/pornsharing.com",
+  ".pornsocket.com",
+  ".pornstarclub.com",
+  "||pornstarclub.com",
+  ".porntube.com",
+  ".porntubenews.com",
+  ".porntvblog.com",
+  "||porntvblog.com",
+  ".pornvisit.com",
+  ".portablevpn.nl",
+  "||poskotanews.com",
+  ".post01.com",
+  ".post76.com",
+  "||post76.com",
+  ".post852.com",
+  "postadult.com",
+  ".postimg.org",
+  "||potvpn.com",
+  "||powercx.com",
+  ".powerphoto.org",
+  "||www.powerpointninja.com",
+  "||presidentlee.tw",
+  "||cdn.printfriendly.com",
+  ".pritunl.com",
+  "provpnaccounts.com",
+  "||provpnaccounts.com",
+  ".proxfree.com",
+  "||proxfree.com",
+  "proxyanonimo.es",
+  ".proxynetwork.org.uk",
+  "||proxynetwork.org.uk",
+  "||pts.org.tw",
+  ".pttvan.org",
+  "pubu.com.tw",
+  "puffinbrowser.com",
+  "pureinsight.org",
+  ".pushchinawall.com",
+  ".putty.org",
+  "||putty.org",
+  "||calebelston.com",
+  "||blog.fizzik.com",
+  "||nf.id.au",
+  "||sogrady.me",
+  "||vatn.org",
+  "||ventureswell.com",
+  "||whereiswerner.com",
+  ".power.com",
+  "||power.com",
+  "powerapple.com",
+  "||powerapple.com",
+  "||abc.pp.ru",
+  "heix.pp.ru",
+  "||prayforchina.net",
+  "||premeforwindows7.com",
+  "||presentationzen.com",
+  "||prestige-av.com",
+  "prisoner-state-secret-journal-premier",
+  ".prisoneralert.com",
+  "||pritunl.com",
+  "||privacybox.de",
+  ".private.com\/home",
+  "||privateinternetaccess.com",
+  "privatepaste.com",
+  "||privatepaste.com",
+  "privatetunnel.com",
+  "||privatetunnel.com",
+  "||privatevpn.com",
+  "||procopytips.com",
+  "provideocoalition.com",
+  "||prosiben.de",
+  "proxifier.com",
+  "api.proxlet.com",
+  "||proxomitron.info",
+  ".proxpn.com",
+  "||proxpn.com",
+  ".proxylist.org.uk",
+  "||proxylist.org.uk",
+  ".proxypy.net",
+  "||proxypy.net",
+  "proxyroad.com",
+  ".proxytunnel.net",
+  "||proyectoclubes.com",
+  "prozz.net",
+  "psblog.name",
+  "||psblog.name",
+  "||psiphon.ca",
+  ".psiphon3.com",
+  "||psiphon3.com",
+  ".psiphontoday.com",
+  ".ptt.cc",
+  "||ptt.cc",
+  ".puffstore.com",
+  ".puuko.com",
+  "||pullfolio.com",
+  ".punyu.com\/puny",
+  "||pureconcepts.net",
+  "||pureinsight.org",
+  "||purepdf.com",
+  "||purevpn.com",
+  ".purplelotus.org",
+  ".pursuestar.com",
+  "||pursuestar.com",
+  ".pussyspace.com",
+  ".putihome.org",
+  ".putlocker.com\/file",
+  "pwned.com",
+  "python.com",
+  ".python.com.tw",
+  "|http:\/\/python.com.tw",
+  "pythonhackers.com\/p",
+  ".qanote.com",
+  "||qanote.com",
+  ".qgirl.com.tw",
+  "||qiandao.today",
+  ".qi-gong.me",
+  "||qi-gong.me",
+  "||qiangyou.org",
+  ".qidian.ca",
+  ".qienkuen.org",
+  "||qienkuen.org",
+  "||qiwen.lu",
+  "qixianglu.cn",
+  "bbs.qmzdd.com",
+  ".qkshare.com",
+  "qoos.com",
+  "||qoos.com",
+  "blog.qooza.hk\/dafengqixi",
+  "||efksoft.com",
+  "||qstatus.com",
+  "||qtweeter.com",
+  "||qtrac.eu",
+  ".quannengshen.org",
+  "|http:\/\/quannengshen.org",
+  "quantumbooter.net",
+  "||quitccp.net",
+  ".quitccp.net",
+  "||quitccp.org",
+  ".quitccp.org",
+  ".quora.com\/Chinas-Future",
+  ".quran.com",
+  "|http:\/\/quran.com",
+  ".quranexplorer.com",
+  "qusi8.net",
+  ".qvodzy.org",
+  "nemesis2.qx.net\/pages\/MyEnTunnel",
+  "qxbbs.org",
+  ".ra.gg",
+  "|http:\/\/ra.gg\/",
+  ".radicalparty.org",
+  "||rael.org",
+  "radicalparty.org",
+  "radioaustralia.net.au",
+  ".radiohilight.net",
+  "||radiohilight.net",
+  "opml.radiotime.com",
+  "||radiovaticana.org",
+  "||radiovncr.com",
+  "||raggedbanner.com",
+  "||raidcall.com.tw",
+  ".raidtalk.com.tw",
+  ".rainbowplan.org\/bbs",
+  "|https:\/\/raindrop.io\/",
+  ".raizoji.or.jp",
+  "|http:\/\/raizoji.or.jp",
+  "rangwang.biz",
+  "rangzen.com",
+  "rangzen.net",
+  "rangzen.org",
+  "|http:\/\/blog.ranxiang.com\/",
+  "ranyunfei.com",
+  "||ranyunfei.com",
+  ".rapbull.net",
+  "|http:\/\/rapidgator.net\/",
+  "||rapidmoviez.com",
+  "rapidvpn.com",
+  "||rapidvpn.com",
+  ".raremovie.cc",
+  "|http:\/\/raremovie.cc",
+  ".raremovie.net",
+  "|http:\/\/raremovie.net",
+  "||rawgit.com",
+  "||rawgithub.com",
+  "||razyboard.com",
+  "rcinet.ca",
+  ".read100.com",
+  ".readingtimes.com.tw",
+  "||readingtimes.com.tw",
+  "||readmoo.com",
+  ".readydown.com",
+  "|http:\/\/readydown.com",
+  ".realcourage.org",
+  ".realitykings.com",
+  "||realitykings.com",
+  ".realraptalk.com",
+  ".realsexpass.com",
+  ".recordhistory.org",
+  ".recovery.org.tw",
+  "|http:\/\/online.recoveryversion.org",
+  "||recoveryversion.com.tw",
+  "||red-lang.org",
+  "redballoonsolidarity.org",
+  ".redchinacn.net",
+  "|http:\/\/redchinacn.net",
+  "redchinacn.org",
+  "redtube.com",
+  "referer.us",
+  "||referer.us",
+  "||reflectivecode.com",
+  "relaxbbs.com",
+  ".relay.com.tw",
+  ".releaseinternational.org",
+  "religioustolerance.org",
+  "renminbao.com",
+  "||renminbao.com",
+  ".renyurenquan.org",
+  "||renyurenquan.org",
+  "|http:\/\/certificate.revocationcheck.com",
+  "subacme.rerouted.org",
+  "||resilio.com",
+  ".reuters.com",
+  "||reuters.com",
+  "||reutersmedia.net",
+  ".revleft.com",
+  "retweetist.com",
+  "||retweetrank.com",
+  "revver.com",
+  ".rfa.org",
+  "||rfa.org",
+  ".rfachina.com",
+  ".rfamobile.org",
+  "rfaweb.org",
+  "||rferl.org",
+  ".rfi.fr",
+  "||rfi.fr",
+  "|http:\/\/rfi.my\/",
+  "|http:\/\/vds.rightster.com\/",
+  ".rigpa.org",
+  ".rileyguide.com",
+  "riku.me\/",
+  ".ritouki.jp",
+  "||ritter.vg",
+  ".rlwlw.com",
+  "||rlwlw.com",
+  ".rmjdw.com",
+  ".rmjdw132.info",
+  ".roadshow.hk",
+  ".roboforex.com",
+  "||robustnessiskey.com",
+  "||rocket-inc.net",
+  "|http:\/\/www2.rocketbbs.com\/11\/bbs.cgi?id=5mus",
+  "|http:\/\/www2.rocketbbs.com\/11\/bbs.cgi?id=freemgl",
+  "||rojo.com",
+  "||ronjoneswriter.com",
+  "||rolia.net",
+  ".roodo.com",
+  ".rosechina.net",
+  ".rotten.com",
+  ".rsf.org",
+  "||rsf.org",
+  ".rsf-chinese.org",
+  "||rsf-chinese.org",
+  ".rsgamen.org",
+  "||phosphation13.rssing.com",
+  ".rssmeme.com",
+  "||rssmeme.com",
+  "||rtalabel.org",
+  ".rthk.hk",
+  "|http:\/\/rthk.hk",
+  ".rthk.org.hk",
+  "|http:\/\/rthk.org.hk",
+  "rti.org.tw",
+  ".rtycminnesota.org",
+  ".ruanyifeng.com\/blog*some_ways_to_break_the_great_firewall",
+  "rukor.org",
+  ".rushbee.com",
+  ".ruten.com.tw",
+  "rutube.ru",
+  ".ruyiseek.com",
+  ".rxhj.net",
+  "|http:\/\/rxhj.net",
+  ".s1s1s1.com",
+  "||s-cute.com",
+  ".s-dragon.org",
+  "||s1heng.com",
+  "|http:\/\/www.s4miniarchive.com",
+  "||s8forum.com",
+  "cdn1.lp.saboom.com",
+  "||sacks.com",
+  "sacom.hk",
+  "||sacom.hk",
+  "||sadpanda.us",
+  ".safervpn.com",
+  "||safervpn.com",
+  ".saintyculture.com",
+  "|http:\/\/saintyculture.com",
+  ".saiq.me",
+  "||saiq.me",
+  "||sakuralive.com",
+  ".sakya.org",
+  ".salvation.org.hk",
+  "||salvation.org.hk",
+  ".samair.ru\/proxy\/type-01",
+  ".sambhota.org",
+  ".cn.sandscotaicentral.com",
+  "|http:\/\/cn.sandscotaicentral.com",
+  ".sanmin.com.tw",
+  "sapikachu.net",
+  "savemedia.com",
+  "savetibet.de",
+  "savetibet.fr",
+  "savetibet.nl",
+  ".savetibet.org",
+  "||savetibet.org",
+  "savetibet.ru",
+  ".savetibetstore.org",
+  "||savetibetstore.org",
+  "savevid.com",
+  "||say2.info",
+  ".sbme.me",
+  "|http:\/\/sbme.me",
+  ".sbs.com.au\/yourlanguage",
+  ".scasino.com",
+  "|http:\/\/www.sciencemag.org\/content\/344\/6187\/953",
+  ".sciencenets.com",
+  ".scmp.com",
+  ".scmpchinese.com",
+  "||scramble.io",
+  ".scribd.com",
+  "||scribd.com",
+  "||scriptspot.com",
+  "seapuff.com",
+  "domainhelp.search.com",
+  ".searchtruth.com",
+  "secretchina.com",
+  "||secretchina.com",
+  "||secretgarden.no",
+  ".secretsline.biz",
+  "||secretsline.biz",
+  "||securetunnel.com",
+  ".securitykiss.com",
+  "||securitykiss.com",
+  "||seed4.me",
+  "news.seehua.com",
+  "seesmic.com",
+  "||seevpn.com",
+  "||seezone.net",
+  "sejie.com",
+  ".sendspace.com",
+  "|http:\/\/tweets.seraph.me\/",
+  "sesawe.net",
+  "||sesawe.net",
+  ".sesawe.org",
+  "||sethwklein.net",
+  ".setn.com",
+  ".settv.com.tw",
+  "forum.setty.com.tw",
+  ".sevenload.com",
+  "||sevenload.com",
+  ".sex.com",
+  ".sex-11.com",
+  "||sex3.com",
+  "||sex8.cc",
+  ".sexandsubmission.com",
+  ".sexbot.com",
+  ".sexhu.com",
+  ".sexhuang.com",
+  "sexinsex.net",
+  "||sexinsex.net",
+  ".sextvx.com",
+  "67.220.91.15",
+  "67.220.91.18",
+  "67.220.91.23",
+  "|http:\/\/*.sf.net",
+  ".sfileydy.com",
+  "||sfshibao.com",
+  ".sftindia.org",
+  ".sftuk.org",
+  "||sftuk.org",
+  "||shadeyouvpn.com",
+  "shadow.ma",
+  ".shadowsky.xyz",
+  ".shadowsocks.asia",
+  "||www.shadowsocks.com",
+  ".shadowsocks.com",
+  "||shadowsocks.com.hk",
+  ".shadowsocks.org",
+  "||shadowsocks.org",
+  "||shadowsocks-r.com",
+  "|http:\/\/cn.shafaqna.com",
+  ".shambalapost.com",
+  ".shambhalasun.com",
+  ".shangfang.org",
+  "||shangfang.org",
+  "shapeservices.com",
+  ".sharebee.com",
+  "||sharecool.org",
+  "sharpdaily.com.hk",
+  "||sharpdaily.com.hk",
+  ".sharpdaily.hk",
+  ".sharpdaily.tw",
+  ".shat-tibet.com",
+  "sheikyermami.com",
+  ".shellfire.de",
+  "||shellfire.de",
+  ".shenshou.org",
+  "shenyun.com",
+  "shenyunperformingarts.org",
+  "||shenyunperformingarts.org",
+  "shenzhoufilm.com",
+  "||shenzhoufilm.com",
+  "||sherabgyaltsen.com",
+  ".shiatv.net",
+  ".shicheng.org",
+  "shinychan.com",
+  "shipcamouflage.com",
+  ".shireyishunjian.com",
+  ".shitaotv.org",
+  "||shixiao.org",
+  "||shizhao.org",
+  "shizhao.org",
+  "shkspr.mobi\/dabr",
+  "||shodanhq.com",
+  "||shooshtime.com",
+  ".shop2000.com.tw",
+  ".shopping.com",
+  ".showhaotu.com",
+  ".showtime.jp",
+  ".shutterstock.com",
+  "||shutterstock.com",
+  "ch.shvoong.com",
+  ".shwchurch.org",
+  "||www.shwchurch.org",
+  ".shwchurch3.com",
+  "|http:\/\/shwchurch3.com",
+  ".siddharthasintent.org",
+  "||sidelinesnews.com",
+  ".sidelinessportseatery.com",
+  ".sijihuisuo.club",
+  ".sijihuisuo.com",
+  ".silkbook.com",
+  "||simbolostwitter.com",
+  "simplecd.org",
+  "||simplecd.org",
+  "@@||simplecd.me",
+  "simpleproductivityblog.com",
+  "bbs.sina.com\/",
+  "bbs.sina.com%2F",
+  "blog.sina.com.tw",
+  "dailynews.sina.com\/",
+  "dailynews.sina.com%2F",
+  "forum.sina.com.hk",
+  "home.sina.com",
+  "||magazines.sina.com.tw",
+  "news.sina.com.hk",
+  "news.sina.com.tw",
+  "news.sinchew.com.my",
+  ".sinchew.com.my\/node\/",
+  ".sinchew.com.my\/taxonomy\/term",
+  ".singaporepools.com.sg",
+  "||singaporepools.com.sg",
+  ".singfortibet.com",
+  ".singpao.com.hk",
+  "singtao.com",
+  "||singtao.com",
+  "news.singtao.ca",
+  ".singtaousa.com",
+  "||singtaousa.com",
+  "sino-monthly.com",
+  "||sinocast.com",
+  "sinocism.com",
+  "sinomontreal.ca",
+  ".sinonet.ca",
+  ".sinopitt.info",
+  ".sinoants.com",
+  "||sinoants.com",
+  ".sinoquebec.com",
+  ".sierrafriendsoftibet.org",
+  "sis.xxx",
+  "||sis001.com",
+  "sis001.us",
+  "||site90.net",
+  ".sitebro.tw",
+  "||sitekreator.com",
+  "||siteks.uk.to",
+  "||sitemaps.org",
+  ".sjrt.org",
+  "|http:\/\/sjrt.org",
+  "||sjum.cn",
+  "||sketchappsources.com",
+  "||skimtube.com",
+  "||skybet.com",
+  "|http:\/\/users.skynet.be\/reves\/tibethome.html",
+  ".skyking.com.tw",
+  "bbs.skykiwi.com",
+  "|http:\/\/www.skype.com\/intl\/",
+  "|http:\/\/www.skype.com\/zh-Hant",
+  "||skyvegas.com",
+  ".xskywalker.com",
+  "||xskywalker.com",
+  "||skyxvpn.com",
+  "m.slandr.net",
+  ".slaytizle.com",
+  ".sleazydream.com",
+  "||slheng.com",
+  "||slideshare.net",
+  "forum.slime.com.tw",
+  ".slinkset.com",
+  "||slickvpn.com",
+  ".slutload.com",
+  "||smartdnsproxy.com",
+  ".smarthide.com",
+  "smchbooks.com",
+  ".smh.com.au\/world\/death-of-chinese-playboy-leaves-fresh-scratches-in-party-paintwork-20120903-25a8v",
+  "smhric.org",
+  ".smith.edu\/dalailama",
+  ".smyxy.org",
+  "||snapchat.com",
+  ".snaptu.com",
+  "||snaptu.com",
+  "||sndcdn.com",
+  "sneakme.net",
+  "snowlionpub.com",
+  "home.so-net.net.tw\/yisa_tsai",
+  "||soc.mil",
+  ".sockscap64.com",
+  "||sockslist.net",
+  ".socrec.org",
+  "|http:\/\/socrec.org",
+  ".sod.co.jp",
+  ".softether.org",
+  "||softether.org",
+  ".softether-download.com",
+  "||softether-download.com",
+  "||cdn.softlayer.net",
+  "||sogclub.com",
+  "sohcradio.com",
+  "||sohcradio.com",
+  ".sokmil.com",
+  "||sorting-algorithms.com",
+  ".sostibet.org",
+  ".soumo.info",
+  "||soup.io",
+  "@@||static.soup.io",
+  ".sobees.com",
+  "||sobees.com",
+  "socialwhale.com",
+  ".softether.co.jp",
+  "||softwarebychuck.com",
+  "blog.sogoo.org",
+  "soh.tw",
+  "||soh.tw",
+  "sohfrance.org",
+  "||sohfrance.org",
+  "chinese.soifind.com",
+  "sokamonline.com",
+  ".solidaritetibet.org",
+  ".solidfiles.com",
+  "||somee.com",
+  ".songjianjun.com",
+  "||songjianjun.com",
+  ".sonicbbs.cc",
+  ".sonidodelaesperanza.org",
+  ".sopcast.com",
+  ".sopcast.org",
+  ".sorazone.net",
+  "||sos.org",
+  "bbs.sou-tong.org",
+  ".soubory.com",
+  "|http:\/\/soubory.com",
+  ".soul-plus.net",
+  ".soulcaliburhentai.net",
+  "||soulcaliburhentai.net",
+  "||soundcloud.com",
+  ".soundofhope.kr",
+  "soundofhope.org",
+  "||soundofhope.org",
+  "||soupofmedia.com",
+  "|http:\/\/sourceforge.net\/p*\/shadowsocksgui\/",
+  ".sourcewadio.com",
+  "southnews.com.tw",
+  "sowers.org.hk",
+  "||wlx.sowiki.net",
+  "||spankbang.com",
+  ".spankingtube.com",
+  ".spankwire.com",
+  "||spb.com",
+  "||speakerdeck.com",
+  "||speedify.com",
+  "spem.at",
+  "||spencertipping.com",
+  "||spicevpn.com",
+  ".spideroak.com",
+  "||spideroak.com",
+  ".spike.com",
+  ".spotflux.com",
+  "||spotflux.com",
+  ".spring4u.info",
+  "|http:\/\/spring4u.info",
+  "||sproutcore.com",
+  "||sproxy.info",
+  "||srocket.us",
+  ".ss-link.com",
+  "||ss-link.com",
+  ".ssglobal.co\/wp",
+  "|http:\/\/ssglobal.co",
+  ".ssglobal.me",
+  "||ssh91.com",
+  ".sspro.ml",
+  "|http:\/\/sspro.ml",
+  "||sss.camp",
+  "||sstmlt.moe",
+  "sstmlt.net",
+  "||sstmlt.net",
+  "|http:\/\/stackoverflow.com\/users\/895245",
+  ".stage64.hk",
+  "||stage64.hk",
+  "||standupfortibet.org",
+  "stanford.edu\/group\/falun",
+  "usinfo.state.gov",
+  "||statueofdemocracy.org",
+  ".starfishfx.com",
+  ".starp2p.com",
+  "||starp2p.com",
+  ".startpage.com",
+  "||startpage.com",
+  ".startuplivingchina.com",
+  "|http:\/\/startuplivingchina.com",
+  "||static-economist.com",
+  "||stc.com.sa",
+  "||steel-storm.com",
+  ".steganos.com",
+  "||steganos.com",
+  ".steganos.net",
+  ".stepchina.com",
+  "ny.stgloballink.com",
+  "hd.stheadline.com\/news\/realtime",
+  "sthoo.com",
+  "||sthoo.com",
+  ".stickam.com",
+  "stickeraction.com\/sesawe",
+  ".stileproject.com",
+  ".sto.cc",
+  ".stoporganharvesting.org",
+  "||storagenewsletter.com",
+  ".storm.mg",
+  "||storm.mg",
+  ".stoptibetcrisis.net",
+  "||stoptibetcrisis.net",
+  "||storify.com",
+  ".stormmediagroup.com",
+  "||stoweboyd.com",
+  "stranabg.com",
+  "||straplessdildo.com",
+  "||streamingthe.net",
+  "streema.com\/tv\/NTDTV_Chinese",
+  "cn.streetvoice.com\/article",
+  "cn.streetvoice.com\/diary",
+  "cn2.streetvoice.com",
+  "tw.streetvoice.com",
+  ".strikingly.com",
+  "||strongvpn.com",
+  ".strongwindpress.com",
+  ".student.tw\/db",
+  "||studentsforafreetibet.org",
+  "||stumbleupon.com",
+  "stupidvideos.com",
+  ".successfn.com",
+  "panamapapers.sueddeutsche.de",
+  ".sugarsync.com",
+  "||sugarsync.com",
+  ".sugobbs.com",
+  "||sugumiru18.com",
+  "||suissl.com",
+  "summify.com",
+  ".sumrando.com",
+  "||sumrando.com",
+  "sun1911.com",
+  ".sunporno.com",
+  "||sunmedia.ca",
+  "||sunporno.com",
+  ".sunskyforum.com",
+  ".sunta.com.tw",
+  ".sunvpn.net",
+  ".suoluo.org",
+  ".superfreevpn.com",
+  ".supervpn.net",
+  "||supervpn.net",
+  ".suppig.net",
+  ".suprememastertv.com",
+  "|http:\/\/suprememastertv.com",
+  ".surfeasy.com",
+  "||surfeasy.com",
+  ".surfeasy.com.au",
+  "|http:\/\/surfeasy.com.au",
+  "||surrenderat20.net",
+  ".suyangg.com",
+  "|http:\/\/suyangg.com",
+  ".svsfx.com",
+  ".swissvpn.net",
+  "||swissvpn.net",
+  "switchvpn.net",
+  "||switchvpn.net",
+  ".sydneytoday.com",
+  "||sydneytoday.com",
+  ".sylfoundation.org",
+  "||syncback.com",
+  "sysresccd.org",
+  ".sytes.net",
+  "blog.syx86.com\/2009\/09\/puff",
+  "blog.syx86.cn\/2009\/09\/puff",
+  ".szbbs.net",
+  ".szetowah.org.hk",
+  "||t-g.com",
+  ".t35.com",
+  ".t66y.com",
+  "||t66y.com",
+  ".taa-usa.org",
+  "|http:\/\/taa-usa.org",
+  ".taaze.tw",
+  "||taaze.tw",
+  "|http:\/\/www.tablesgenerator.com\/",
+  "tabtter.jp",
+  ".tacem.org",
+  ".taconet.com.tw",
+  "||taedp.org.tw",
+  ".tafm.org",
+  ".tagwa.org.au",
+  "tagwalk.com",
+  "||tagwalk.com",
+  "tahr.org.tw",
+  ".taipeisociety.org",
+  "||taipeisociety.org",
+  ".taiwanbible.com",
+  ".taiwancon.com",
+  ".taiwandaily.net",
+  "||taiwandaily.net",
+  ".taiwandc.org",
+  ".taiwanjustice.com",
+  "taiwankiss.com",
+  "taiwannation.com",
+  "taiwannation.com.tw",
+  "||taiwanncf.org.tw",
+  "||taiwannews.com.tw",
+  "|http:\/\/www.taiwanonline.cc\/",
+  "taiwantp.net",
+  "||taiwantt.org.tw",
+  "taiwanus.net",
+  "taiwanyes.com",
+  "taiwan-sex.com",
+  ".talk853.com",
+  ".talkboxapp.com",
+  "||talkboxapp.com",
+  ".talkonly.net",
+  "||talkonly.net",
+  "||tamiaode.tk",
+  "||tanc.org",
+  "tangben.com",
+  ".tangren.us",
+  ".taoism.net",
+  "|http:\/\/taoism.net",
+  ".taolun.info",
+  "||taolun.info",
+  ".tapatalk.com",
+  "||tapatalk.com",
+  "blog.taragana.com",
+  ".tascn.com.au",
+  "||taup.net",
+  "|http:\/\/www.taup.org.tw",
+  ".taweet.com",
+  "||taweet.com",
+  ".tbcollege.org",
+  "||tbcollege.org",
+  ".tbi.org.hk",
+  ".tbicn.org",
+  ".tbjyt.org",
+  "||tbpic.info",
+  ".tbrc.org",
+  "tbs-rainbow.org",
+  ".tbsec.org",
+  "||tbsec.org",
+  "tbskkinabalu.page.tl",
+  ".tbsmalaysia.org",
+  ".tbsn.org",
+  "||tbsn.org",
+  ".tbsseattle.org",
+  ".tbssqh.org",
+  "|http:\/\/tbssqh.org",
+  "tbswd.org",
+  ".tbtemple.org.uk",
+  ".tbthouston.org",
+  ".tccwonline.org",
+  ".tcewf.org",
+  "tchrd.org",
+  "tcnynj.org",
+  "||tcpspeed.co",
+  ".tcpspeed.com",
+  "||tcpspeed.com",
+  ".tcsofbc.org",
+  ".tcsovi.org",
+  "teamamericany.com",
+  "||teck.in",
+  ".teeniefuck.net",
+  "teensinasia.com",
+  ".telecomspace.com",
+  "||telegraph.co.uk",
+  ".tenacy.com",
+  "||tenzinpalmo.com",
+  ".tew.org",
+  ".thaicn.com",
+  "||theatrum-belli.com",
+  "theblemish.com",
+  "||thebcomplex.com",
+  ".thebobs.com",
+  "||thebobs.com",
+  ".thechinabeat.org",
+  "|http:\/\/www.thechinastory.org\/yearbooks\/yearbook-2012\/",
+  ".thedalailamamovie.com",
+  "|http:\/\/thedalailamamovie.com",
+  "||thedw.us",
+  "thefrontier.hk\/tf",
+  "|http:\/\/thegioitinhoc.vn\/",
+  ".thegly.com",
+  ".thehots.info",
+  "thehousenews.com",
+  "||thehun.net",
+  ".theinitium.com",
+  "||theinitium.com",
+  ".thenewslens.com",
+  "||thenewslens.com",
+  ".thepiratebay.org",
+  "||thepiratebay.org",
+  "||theportalwiki.com",
+  "thereallove.kr",
+  "therock.net.nz",
+  "thespeeder.com",
+  "||thestandnews.com",
+  "thetibetcenter.org",
+  "thetibetconnection.org",
+  ".thetibetmuseum.org",
+  ".thetibetpost.com",
+  "||thetibetpost.com",
+  "||thetinhat.com",
+  "thetrotskymovie.com",
+  "thevivekspot.com",
+  "||thewgo.org",
+  ".thinkingtaiwan.com",
+  ".thisav.com",
+  "|http:\/\/thisav.com",
+  ".thlib.org",
+  "||thomasbernhard.org",
+  ".thongdreams.com",
+  "threatchaos.com",
+  "||throughnightsfire.com",
+  ".thumbzilla.com",
+  "||thywords.com",
+  ".thywords.com.tw",
+  "tiananmenmother.org",
+  ".tiananmenduizhi.com",
+  "||tiananmenduizhi.com",
+  "||tiananmenuniv.com",
+  "||tiananmenuniv.net",
+  "||tiandixing.org",
+  ".tianhuayuan.com",
+  ".tianlawoffice.com",
+  "||tianti.io",
+  "tiantibooks.org",
+  "||tiantibooks.org",
+  "tianyantong.org.cn",
+  ".tianzhu.org",
+  ".tibet.at",
+  "tibet.ca",
+  ".tibet.com",
+  "||tibet.com",
+  "tibet.fr",
+  ".tibet.net",
+  "||tibet.net",
+  "tibet.nu",
+  ".tibet.org",
+  "||tibet.org",
+  ".tibet.sk",
+  "tibet.org.tw",
+  ".tibet.to",
+  ".tibet-envoy.eu",
+  "||tibet-envoy.eu",
+  ".tibet-foundation.org",
+  ".tibet-house-trust.co.uk",
+  "tibet-info.net",
+  "tibet-initiative.de",
+  "||tibet-initiative.de",
+  ".tibet-munich.de",
+  ".tibet3rdpole.org",
+  "|http:\/\/tibet3rdpole.org",
+  "tibetaction.net",
+  "||tibetaction.net",
+  ".tibetaid.org",
+  "tibetalk.com",
+  ".tibetan.fr",
+  "tibetan-alliance.org",
+  ".tibetanarts.org",
+  ".tibetanbuddhistinstitute.org",
+  "|http:\/\/tibetanbuddhistinstitute.org",
+  "tibetancommunity.org",
+  ".tibetanjournal.com",
+  ".tibetanlanguage.org",
+  ".tibetanliberation.org",
+  "||tibetanliberation.org",
+  ".tibetcollection.com",
+  ".tibetanaidproject.org",
+  ".tibetancommunityuk.net",
+  "|http:\/\/tibetancommunityuk.net",
+  "tibetanculture.org",
+  "tibetanfeministcollective.org",
+  ".tibetanpaintings.com",
+  ".tibetanphotoproject.com",
+  ".tibetanpoliticalreview.org",
+  ".tibetanreview.net",
+  "|http:\/\/tibetansports.org",
+  ".tibetanwomen.org",
+  "|http:\/\/tibetanwomen.org",
+  ".tibetanyouth.org",
+  ".tibetanyouthcongress.org",
+  "||tibetanyouthcongress.org",
+  ".tibetcharity.dk",
+  "tibetcharity.in",
+  ".tibetchild.org",
+  ".tibetcity.com",
+  ".tibetcorps.org",
+  ".tibetexpress.net",
+  "|http:\/\/tibetexpress.net",
+  "tibetfocus.com",
+  "tibetfund.org",
+  ".tibetgermany.com",
+  "||tibetgermany.de",
+  ".tibethaus.com",
+  ".tibetheritagefund.org",
+  "tibethouse.jp",
+  "tibethouse.org",
+  "||tibethouse.us",
+  ".tibetinfonet.net",
+  ".tibetjustice.org",
+  ".tibetkomite.dk",
+  "|http:\/\/tibetmuseum.org",
+  "tibetnetwork.org",
+  "||tibetnetwork.org",
+  ".tibetoffice.ch",
+  "|http:\/\/tibetoffice.ch",
+  "tibetoffice.eu",
+  "tibetoffice.org",
+  "tibetonline.com",
+  "||tibetonline.com",
+  ".tibetoffice.com.au",
+  "|http:\/\/tibetoffice.com.au",
+  "||tibetonline.tv",
+  ".tibetonline.tv",
+  ".tibetoralhistory.org",
+  "|http:\/\/tibetoralhistory.org",
+  ".tibetpolicy.eu",
+  ".tibetrelieffund.co.uk",
+  "tibetsites.com",
+  ".tibetsociety.com",
+  "||tibetsociety.com",
+  ".tibetsun.com",
+  ".tibetsupportgroup.org",
+  "|http:\/\/tibetsupportgroup.org",
+  ".tibetswiss.ch",
+  ".tibettelegraph.com",
+  "tibettimes.net",
+  "||tibetwrites.org",
+  ".ticket.com.tw",
+  ".tigervpn.com",
+  "||tigervpn.com",
+  ".timdir.com",
+  "|http:\/\/timdir.com",
+  ".time.com",
+  "|http:\/\/time.com",
+  ".timsah.com",
+  "||blog.tiney.com",
+  "tintuc101.com",
+  ".tiny.cc",
+  "|http:\/\/tiny.cc",
+  "tinychat.com",
+  "||tinypaste.com",
+  ".tistory.com",
+  "||tkcs-collins.com",
+  ".tmagazine.com",
+  "||tmagazine.com",
+  ".tmdfish.com",
+  "|http:\/\/tmi.me",
+  ".tmpp.org",
+  "|http:\/\/tmpp.org",
+  ".tnaflix.com",
+  "||tnaflix.com",
+  ".tngrnow.com",
+  ".tngrnow.net",
+  ".tnp.org",
+  "|http:\/\/tnp.org",
+  ".to-porno.com",
+  "||to-porno.com",
+  "togetter.com",
+  ".tokyo-247.com",
+  ".tokyo-hot.com",
+  "||tokyo-porn-tube.com",
+  "||tokyocn.com",
+  "tw.tomonews.net",
+  ".tongil.or.kr",
+  ".tono-oka.jp",
+  "tonyyan.net",
+  ".toodoc.com",
+  "toonel.net",
+  "top81.ws",
+  ".topnews.in",
+  ".toppornsites.com",
+  "|http:\/\/toppornsites.com",
+  ".torguard.net",
+  "||torguard.net",
+  "||top.tv",
+  ".topshareware.com",
+  ".topsy.com",
+  "||topsy.com",
+  "||toptip.ca",
+  "tora.to",
+  ".torcn.com",
+  ".torproject.org",
+  "||torproject.org",
+  "torrentprivacy.com",
+  "||torrentprivacy.com",
+  "|http:\/\/torrentproject.se",
+  "||torrenty.org",
+  "||torrentz.eu",
+  "||torvpn.com",
+  "||totalvpn.com",
+  ".toutiaoabc.com",
+  "towngain.com",
+  "toypark.in",
+  "toytractorshow.com",
+  ".tparents.org",
+  ".tpi.org.tw",
+  "||tpi.org.tw",
+  "traffichaus.com",
+  "||transparency.org",
+  "||treemall.com.tw",
+  "trendsmap.com",
+  "||trendsmap.com",
+  ".trialofccp.org",
+  "||trialofccp.org",
+  ".trimondi.de\/SDLE",
+  ".trouw.nl",
+  "|http:\/\/trouw.nl",
+  ".trt.net.tr",
+  "trtc.com.tw",
+  ".truebuddha-md.org",
+  "|http:\/\/truebuddha-md.org",
+  "trulyergonomic.com",
+  ".truth101.co.tv",
+  "|http:\/\/truth101.co.tv",
+  ".truthontour.org",
+  "|http:\/\/truthontour.org",
+  ".truveo.com",
+  ".tsctv.net",
+  ".tsemtulku.com",
+  "tsquare.tv",
+  ".tsu.org.tw",
+  "tsunagarumon.com",
+  ".tsctv.net",
+  "||tt-rss.org",
+  "||tt1069.com",
+  ".tttan.com",
+  "||tttan.com",
+  "bb.ttv.com.tw\/bb",
+  "tu8964.com",
+  ".tubaholic.com",
+  ".tube.com",
+  "tube8.com",
+  "||tube8.com",
+  ".tube911.com",
+  "||tube911.com",
+  ".tubecup.com",
+  ".tubegals.com",
+  ".tubeislam.com",
+  "|http:\/\/tubeislam.com",
+  ".tubestack.com",
+  "||tubewolf.com",
+  ".tuibeitu.net",
+  "tuidang.net",
+  ".tuidang.org",
+  "||tuidang.org",
+  ".tuidang.se",
+  "bbs.tuitui.info",
+  ".tumutanzi.com",
+  "|http:\/\/tumutanzi.com",
+  "||tumview.com",
+  ".tunein.com",
+  "|http:\/\/tunein.com",
+  "||tunnelbear.com",
+  ".tunnelr.com",
+  "||tunnelr.com",
+  ".tuo8.blue",
+  "||tuo8.blue",
+  ".tuo8.cc",
+  ".tuo8.club",
+  "||tuo8.club",
+  ".tuo8.fit",
+  ".tuo8.hk",
+  ".tuo8.in",
+  ".tuo8.ninja",
+  ".tuo8.org",
+  "||tuo8.fit",
+  "||tuo8.org",
+  ".tuo8.pw",
+  "|http:\/\/tuo8.pw",
+  "||tuo8.red",
+  ".tuo8.space",
+  "tuitwit.com",
+  ".turansam.org",
+  ".turbobit.net",
+  "|http:\/\/turbobit.net",
+  ".turbohide.com",
+  "||turbohide.com",
+  ".tushycash.com",
+  "|http:\/\/tushycash.com",
+  "||app.tutanota.com",
+  ".tuvpn.com",
+  "||tuvpn.com",
+  "|http:\/\/tuzaijidi.com",
+  "|http:\/\/*.tuzaijidi.com",
+  ".tw01.org",
+  "|http:\/\/tw01.org",
+  ".tumblr.com",
+  "||tumblr.com",
+  "||lecloud.net",
+  "|http:\/\/cosmic.monar.ch",
+  "||slutmoonbeam.com",
+  "|http:\/\/blog.soylent.com",
+  ".tv.com",
+  "|http:\/\/tv.com",
+  "tvants.com",
+  "forum.tvb.com",
+  "news.tvb.com\/list\/world",
+  "news.tvb.com\/local",
+  "news.tvbs.com.tw",
+  ".tvboxnow.com",
+  "|http:\/\/tvboxnow.com\/",
+  "tvider.com",
+  ".tvmost.com.hk",
+  ".tvplayvideos.com",
+  "||tvunetworks.com",
+  ".tw-blog.com",
+  "|https:\/\/tw-blog.com",
+  ".tw-npo.org",
+  ".twaitter.com",
+  "twapperkeeper.com",
+  "||twapperkeeper.com",
+  "||twaud.io",
+  ".twaud.io",
+  ".twavi.com",
+  ".twbbs.net.tw",
+  "twbbs.org",
+  "twbbs.tw",
+  "||twblogger.com",
+  "tweepmag.com",
+  ".tweepml.org",
+  "||tweepml.org",
+  ".tweetbackup.com",
+  "||tweetbackup.com",
+  "tweetboard.com",
+  "||tweetboard.com",
+  ".tweetboner.biz",
+  "||tweetboner.biz",
+  ".tweetcs.com",
+  "|http:\/\/tweetcs.com",
+  "|http:\/\/deck.ly",
+  "||mtw.tl",
+  "||tweetedtimes.com",
+  "||tweetmylast.fm",
+  "tweetphoto.com",
+  "||tweetphoto.com",
+  "||tweetrans.com",
+  "tweetree.com",
+  "||tweetree.com",
+  ".tweettunnel.com",
+  "||tweettunnel.com",
+  "||tweetwally.com",
+  "tweetymail.com",
+  "||twelve.today",
+  ".tweez.net",
+  "|http:\/\/tweez.net",
+  "||twftp.org",
+  "||twgreatdaily.com",
+  "twibase.com",
+  ".twibble.de",
+  "||twibble.de",
+  "twibbon.com",
+  "||twibs.com",
+  "twicsy.com",
+  ".twiends.com",
+  "|http:\/\/twiends.com",
+  ".twifan.com",
+  "|http:\/\/twifan.com",
+  "twiffo.com",
+  "||twiffo.com",
+  ".twilightsex.com",
+  "twilog.org",
+  "twimbow.com",
+  "||twindexx.com",
+  "twipple.jp",
+  "||twipple.jp",
+  "||twip.me",
+  "twishort.com",
+  "||twishort.com",
+  "twistar.cc",
+  "||twister.net.co",
+  "||twisterio.com",
+  "twisternow.com",
+  "twistory.net",
+  "twitbrowser.net",
+  "||twitcause.com",
+  "||twitgether.com",
+  "||twiggit.org",
+  "twitgoo.com",
+  "twitiq.com",
+  "||twitiq.com",
+  ".twitlonger.com",
+  "||twitlonger.com",
+  "|http:\/\/tl.gd\/",
+  "twitmania.com",
+  "twitoaster.com",
+  "||twitoaster.com",
+  "||twitonmsn.com",
+  ".twit2d.com",
+  "||twit2d.com",
+  ".twitstat.com",
+  "||twitstat.com",
+  "||firstfivefollowers.com",
+  "||retweeteffect.com",
+  "||tweeplike.me",
+  "||tweepguide.com",
+  "||turbotwitter.com",
+  ".twitvid.com",
+  "||twitvid.com",
+  "|http:\/\/twt.tl",
+  "twittbot.net",
+  "||ads-twitter.com",
+  "||twttr.com",
+  "||twitter4j.org",
+  ".twittercounter.com",
+  "||twittercounter.com",
+  "twitterfeed.com",
+  ".twittergadget.com",
+  "||twittergadget.com",
+  ".twitterkr.com",
+  "||twitterkr.com",
+  "||twittermail.com",
+  "||twitterrific.com",
+  "twittertim.es",
+  "||twittertim.es",
+  "twitthat.com",
+  "||twitturk.com",
+  ".twitturly.com",
+  "||twitturly.com",
+  ".twitzap.com",
+  "twiyia.com",
+  "||twstar.net",
+  ".twtkr.com",
+  "|http:\/\/twtkr.com",
+  ".twnorth.org.tw",
+  "twskype.com",
+  "twtrland.com",
+  "twurl.nl",
+  ".twyac.org",
+  "||twyac.org",
+  ".txxx.com",
+  ".tycool.com",
+  "||tycool.com",
+  "||typepad.com",
+  "@@||www.typepad.com",
+  "@@||static.typepad.com",
+  "||blog.expofutures.com",
+  "||legaltech.law.com",
+  "||blogs.tampabay.com",
+  "||contests.twilio.com",
+  ".embr.in",
+  "||embr.in",
+  ".u9un.com",
+  "||u9un.com",
+  ".ubddns.org",
+  "|http:\/\/ubddns.org",
+  "||uberproxy.net",
+  ".uc-japan.org",
+  "||uc-japan.org",
+  ".srcf.ucam.org\/salon\/",
+  "|http:\/\/china.ucanews.com\/",
+  "||ucdc1998.org",
+  "|http:\/\/hum*.uchicago.edu\/faculty\/ywang\/history",
+  "||uderzo.it",
+  ".udn.com",
+  "||udn.com",
+  "||udn.com.tw",
+  "udnbkk.com\/bbs",
+  "||uforadio.com.tw",
+  "ufreevpn.com",
+  ".ugo.com",
+  "||uhdwallpapers.org",
+  "||uhrp.org",
+  ".uighur.nl",
+  "||uighur.nl",
+  "uighurbiz.net",
+  ".ulike.net",
+  "ukcdp.co.uk",
+  "ukliferadio.co.uk",
+  "||ukliferadio.co.uk",
+  "ultravpn.fr",
+  "||ultravpn.fr",
+  "ultraxs.com",
+  "umich.edu\/~falun",
+  "||unblock.cn.com",
+  ".unblocker.yt",
+  "unblock-us.com",
+  "||unblock-us.com",
+  ".unblockdmm.com",
+  "|http:\/\/unblockdmm.com",
+  "||unblocksit.es",
+  "uncyclomedia.org",
+  ".uncyclopedia.hk\/wiki",
+  "|http:\/\/uncyclopedia.hk",
+  "|http:\/\/uncyclopedia.tw",
+  "underwoodammo.com",
+  "||underwoodammo.com",
+  "||unholyknight.com",
+  ".uni.cc",
+  "||cldr.unicode.org",
+  ".unification.net",
+  ".unification.org.tw",
+  ".unitedsocialpress.com",
+  ".unix100.com",
+  "||unknownspace.org",
+  ".unodedos.com",
+  "unpo.org",
+  ".untraceable.us",
+  "|http:\/\/untraceable.us",
+  "||uocn.org",
+  "tor.updatestar.com",
+  ".upholdjustice.org",
+  ".upload4u.info",
+  "uploaded.net\/file",
+  "|http:\/\/uploaded.net\/file",
+  "|http:\/\/uploaded.to\/file",
+  ".uploadstation.com\/file",
+  ".upmedia.mg",
+  ".upornia.com",
+  "|http:\/\/upornia.com",
+  "||uproxy.org",
+  "|http:\/\/tor.cn.uptodown.com\/",
+  ".upwill.org",
+  "ur7s.com",
+  "||urbansurvival.com",
+  "myshare.url.com.tw\/",
+  "||urlborg.com",
+  "||urlparser.com",
+  "us.to",
+  "||usacn.com",
+  ".usaip.eu",
+  "||usaip.eu",
+  "dalailama.usc.edu",
+  "beta.usejump.com",
+  "||usfk.mil",
+  "||usma.edu",
+  "||usmc.mil",
+  ".usocctn.com",
+  "|http:\/\/tarr.uspto.gov\/",
+  "||tsdr.uspto.gov",
+  ".ustream.tv",
+  "||ustream.tv",
+  ".usunitednews.com",
+  "|http:\/\/usunitednews.com",
+  "usus.cc",
+  ".utopianpal.com",
+  "||utopianpal.com",
+  ".uu-gg.com",
+  ".uvwxyz.xyz",
+  "||uvwxyz.xyz",
+  ".uwants.com",
+  ".uwants.net",
+  "uyghur.co.uk",
+  "|http:\/\/uyghur-j.org",
+  "||uyghuramerican.org",
+  ".uyghurcanadiansociety.org",
+  ".uyghurensemble.co.uk",
+  "||uyghurcongress.org",
+  ".uyghurpen.org",
+  ".uyghurpress.com",
+  ".uyghurstudies.org",
+  "|http:\/\/uyghurstudies.org",
+  "uygur.org",
+  "|http:\/\/uymaarip.com\/",
+  ".v2ray.com",
+  "|http:\/\/v2ray.com",
+  ".van001.com",
+  ".van698.com",
+  ".vanemu.cn",
+  ".vanilla-jp.com",
+  ".vanpeople.com",
+  "vansky.com",
+  "||vcf-online.org",
+  "||vcfbuilder.org",
+  ".vegasred.com",
+  ".velkaepocha.sk",
+  ".venbbs.com",
+  ".venchina.com",
+  ".venetianmacao.com",
+  "||venetianmacao.com",
+  "veoh.com",
+  "mysite.verizon.net",
+  "vermonttibet.org",
+  ".versavpn.com",
+  "||versavpn.com",
+  "||verybs.com",
+  ".vft.com.tw",
+  ".viber.com",
+  "||viber.com",
+  ".vica.info",
+  ".victimsofcommunism.org",
+  "|http:\/\/victimsofcommunism.org",
+  "||vid.me",
+  "||vidble.com",
+  "videobam.com",
+  "||videobam.com",
+  ".videodetective.com",
+  ".videomega.tv",
+  "||videomega.tv",
+  ".videomo.com",
+  "videopediaworld.com",
+  ".videopress.com",
+  ".vidinfo.org\/video",
+  "vietdaikynguyen.com",
+  ".vijayatemple.org",
+  "vimeo.com",
+  "||vimeo.com",
+  "||vimperator.org",
+  "||vincnd.com",
+  "||vinniev.com",
+  "|http:\/\/www.lib.virginia.edu\/area-studies\/Tibet\/tibet.html",
+  "visibletweets.com",
+  "|http:\/\/ny.visiontimes.com",
+  ".vital247.org",
+  "||viu.com",
+  ".vivahentai4u.net",
+  ".vivatube.com",
+  ".vivthomas.com",
+  "||vivthomas.com",
+  ".vjmedia.com.hk",
+  ".vllcs.org",
+  "|http:\/\/vllcs.org",
+  "||vmixcore.com",
+  "||vnet.link",
+  "cn.voa.mobi",
+  "tw.voa.mobi",
+  ".voachineseblog.com",
+  "||voachineseblog.com",
+  "voagd.com",
+  ".voacantonese.com",
+  "||voacantonese.com",
+  "voachinese.com",
+  "||voachinese.com",
+  ".voanews.com",
+  "||voanews.com",
+  "voatibetan.com",
+  "||voatibetan.com",
+  ".voatibetanenglish.com",
+  "||voatibetanenglish.com",
+  ".vocativ.com",
+  "vocn.tv",
+  ".vot.org",
+  "||vot.org",
+  ".vovo2000.com",
+  "|http:\/\/vovo2000.com",
+  ".voxer.com",
+  "||voxer.com",
+  ".voy.com",
+  "||vpn.ac",
+  ".vpn4all.com",
+  "||vpn4all.com",
+  ".vpnaccount.org",
+  "|http:\/\/vpnaccount.org",
+  ".vpnaccounts.com",
+  "||vpnaccounts.com",
+  ".vpncomparison.org",
+  ".vpncup.com",
+  "||vpncup.com",
+  "vpnbook.com",
+  ".vpncoupons.com",
+  "|http:\/\/vpncoupons.com",
+  ".vpndada.com",
+  "||vpndada.com",
+  ".vpnfan.com",
+  "vpnfire.com",
+  ".vpnfires.biz",
+  ".vpnforgame.net",
+  "||vpnforgame.net",
+  "||vpngate.jp",
+  ".vpngate.net",
+  "||vpngate.net",
+  ".vpngratis.net",
+  "vpnhq.com",
+  ".vpnmaster.com",
+  "||vpnmaster.com",
+  ".vpnmentor.com",
+  "||vpnmentor.com",
+  ".vpninja.net",
+  "||vpninja.net",
+  ".vpnintouch.com",
+  "||vpnintouch.net",
+  "vpnjack.com",
+  "||vpnjack.com",
+  ".vpnpick.com",
+  "||vpnpick.com",
+  "||vpnpop.com",
+  "||vpnpronet.com",
+  ".vpnreactor.com",
+  "||vpnreactor.com",
+  "||vpnreviewz.com",
+  ".vpnsecure.me",
+  "||vpnsecure.me",
+  ".vpnshazam.com",
+  "||vpnshazam.com",
+  ".vpnshieldapp.com",
+  "||vpnshieldapp.com",
+  ".vpnsp.com",
+  ".vpntraffic.com",
+  ".vpntunnel.com",
+  "||vpntunnel.com",
+  ".vpnuk.info",
+  "||vpnuk.info",
+  "||vpnunlimitedapp.com",
+  ".vpnvip.com",
+  "||vpnvip.com",
+  ".vpnworldwide.com",
+  ".vporn.com",
+  "||vporn.com",
+  ".vpser.net",
+  "@@||vpser.net",
+  "vraiesagesse.net",
+  ".vrmtr.com",
+  "||vtunnel.com",
+  "||vuku.cc",
+  "lists.w3.org\/archives\/public",
+  "||w3schools.com",
+  "||waffle1999.com",
+  ".wahas.com",
+  ".waigaobu.com",
+  "waikeung.org\/php_wind",
+  ".wailaike.net",
+  ".waiwaier.com",
+  "|http:\/\/waiwaier.com",
+  "||wallmama.com",
+  "wallornot.org",
+  "||wallpapercasa.com",
+  ".wallproxy.com",
+  "@@||wallproxy.com.cn",
+  "||waltermartin.com",
+  "||waltermartin.org",
+  "||www.wan-press.org",
+  "||wanderinghorse.net",
+  "||wangafu.net",
+  "||wangjinbo.org",
+  ".wangjinbo.org",
+  "wanglixiong.com",
+  ".wango.org",
+  "||wango.org",
+  "wangruoshui.net",
+  "www.wangruowang.org",
+  "want-daily.com",
+  "wapedia.mobi\/zhsimp",
+  "||waselpro.com",
+  ".watchinese.com",
+  ".wattpad.com",
+  "||wattpad.com",
+  ".makzhou.warehouse333.com",
+  "washeng.net",
+  ".watch8x.com",
+  "||watchmygf.net",
+  "||wav.tv",
+  ".wdf5.com",
+  ".wearehairy.com",
+  ".wearn.com",
+  "||wearn.com",
+  "|http:\/\/hkcoc.weather.com.hk",
+  "||hudatoriq.web.id",
+  "||web2project.net",
+  "webbang.net",
+  ".webevader.org",
+  ".webfreer.com",
+  "weblagu.com",
+  ".webjb.org",
+  ".webrush.net",
+  "webs-tv.net",
+  ".websitepulse.com\/help\/testtools.china-test",
+  "|http:\/\/www.websnapr.com",
+  ".webwarper.net",
+  "|http:\/\/webwarper.net",
+  "webworkerdaily.com",
+  ".weekmag.info",
+  "||wefightcensorship.org",
+  ".wefong.com",
+  "weiboleak.com",
+  ".weihuo.org",
+  "weijingsheng.org",
+  ".weiming.info",
+  "||weiming.info",
+  "weiquanwang.org",
+  "|http:\/\/weisuo.ws",
+  ".welovecock.com",
+  ".wemigrate.org",
+  "|http:\/\/wemigrate.org",
+  "wengewang.com",
+  "||wengewang.org",
+  ".wenhui.ch",
+  "|http:\/\/trans.wenweipo.com\/gb\/",
+  ".wenxuecity.com",
+  "||wenxuecity.com",
+  ".wenyunchao.com",
+  "||wenyunchao.com",
+  ".westca.com",
+  "||westca.com",
+  "||westernwolves.com",
+  ".westkit.net",
+  "||westpoint.edu",
+  ".westernshugdensociety.org",
+  "wetpussygames.com",
+  ".wetplace.com",
+  "wexiaobo.org",
+  "||wexiaobo.org",
+  "wezhiyong.org",
+  "||wezone.net",
+  ".wforum.com",
+  "||wforum.com\/",
+  ".whatblocked.com",
+  "||whatblocked.com",
+  ".wheatseeds.org",
+  "||wheelockslatin.com",
+  ".whippedass.com",
+  ".whoer.net",
+  "||whoer.net",
+  "whotalking.com",
+  "whylover.com",
+  "||whyx.org",
+  "|http:\/\/zh.ecdm.wikia.com",
+  "|http:\/\/evchk.wikia.com",
+  "fq.wikia.com",
+  "cn.uncyclopedia.wikia.com",
+  "zh.uncyclopedia.wikia.com",
+  "||wikileaks.ch",
+  "||wikileaks.com",
+  "||wikileaks.de",
+  "||wikileaks.eu",
+  "||wikileaks.lu",
+  ".wikileaks.org",
+  "||wikileaks.org",
+  "||wikileaks.pl",
+  ".wikileaks-forum.com",
+  "wildammo.com",
+  "||collateralmurder.com",
+  "||collateralmurder.org",
+  "wikilivres.info\/wiki\/%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0",
+  "||wikimapia.org",
+  "|http:\/\/zh.wikisource.org",
+  "||zh.wikinews.org",
+  "||ja.wikipedia.org",
+  "zh.wikipedia.org",
+  "zh.m.wikipedia.org",
+  "|https:\/\/zh.m.wikipedia.org",
+  "|https:\/\/zh.wikipedia.org",
+  "wuu.wikipedia.org",
+  "|https:\/\/wuu.wikipedia.org",
+  "zh-yue.wikipedia.org",
+  "|https:\/\/zh-yue.wikipedia.org",
+  "||wikiwiki.jp",
+  "||casino.williamhill.com",
+  "||sports.williamhill.com",
+  "||vegas.williamhill.com",
+  "||willw.net",
+  "||windowsphoneme.com",
+  ".windscribe.com",
+  "||windscribe.com",
+  "||community.windy.com",
+  "||wingy.site",
+  "winning11.com",
+  "winwhispers.info",
+  "||wiredbytes.com",
+  "||wiredpen.com",
+  ".wisdompubs.org",
+  ".wisevid.com",
+  "||wisevid.com",
+  ".witnessleeteaching.com",
+  ".witopia.net",
+  ".wjbk.org",
+  "||wjbk.org",
+  "|http:\/\/wn.com",
+  ".wnacg.com",
+  ".wnacg.org",
+  ".wo.tc",
+  "||woeser.com",
+  "|http:\/\/woesermiddle-way.net\/",
+  ".wokar.org",
+  "|http:\/\/wokar.org",
+  "wolfax.com",
+  "||wolfax.com",
+  "||woolyss.com",
+  "woopie.jp",
+  "||woopie.jp",
+  "woopie.tv",
+  "||woopie.tv",
+  "||workatruna.com",
+  ".workerdemo.org.hk",
+  "||workersthebig.net",
+  ".worldcat.org",
+  "worldjournal.com",
+  ".worldvpn.net",
+  "||worldvpn.net",
+  "||videopress.com",
+  ".wordpress.com",
+  "|http:\/\/*.wordpress.com",
+  "||chenshan20042005.wordpress.com",
+  "||chinaview.wordpress.com",
+  "||cnbbnews.wordpress.com",
+  "||freedominfonetweb.wordpress.com",
+  "||hka8964.wordpress.com",
+  "||hkanews.wordpress.com",
+  "||hqsbnet.wordpress.com",
+  "||hqsbonline.wordpress.com",
+  "||investigating.wordpress.com",
+  "||jobnewera.wordpress.com",
+  "||minghuiyw.wordpress.com",
+  "||wo3ttt.wordpress.com",
+  "||sujiatun.wordpress.com",
+  "||xijie.wordpress.com",
+  "||wp.com",
+  ".wow.com",
+  ".wow-life.net",
+  "||wowlegacy.ml",
+  "||wowporn.com",
+  "||wowgirls.com",
+  ".wowrk.com",
+  "woxinghuiguo.com",
+  ".woyaolian.org",
+  "|http:\/\/woyaolian.org",
+  ".wpoforum.com",
+  "||wpoforum.com",
+  ".wqyd.org",
+  "||wqyd.org",
+  "wrchina.org",
+  "wretch.cc",
+  ".wsj.com",
+  "||wsj.com",
+  ".wsj.net",
+  ".wsjhk.com",
+  ".wtbn.org",
+  ".wtfpeople.com",
+  "wuerkaixi.com",
+  "||wufafangwen.com",
+  "wufi.org.tw",
+  "||wuguoguang.com",
+  "wujie.net",
+  "wujieliulan.com",
+  "||wujieliulan.com",
+  "wukangrui.net",
+  "||wuw.red",
+  "||wuyanblog.com",
+  ".wwitv.com",
+  "||wwitv.com",
+  "wzyboy.im\/post\/160",
+  ".x-berry.com",
+  "||x-berry.com",
+  "||x-art.com",
+  "||x-wall.org",
+  "x1949x.com",
+  "x365x.com",
+  "xanga.com",
+  "||xbabe.com",
+  ".xbookcn.com",
+  "||xbookcn.com",
+  "||xcafe.in",
+  "||xcity.jp",
+  ".xcritic.com",
+  "|http:\/\/cdn*.xda-developers.com",
+  ".xerotica.com",
+  "destiny.xfiles.to\/ubbthreads",
+  ".xfm.pp.ru",
+  ".xgmyd.com",
+  "||xgmyd.com",
+  "xhamster.com",
+  "||xhamster.com",
+  ".xianchawang.net",
+  ".xianjian.tw",
+  "|http:\/\/xianjian.tw",
+  ".xianqiao.net",
+  ".xiaobaiwu.com",
+  ".xiaochuncnjp.com",
+  ".xiaod.in",
+  ".xiaohexie.com",
+  "||xiaolan.me",
+  "||xiaoma.org",
+  "||xiaohexie.com",
+  "xiezhua.com",
+  ".xihua.es",
+  "forum.xinbao.de\/forum",
+  ".xing.com",
+  "|http:\/\/xing.com",
+  ".xinmiao.com.hk",
+  "||xinmiao.com.hk",
+  "xinsheng.net",
+  "xinshijue.com",
+  "xinhuanet.org",
+  "|http:\/\/xinyubbs.net",
+  ".xiongpian.com",
+  ".xiuren.org",
+  "xizang-zhiye.org",
+  "xjp.cc",
+  "||xjp.cc",
+  "||xjtravelguide.com",
+  "xlfmtalk.com",
+  "||xlfmwz.info",
+  "||xml-training-guide.com",
+  "xmovies.com",
+  "||xnxx.com",
+  "xpdo.net",
+  "||xpud.org",
+  ".xrentdvd.com",
+  ".xskywalker.net",
+  "||xtube.com",
+  "blog.xuite.net",
+  "vlog.xuite.net",
+  "xuzhiyong.net",
+  "||xuchao.org",
+  "xuchao.net",
+  "||xuchao.net",
+  "xvideo.cc",
+  ".xvideos.com",
+  "||xvideos.es",
+  ".xkiwi.tk\/",
+  ".xxbbx.com",
+  ".xxlmovies.com",
+  "||xxx.com",
+  ".xxx.xxx",
+  "|http:\/\/xxx.xxx",
+  ".xxxfuckmom.com",
+  "||xxxx.com.au",
+  ".xxxymovies.com",
+  "|http:\/\/xxxymovies.com",
+  "xys.org",
+  "xysblogs.org",
+  "xyy69.com",
+  "xyy69.info",
+  "||yakbutterblues.com",
+  "yam.com",
+  "||yam.com",
+  "||yam.org.tw",
+  ".yanghengjun.com",
+  "yangjianli.com",
+  ".yasni.co.uk",
+  "||yasni.co.uk",
+  ".yayabay.com\/forum",
+  ".ydy.com",
+  ".yeahteentube.com",
+  "||yeahteentube.com",
+  "||yecl.net",
+  "||yeelou.com",
+  "yeeyi.com",
+  "yegle.net",
+  "||yegle.net",
+  ".yes.xxx",
+  "||yes123.com.tw",
+  "||yesasia.com",
+  "||yesasia.com.hk",
+  ".yes-news.com",
+  "|http:\/\/yes-news.com",
+  ".yespornplease.com",
+  "||yespornplease.com",
+  "|http:\/\/yeyeclub.com",
+  "||yhcw.net",
+  ".yibada.com",
+  ".yibaochina.com",
+  ".yidio.com",
+  "||yidio.com",
+  "yilubbs.com",
+  "xa.yimg.com",
+  ".yingsuoss.com",
+  ".yipub.com",
+  "||yipub.com",
+  "yinlei.org\/mt",
+  ".yizhihongxing.com",
+  ".yobt.com",
+  ".yobt.tv",
+  "||yobt.tv",
+  ".yogichen.org",
+  "||yogichen.org",
+  "yong.hu",
+  ".yorkbbs.ca",
+  "||youxu.info",
+  ".youjizz.com",
+  "||youjizz.com",
+  "youmaker.com",
+  ".youngpornvideos.com",
+  "youngspiration.hk",
+  ".youpai.org",
+  "||youpai.org",
+  ".your-freedom.net",
+  "||yourepeat.com",
+  ".yourprivatevpn.com",
+  "||yourprivatevpn.com",
+  ".yousendit.com",
+  "||yousendit.com",
+  ".youthnetradio.org\/tmit\/forum",
+  "blog.youthwant.com.tw",
+  "me.youthwant.com.tw",
+  "share.youthwant.com.tw",
+  "topic.youthwant.com.tw",
+  ".youporn.com",
+  "||youporn.com",
+  ".youporngay.com",
+  "||youporngay.com",
+  ".yourlisten.com",
+  "|http:\/\/yourlisten.com",
+  ".yourlust.com",
+  "|http:\/\/yourlust.com",
+  "youshun12.com",
+  ".youtubecn.com",
+  "youversion.com",
+  "||youversion.com",
+  "blog.youxu.info\/2010\/03\/14\/west-chamber",
+  "ytht.net",
+  "yuanming.net",
+  ".yuanzhengtang.org",
+  ".yulghun.com",
+  "||yunchao.net",
+  "||yuntipub.com",
+  ".yuvutu.com",
+  "||yvesgeleyn.com",
+  ".ywpw.com\/forums\/history\/post\/A0\/p0\/html\/227",
+  "yx51.net",
+  ".yyii.org",
+  "||yyii.org",
+  ".yzzk.com",
+  "|http:\/\/yzzk.com",
+  "zacebook.com",
+  ".zalmos.com",
+  "||zalmos.com",
+  "||zannel.com",
+  ".zaobao.com.sg",
+  "||zaobao.com.sg",
+  ".zaozon.com",
+  "||zdnet.com.tw",
+  ".zello.com",
+  "||zello.com",
+  ".zengjinyan.org",
+  ".zenmate.com",
+  "||zenmate.com",
+  "||zenmate.com.ru",
+  "||zeronet.io",
+  "||zeutch.com",
+  ".zfreet.com",
+  ".zgsddh.com",
+  "zgzcjj.net",
+  ".zhanbin.net",
+  "||zhanbin.net",
+  ".zhangboli.net",
+  "||zhangtianliang.com",
+  "||zhanlve.org",
+  "zhenghui.org",
+  ".zhengjian.org",
+  "||zhengjian.org",
+  "zhengwunet.org",
+  "zhenlibu.info",
+  "||zhenlibu.info",
+  ".zhenlibu1984.com",
+  "||zhenlibu1984.com",
+  "|http:\/\/zhenxiang.biz",
+  ".zhinengluyou.com",
+  "zhongguo.ca",
+  "|http:\/\/zhongguorenquan.org",
+  "zhongguotese.net",
+  "||zhongguotese.net",
+  "||zhongmeng.org",
+  ".zhoushuguang.com",
+  "||zhreader.com",
+  ".zhuangbi.me",
+  "||zhuangbi.me",
+  ".zhuanxing.cn",
+  "||zhuatieba.com",
+  "zhuichaguoji.org",
+  "||zhuichaguoji.org",
+  "|http:\/\/book.zi5.me",
+  ".ziddu.com\/download",
+  "||zillionk.com",
+  ".zinio.com",
+  "||zinio.com",
+  ".ziporn.com",
+  ".zippyshare.com",
+  ".zkaip.com",
+  "||zkaip.com",
+  "realforum.zkiz.com",
+  "||zmw.cn",
+  ".zodgame.us",
+  "zomobo.net",
+  ".zonaeuropa.com",
+  "||zonaeuropa.com",
+  "||zonghexinwen.com",
+  ".zonghexinwen.net",
+  "||zoogvpn.com",
+  "||zootool.com",
+  ".zoozle.net",
+  "writer.zoho.com",
+  "||zorrovpn.com",
+  "||zpn.im",
+  "||zspeeder.me",
+  ".zsrhao.com",
+  ".zuo.la",
+  "||zuo.la",
+  "||zuobiao.me",
+  ".zuola.com",
+  "||zuola.com",
+  "||zvereff.com",
+  ".zynaima.com",
+  "zyzc9.com",
+  ".zzcartoon.com",
+  "64memo",
+  "aHR0cHM6Ly95ZWNsLm5ldA",
+  "freenet",
+  ".google.*\/falun",
+  "phobos.apple.com*\/video",
+  "q=freedom",
+  "q%3Dfreedom",
+  "remembering_tiananmen_20_years",
+  "search*safeweb",
+  "q=triangle",
+  "q%3DTriangle",
+  "ultrareach",
+  "ultrasurf",
+  "@@||aliyun.com",
+  "@@||baidu.com",
+  "@@||chinaso.com",
+  "@@||chinaz.com",
+  "@@|http:\/\/nrch.culture.tw\/",
+  "@@||dl.google.com",
+  "@@||kh.google.com",
+  "@@||khm.google.com",
+  "@@||khm0.google.com",
+  "@@||khm1.google.com",
+  "@@||khm2.google.com",
+  "@@||khm3.google.com",
+  "@@||khmdb.google.com",
+  "@@||tools.google.com",
+  "@@||clientservices.googleapis.com",
+  "@@||fonts.googleapis.com",
+  "@@||khm.googleapis.com",
+  "@@||khm0.googleapis.com",
+  "@@||khm1.googleapis.com",
+  "@@||khm2.googleapis.com",
+  "@@||khm3.googleapis.com",
+  "@@||khmdb.googleapis.com",
+  "@@||storage.googleapis.com",
+  "@@||translate.googleapis.com",
+  "@@||update.googleapis.com",
+  "@@||safebrowsing.googleapis.com",
+  "@@||cn.gravatar.com",
+  "@@||connectivitycheck.gstatic.com",
+  "@@||csi.gstatic.com",
+  "@@||fonts.gstatic.com",
+  "@@||ssl.gstatic.com",
+  "@@||haosou.com",
+  "@@||ip.cn",
+  "@@||jike.com",
+  "@@|http:\/\/translate.google.cn",
+  "@@|http:\/\/www.google.cn\/maps",
+  "@@||http2.golang.org",
+  "@@||gov.cn",
+  "@@||sina.cn",
+  "@@||sina.com.cn",
+  "@@||sogou.com",
+  "@@||so.com",
+  "@@||soso.com",
+  "@@||uluai.com.cn",
+  "@@||weibo.com",
+  "@@||yahoo.cn",
+  "@@||youdao.com",
+  "@@||zhongsou.com",
+  "@@|http:\/\/ime.baidu.jp"
+];
+
+/*
+ * This file is part of Adblock Plus <http://adblockplus.org/>,
+ * Copyright (C) 2006-2014 Eyeo GmbH
+ *
+ * Adblock Plus is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * Adblock Plus is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+function createDict()
+{
+  var result = {};
+  result.__proto__ = null;
+  return result;
+}
+
+function getOwnPropertyDescriptor(obj, key)
+{
+  if (obj.hasOwnProperty(key))
+  {
+    return obj[key];
+  }
+  return null;
+}
+
+function extend(subclass, superclass, definition)
+{
+  if (Object.__proto__)
+  {
+    definition.__proto__ = superclass.prototype;
+    subclass.prototype = definition;
+  }
+  else
+  {
+    var tmpclass = function(){}, ret;
+    tmpclass.prototype = superclass.prototype;
+    subclass.prototype = new tmpclass();
+    subclass.prototype.constructor = superclass;
+    for (var i in definition)
+    {
+      if (definition.hasOwnProperty(i))
+      {
+        subclass.prototype[i] = definition[i];
+      }
+    }
+  }
+}
+
+function Filter(text)
+{
+  this.text = text;
+  this.subscriptions = [];
+}
+Filter.prototype = {
+text: null,
+subscriptions: null,
+toString: function()
+  {
+    return this.text;
+  }
+};
+Filter.knownFilters = createDict();
+Filter.elemhideRegExp = /^([^\/\*\|\@"!]*?)#(\@)?(?:([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)|#([^{}]+))$/;
+Filter.regexpRegExp = /^(@@)?\/.*\/(?:\$~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)?$/;
+Filter.optionsRegExp = /\$(~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)$/;
+Filter.fromText = function(text)
+{
+  if (text in Filter.knownFilters)
+  {
+    return Filter.knownFilters[text];
+  }
+  var ret;
+  if (text[0] == "!")
+  {
+    ret = new CommentFilter(text);
+  }
+  else
+  {
+    ret = RegExpFilter.fromText(text);
+  }
+  Filter.knownFilters[ret.text] = ret;
+  return ret;
+};
+
+function InvalidFilter(text, reason)
+{
+  Filter.call(this, text);
+  this.reason = reason;
+}
+extend(InvalidFilter, Filter, {
+       reason: null
+       });
+
+function CommentFilter(text)
+{
+  Filter.call(this, text);
+}
+extend(CommentFilter, Filter, {
+       });
+
+function ActiveFilter(text, domains)
+{
+  Filter.call(this, text);
+  this.domainSource = domains;
+}
+extend(ActiveFilter, Filter, {
+       domainSource: null,
+       domainSeparator: null,
+       ignoreTrailingDot: true,
+       domainSourceIsUpperCase: false,
+       getDomains: function()
+       {
+       var prop = getOwnPropertyDescriptor(this, "domains");
+       if (prop)
+       {
+       return prop;
+       }
+       var domains = null;
+       if (this.domainSource)
+       {
+       var source = this.domainSource;
+       if (!this.domainSourceIsUpperCase)
+       {
+       source = source.toUpperCase();
+       }
+       var list = source.split(this.domainSeparator);
+       if (list.length == 1 && list[0][0] != "~")
+       {
+       domains = createDict();
+       domains[""] = false;
+       if (this.ignoreTrailingDot)
+       {
+       list[0] = list[0].replace(/\.+$/, "");
+       }
+       domains[list[0]] = true;
+       }
+       else
+       {
+       var hasIncludes = false;
+       for (var i = 0; i < list.length; i++)
+       {
+       var domain = list[i];
+       if (this.ignoreTrailingDot)
+       {
+       domain = domain.replace(/\.+$/, "");
+       }
+       if (domain == "")
+       {
+       continue;
+       }
+       var include;
+       if (domain[0] == "~")
+       {
+       include = false;
+       domain = domain.substr(1);
+       }
+       else
+       {
+       include = true;
+       hasIncludes = true;
+       }
+       if (!domains)
+       {
+       domains = createDict();
+       }
+       domains[domain] = include;
+       }
+       domains[""] = !hasIncludes;
+       }
+       this.domainSource = null;
+       }
+       return this.domains;
+       },
+       sitekeys: null,
+       isActiveOnDomain: function(docDomain, sitekey)
+       {
+       if (this.getSitekeys() && (!sitekey || this.getSitekeys().indexOf(sitekey.toUpperCase()) < 0))
+       {
+       return false;
+       }
+       if (!this.getDomains())
+       {
+       return true;
+       }
+       if (!docDomain)
+       {
+       return this.getDomains()[""];
+       }
+       if (this.ignoreTrailingDot)
+       {
+       docDomain = docDomain.replace(/\.+$/, "");
+       }
+       docDomain = docDomain.toUpperCase();
+       while (true)
+       {
+       if (docDomain in this.getDomains())
+       {
+       return this.domains[docDomain];
+       }
+       var nextDot = docDomain.indexOf(".");
+       if (nextDot < 0)
+       {
+       break;
+       }
+       docDomain = docDomain.substr(nextDot + 1);
+       }
+       return this.domains[""];
+       },
+       isActiveOnlyOnDomain: function(docDomain)
+       {
+       if (!docDomain || !this.getDomains() || this.getDomains()[""])
+       {
+       return false;
+       }
+       if (this.ignoreTrailingDot)
+       {
+       docDomain = docDomain.replace(/\.+$/, "");
+       }
+       docDomain = docDomain.toUpperCase();
+       for (var domain in this.getDomains())
+       {
+       if (this.domains[domain] && domain != docDomain && (domain.length <= docDomain.length || domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1))
+       {
+       return false;
+       }
+       }
+       return true;
+       }
+       });
+
+function RegExpFilter(text, regexpSource, contentType, matchCase, domains, thirdParty, sitekeys)
+{
+  ActiveFilter.call(this, text, domains, sitekeys);
+  if (contentType != null)
+  {
+    this.contentType = contentType;
+  }
+  if (matchCase)
+  {
+    this.matchCase = matchCase;
+  }
+  if (thirdParty != null)
+  {
+    this.thirdParty = thirdParty;
+  }
+  if (sitekeys != null)
+  {
+    this.sitekeySource = sitekeys;
+  }
+  if (regexpSource.length >= 2 && regexpSource[0] == "/" && regexpSource[regexpSource.length - 1] == "/")
+  {
+    var regexp = new RegExp(regexpSource.substr(1, regexpSource.length - 2), this.matchCase ? "" : "i");
+    this.regexp = regexp;
+  }
+  else
+  {
+    this.regexpSource = regexpSource;
+  }
+}
+extend(RegExpFilter, ActiveFilter, {
+       domainSourceIsUpperCase: true,
+       length: 1,
+       domainSeparator: "|",
+       regexpSource: null,
+       getRegexp: function()
+       {
+       var prop = getOwnPropertyDescriptor(this, "regexp");
+       if (prop)
+       {
+       return prop;
+       }
+       var source = this.regexpSource.replace(/\*+/g, "*").replace(/\^\|$/, "^").replace(/\W/g, "\\$&").replace(/\\\*/g, ".*").replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x7F]|$)").replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?").replace(/^\\\|/, "^").replace(/\\\|$/, "$").replace(/^(\.\*)/, "").replace(/(\.\*)$/, "");
+       var regexp = new RegExp(source, this.matchCase ? "" : "i");
+       this.regexp = regexp;
+       return regexp;
+       },
+       contentType: 2147483647,
+       matchCase: false,
+       thirdParty: null,
+       sitekeySource: null,
+       getSitekeys: function()
+       {
+       var prop = getOwnPropertyDescriptor(this, "sitekeys");
+       if (prop)
+       {
+       return prop;
+       }
+       var sitekeys = null;
+       if (this.sitekeySource)
+       {
+       sitekeys = this.sitekeySource.split("|");
+       this.sitekeySource = null;
+       }
+       this.sitekeys = sitekeys;
+       return this.sitekeys;
+       },
+       matches: function(location, contentType, docDomain, thirdParty, sitekey)
+       {
+       if (this.getRegexp().test(location) && this.isActiveOnDomain(docDomain, sitekey))
+       {
+       return true;
+       }
+       return false;
+       }
+       });
+RegExpFilter.prototype["0"] = "#this";
+RegExpFilter.fromText = function(text)
+{
+  var blocking = true;
+  var origText = text;
+  if (text.indexOf("@@") == 0)
+  {
+    blocking = false;
+    text = text.substr(2);
+  }
+  var contentType = null;
+  var matchCase = null;
+  var domains = null;
+  var sitekeys = null;
+  var thirdParty = null;
+  var collapse = null;
+  var options;
+  var match = text.indexOf("$") >= 0 ? Filter.optionsRegExp.exec(text) : null;
+  if (match)
+  {
+    options = match[1].toUpperCase().split(",");
+    text = match.input.substr(0, match.index);
+    for (var _loopIndex6 = 0; _loopIndex6 < options.length; ++_loopIndex6)
+    {
+      var option = options[_loopIndex6];
+      var value = null;
+      var separatorIndex = option.indexOf("=");
+      if (separatorIndex >= 0)
+      {
+        value = option.substr(separatorIndex + 1);
+        option = option.substr(0, separatorIndex);
+      }
+      option = option.replace(/-/, "_");
+      if (option in RegExpFilter.typeMap)
+      {
+        if (contentType == null)
+        {
+          contentType = 0;
+        }
+        contentType |= RegExpFilter.typeMap[option];
+      }
+      else if (option[0] == "~" && option.substr(1) in RegExpFilter.typeMap)
+      {
+        if (contentType == null)
+        {
+          contentType = RegExpFilter.prototype.contentType;
+        }
+        contentType &= ~RegExpFilter.typeMap[option.substr(1)];
+      }
+      else if (option == "MATCH_CASE")
+      {
+        matchCase = true;
+      }
+      else if (option == "~MATCH_CASE")
+      {
+        matchCase = false;
+      }
+      else if (option == "DOMAIN" && typeof value != "undefined")
+      {
+        domains = value;
+      }
+      else if (option == "THIRD_PARTY")
+      {
+        thirdParty = true;
+      }
+      else if (option == "~THIRD_PARTY")
+      {
+        thirdParty = false;
+      }
+      else if (option == "COLLAPSE")
+      {
+        collapse = true;
+      }
+      else if (option == "~COLLAPSE")
+      {
+        collapse = false;
+      }
+      else if (option == "SITEKEY" && typeof value != "undefined")
+      {
+        sitekeys = value;
+      }
+      else
+      {
+        return new InvalidFilter(origText, "Unknown option " + option.toLowerCase());
+      }
+    }
+  }
+  if (!blocking && (contentType == null || contentType & RegExpFilter.typeMap.DOCUMENT) && (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
+  {
+    if (contentType == null)
+    {
+      contentType = RegExpFilter.prototype.contentType;
+    }
+    contentType &= ~RegExpFilter.typeMap.DOCUMENT;
+  }
+  try
+  {
+    if (blocking)
+    {
+      return new BlockingFilter(origText, text, contentType, matchCase, domains, thirdParty, sitekeys, collapse);
+    }
+    else
+    {
+      return new WhitelistFilter(origText, text, contentType, matchCase, domains, thirdParty, sitekeys);
+    }
+  }
+  catch (e)
+  {
+    return new InvalidFilter(origText, e);
+  }
+};
+RegExpFilter.typeMap = {
+OTHER: 1,
+SCRIPT: 2,
+IMAGE: 4,
+STYLESHEET: 8,
+OBJECT: 16,
+SUBDOCUMENT: 32,
+DOCUMENT: 64,
+XBL: 1,
+PING: 1,
+XMLHTTPREQUEST: 2048,
+OBJECT_SUBREQUEST: 4096,
+DTD: 1,
+MEDIA: 16384,
+FONT: 32768,
+BACKGROUND: 4,
+POPUP: 268435456,
+ELEMHIDE: 1073741824
+};
+RegExpFilter.prototype.contentType &= ~ (RegExpFilter.typeMap.ELEMHIDE | RegExpFilter.typeMap.POPUP);
+
+function BlockingFilter(text, regexpSource, contentType, matchCase, domains, thirdParty, sitekeys, collapse)
+{
+  RegExpFilter.call(this, text, regexpSource, contentType, matchCase, domains, thirdParty, sitekeys);
+  this.collapse = collapse;
+}
+extend(BlockingFilter, RegExpFilter, {
+       collapse: null
+       });
+
+function WhitelistFilter(text, regexpSource, contentType, matchCase, domains, thirdParty, sitekeys)
+{
+  RegExpFilter.call(this, text, regexpSource, contentType, matchCase, domains, thirdParty, sitekeys);
+}
+extend(WhitelistFilter, RegExpFilter, {
+       });
+
+function Matcher()
+{
+  this.clear();
+}
+Matcher.prototype = {
+filterByKeyword: null,
+keywordByFilter: null,
+clear: function()
+  {
+    this.filterByKeyword = createDict();
+    this.keywordByFilter = createDict();
+  },
+add: function(filter)
+  {
+    if (filter.text in this.keywordByFilter)
+    {
+      return;
+    }
+    var keyword = this.findKeyword(filter);
+    var oldEntry = this.filterByKeyword[keyword];
+    if (typeof oldEntry == "undefined")
+    {
+      this.filterByKeyword[keyword] = filter;
+    }
+    else if (oldEntry.length == 1)
+    {
+      this.filterByKeyword[keyword] = [oldEntry, filter];
+    }
+    else
+    {
+      oldEntry.push(filter);
+    }
+    this.keywordByFilter[filter.text] = keyword;
+  },
+remove: function(filter)
+  {
+    if (!(filter.text in this.keywordByFilter))
+    {
+      return;
+    }
+    var keyword = this.keywordByFilter[filter.text];
+    var list = this.filterByKeyword[keyword];
+    if (list.length <= 1)
+    {
+      delete this.filterByKeyword[keyword];
+    }
+    else
+    {
+      var index = list.indexOf(filter);
+      if (index >= 0)
+      {
+        list.splice(index, 1);
+        if (list.length == 1)
+        {
+          this.filterByKeyword[keyword] = list[0];
+        }
+      }
+    }
+    delete this.keywordByFilter[filter.text];
+  },
+findKeyword: function(filter)
+  {
+    var result = "";
+    var text = filter.text;
+    if (Filter.regexpRegExp.test(text))
+    {
+      return result;
+    }
+    var match = Filter.optionsRegExp.exec(text);
+    if (match)
+    {
+      text = match.input.substr(0, match.index);
+    }
+    if (text.substr(0, 2) == "@@")
+    {
+      text = text.substr(2);
+    }
+    var candidates = text.toLowerCase().match(/[^a-z0-9%*][a-z0-9%]{3,}(?=[^a-z0-9%*])/g);
+    if (!candidates)
+    {
+      return result;
+    }
+    var hash = this.filterByKeyword;
+    var resultCount = 16777215;
+    var resultLength = 0;
+    for (var i = 0, l = candidates.length; i < l; i++)
+    {
+      var candidate = candidates[i].substr(1);
+      var count = candidate in hash ? hash[candidate].length : 0;
+      if (count < resultCount || count == resultCount && candidate.length > resultLength)
+      {
+        result = candidate;
+        resultCount = count;
+        resultLength = candidate.length;
+      }
+    }
+    return result;
+  },
+hasFilter: function(filter)
+  {
+    return filter.text in this.keywordByFilter;
+  },
+getKeywordForFilter: function(filter)
+  {
+    if (filter.text in this.keywordByFilter)
+    {
+      return this.keywordByFilter[filter.text];
+    }
+    else
+    {
+      return null;
+    }
+  },
+_checkEntryMatch: function(keyword, location, contentType, docDomain, thirdParty, sitekey)
+  {
+    var list = this.filterByKeyword[keyword];
+    for (var i = 0; i < list.length; i++)
+    {
+      var filter = list[i];
+      if (filter == "#this")
+      {
+        filter = list;
+      }
+      if (filter.matches(location, contentType, docDomain, thirdParty, sitekey))
+      {
+        return filter;
+      }
+    }
+    return null;
+  },
+matchesAny: function(location, contentType, docDomain, thirdParty, sitekey)
+  {
+    var candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+    {
+      candidates = [];
+    }
+    candidates.push("");
+    for (var i = 0, l = candidates.length; i < l; i++)
+    {
+      var substr = candidates[i];
+      if (substr in this.filterByKeyword)
+      {
+        var result = this._checkEntryMatch(substr, location, contentType, docDomain, thirdParty, sitekey);
+        if (result)
+        {
+          return result;
+        }
+      }
+    }
+    return null;
+  }
+};
+
+function CombinedMatcher()
+{
+  this.blacklist = new Matcher();
+  this.whitelist = new Matcher();
+  this.resultCache = createDict();
+}
+CombinedMatcher.maxCacheEntries = 1000;
+CombinedMatcher.prototype = {
+blacklist: null,
+whitelist: null,
+resultCache: null,
+cacheEntries: 0,
+clear: function()
+  {
+    this.blacklist.clear();
+    this.whitelist.clear();
+    this.resultCache = createDict();
+    this.cacheEntries = 0;
+  },
+add: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+    {
+      this.whitelist.add(filter);
+    }
+    else
+    {
+      this.blacklist.add(filter);
+    }
+    if (this.cacheEntries > 0)
+    {
+      this.resultCache = createDict();
+      this.cacheEntries = 0;
+    }
+  },
+remove: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+    {
+      this.whitelist.remove(filter);
+    }
+    else
+    {
+      this.blacklist.remove(filter);
+    }
+    if (this.cacheEntries > 0)
+    {
+      this.resultCache = createDict();
+      this.cacheEntries = 0;
+    }
+  },
+findKeyword: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+    {
+      return this.whitelist.findKeyword(filter);
+    }
+    else
+    {
+      return this.blacklist.findKeyword(filter);
+    }
+  },
+hasFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+    {
+      return this.whitelist.hasFilter(filter);
+    }
+    else
+    {
+      return this.blacklist.hasFilter(filter);
+    }
+  },
+getKeywordForFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+    {
+      return this.whitelist.getKeywordForFilter(filter);
+    }
+    else
+    {
+      return this.blacklist.getKeywordForFilter(filter);
+    }
+  },
+isSlowFilter: function(filter)
+  {
+    var matcher = filter instanceof WhitelistFilter ? this.whitelist : this.blacklist;
+    if (matcher.hasFilter(filter))
+    {
+      return !matcher.getKeywordForFilter(filter);
+    }
+    else
+    {
+      return !matcher.findKeyword(filter);
+    }
+  },
+matchesAnyInternal: function(location, contentType, docDomain, thirdParty, sitekey)
+  {
+    var candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+    {
+      candidates = [];
+    }
+    candidates.push("");
+    var blacklistHit = null;
+    for (var i = 0, l = candidates.length; i < l; i++)
+    {
+      var substr = candidates[i];
+      if (substr in this.whitelist.filterByKeyword)
+      {
+        var result = this.whitelist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty, sitekey);
+        if (result)
+        {
+          return result;
+        }
+      }
+      if (substr in this.blacklist.filterByKeyword && blacklistHit === null)
+      {
+        blacklistHit = this.blacklist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty, sitekey);
+      }
+    }
+    return blacklistHit;
+  },
+matchesAny: function(location, docDomain)
+  {
+    var key = location + " " + docDomain + " ";
+    if (key in this.resultCache)
+    {
+      return this.resultCache[key];
+    }
+    var result = this.matchesAnyInternal(location, 0, docDomain, null, null);
+    if (this.cacheEntries >= CombinedMatcher.maxCacheEntries)
+    {
+      this.resultCache = createDict();
+      this.cacheEntries = 0;
+    }
+    this.resultCache[key] = result;
+    this.cacheEntries++;
+    return result;
+  }
+};
+var defaultMatcher = new CombinedMatcher();
+
+var direct = 'DIRECT;';
+
+for (var i = 0; i < rules.length; i++) {
+  defaultMatcher.add(Filter.fromText(rules[i]));
+}
+
+function FindProxyForURL(url, host) {
+  if (defaultMatcher.matchesAny(url, host) instanceof BlockingFilter) {
+    return proxy;
+  }
+  return direct;
 }
